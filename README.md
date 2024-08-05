@@ -47,6 +47,3 @@ This system is intended for teachers to input student grades into a self-calcula
 
 ### Note
 Currently, the system is designed for a single teacher who will act as the admin. In future versions, we can add a layer where multiple teachers are managed under one admin if required.
-
-## License
-This project is licensed under the MIT License.
