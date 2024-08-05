@@ -17,7 +17,9 @@ public class Student implements Comparable<Student> {
 	static int getStudents() {
 		return students;
 	}
-
+	
+	// currentID refers to the id of the current student that is being called, used for organizational purposes
+	// not to get confused with StudentID which is a specific attribute to student's
 	int getcurrentID() {
 		return currentid;
 	}
@@ -51,6 +53,17 @@ public class Student implements Comparable<Student> {
 	public int compareTo(Student student) {
 		return name.compareTo(student.name);
 	}
+	
+	// return string interpretation of student object
+	public String translateString() {
+		String name_string = String.format("%1$-"+(name_format + 3) + "s", getName());
+		String id_string = String.format("%1$-"+(studentid_format + 4) + "s", getstudentID());
+		String grade_string = String.format("%1$-"+(grade_format + 4) + "s", getGrade());
+		String str = (getcurrentID() + " |" + name_string + "|" + email_string + "|" + phone_string + "|" + getNotes());
+	return str;
+	}
+    }
+
 }
 		
 
