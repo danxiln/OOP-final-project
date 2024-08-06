@@ -65,9 +65,9 @@ public class Student implements Comparable<Student> {
 			      id_string + "|" +
 			      grade_string + "|" + 
 			      getNotes());
-	return str;
+		return str;
 	}
-    }
+}
 		
 
 
