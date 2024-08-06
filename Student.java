@@ -4,8 +4,9 @@ public class Student implements Comparable<Student> {
 	static int studentid_format = 0;
 	static int grade_format = 0;
 	static int currentid;
+	String name, idNumber, grade, notes;
 
-	Contact(String student_name, String studentid, String student_grade, String student_note) {
+	Student(String student_name, String studentid, String student_grade, String student_note) {
 		currentid = students;
 		name = student_name;
 		idNumber = studentid;
@@ -33,7 +34,7 @@ public class Student implements Comparable<Student> {
 	}
 
 	String getGrade() {
-		return grade
+		return grade;
 	}
 
 	String getNotes() {
@@ -59,12 +60,14 @@ public class Student implements Comparable<Student> {
 		String name_string = String.format("%1$-"+(name_format + 3) + "s", getName());
 		String id_string = String.format("%1$-"+(studentid_format + 4) + "s", getstudentID());
 		String grade_string = String.format("%1$-"+(grade_format + 4) + "s", getGrade());
-		String str = (getcurrentID() + " |" + name_string + "|" + email_string + "|" + phone_string + "|" + getNotes());
+		String str = (getcurrentID() + " |" + 
+			      name_string + "|" + 
+			      id_string + "|" +
+			      grade_string + "|" + 
+			      getNotes());
 	return str;
 	}
     }
-
-}
 		
 
 
