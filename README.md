@@ -17,7 +17,7 @@ This system is intended for teachers to input student grades into a self-calcula
 ### Teacher Side
 
 #### Manage Multiple Classrooms
-- **Classroom Management**: Teachers can manage multiple classrooms. Each classroom has a name, topic, year, average GPA for the class, and a class notes section.
+- **Classroom Management**: Teachers can manage multiple classrooms. Each classroom has an id, name, year, average GPA for the class, and a class notes section.
 
 #### Add Students
 - **Add Student**: Teachers can add different students to their classroom. Each student will have a StudentID, average GPA for the class, and any notes created by the teacher. The student list is automatically sorted in alphabetical order upon adding a new student.
