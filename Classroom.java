@@ -3,13 +3,18 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class Classroom {
-	private String classID;
-	private String className;
-	private int classYear;
-	private ArrayList<Student> students;
-	private String classNotes;
+	static int classrooms = 0,
+		   id_format = 0,
+		   name_format = 0,
+		   year_format = 0,
+		   current_class;
 
-	public Classroom(String id, String name, int year, String notes) {
+	String classID, className, classNotes;
+	int classYear;
+	ArrayList<Student> students;
+
+	Classroom(String id, String name, int year, String notes) {
+		current_class = classrooms;
 		classID = id;
 		className = name;
 		classYear = year;
@@ -17,26 +22,59 @@ public class Classroom {
 		students = new ArrayList<>();
 	}
 
-	public String getClassID() {
+	//method to count classrooms
+	static int countClassrooms() {
+		return classrooms;
+	}
+
+	int getCurrentClass() {
+		return current_class;
+	}
+	
+	static void incramentClassroom() {
+		classrooms++;
+	}
+
+	// methods to retrieve requested information
+	String getClassID() {
 		return classID;
 	}
 
-	public String getName() {
+	String getName() {
 		return className;
 	}
 
-	public int getYear() {
+	int getYear() {
 		return classYear;
 	}
 
-	public String getNotes() {
+	String getNotes() {
 		return classNotes;
 	}
 
+	// student methods
 	public void addStudent(Student student) {
 		students.add(student);
 		Collections.sort(students);
 		Student.incramentStudent();
+	}
+
+	// method to compare current classroom's id to that of another
+	public int compareTo(Classroom classroom) {
+		return className.compareTo(classroom.classID);
+	}
+
+	// organize classroom information to be listed for display
+	public String translateString() {
+		String id_string = String.format("%1$-"+(id_format + 5) + "s", getClassID());
+		String name_string = String.format("%1$-"+(name_format + 5) + "s", getName());
+		String year_string = String.format("%1$-"+(year_format + 5) + "s", getYear());
+		String classroomLine = (getCurrentClass() + " |" + 
+					id_string + "|" +
+					name_string + "|" + 
+					year_string + "|" +
+					getNotes());
+		return classroomLine;
 	}
 }
 

@@ -53,7 +53,7 @@ public class GradeBook {
 			System.out.println("===================");
 			System.out.println("Choose one of the following options:");
 			System.out.println("(1) Add a classroom");
-			System.out.println("(2) Select a classroom");
+			System.out.println("(2) View Classrooms");
 			System.out.println("(3) Exit");
 			System.out.print("Enter your choice: ");
 			choice = scanner.nextLine();
