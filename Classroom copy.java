@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class Classroom {
 	private String classID;
@@ -8,13 +6,14 @@ public class Classroom {
 	private int classYear;
 	private ArrayList<Student> students;
 	private String classNotes;
-
+	
 	public Classroom(String id, String name, int year, String notes) {
-		classID = id;
-		className = name;
-		classYear = year;
-		classNotes = notes;
-		students = new ArrayList<>();
+		classID=id;
+		className=name;
+		classYear=year;
+		classNotes=notes;
+		students =new ArrayList<Student>();
+		
 	}
 
 	public String getClassID() {
@@ -39,5 +38,3 @@ public class Classroom {
 		Student.incramentStudent();
 	}
 }
-
-
