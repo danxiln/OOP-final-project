@@ -35,6 +35,18 @@ public class Classroom {
 	public String getNotes() {
 		return classNotes;
 	}
+	public void setClassID(String id) {
+		classID=id;
+	}
+	public void setClassName(String name) {
+		className=name;
+	}
+	public void setClassYear(String year) {
+		classYear=year;
+	}
+	public void setClassNotes(String notes) {
+		classNotes=notes;
+	}
 
 	public void addStudent(Student student) {
 		students.add(student);
@@ -49,11 +61,17 @@ public class Classroom {
 		}
 		return null;
 	}
+	
+	
+	
 	public String StringOfAllStudents() {
-		String all="ID: Name: \n";
-		for (int i=0;i<students.size();i++) {
-			Student current=students.get(i);
-			all+=current.getcurrentID()+" "+current.getName()+" "+"\n";
+		// formating to print classrooms in the appropriate format
+		String all=String.format("%-8s | %s\n",
+		       	    		 "ID", "Name");
+		for (Student current : students) {
+			all += String.format("%-8s | %s\n",
+					     current.getstudentID(),
+					     current.getName());
 		}
 		return all;
 	}

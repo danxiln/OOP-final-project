@@ -30,11 +30,14 @@ public class classroomGUI extends JFrame {
 	private JLabel lblStudentID;
 	private JLabel lblStudents;
 	private Classroom g;
-
+	private DataModel dm;
+	private GradebookGUI cbg;
 	/**
 	 * Launch the application.
 	 */
-	public classroomGUI(Classroom g) {
+	public classroomGUI(DataModel dm,Classroom g,GradebookGUI cbg) {
+		this.cbg=cbg;
+		this.dm=dm;
 		this.g=g;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -45,7 +48,7 @@ public class classroomGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		lblClassName = new JLabel("Class Name:");
-		lblClassName.setBounds(174, 6, 66, 16);
+		lblClassName.setBounds(170, 6, 88, 16);
 		contentPane.add(lblClassName);
 		
 		lblClassID = new JLabel("Class ID:");
@@ -56,8 +59,8 @@ public class classroomGUI extends JFrame {
 		lblClassYear.setBounds(297, 33, 153, 16);
 		contentPane.add(lblClassYear);
 		
-		lblClassNotes = new JLabel("ClassNotes:");
-		lblClassNotes.setBounds(6, 27, 61, 29);
+		lblClassNotes = new JLabel("Class Notes:");
+		lblClassNotes.setBounds(6, 27, 71, 29);
 		contentPane.add(lblClassNotes);
 		
 		txtStudents = new JTextArea();
@@ -72,7 +75,7 @@ public class classroomGUI extends JFrame {
 				cga.setVisible(true);
 			}
 		});
-		btnAddStudent.setBounds(328, 88, 99, 29);
+		btnAddStudent.setBounds(84, 117, 130, 29);
 		contentPane.add(btnAddStudent);
 		
 		btnAcessStudent = new JButton("Access Student");
@@ -81,15 +84,21 @@ public class classroomGUI extends JFrame {
 				
 			}
 		});
-		btnAcessStudent.setBounds(181, 88, 106, 29);
+		btnAcessStudent.setBounds(260, 88, 150, 29);
 		contentPane.add(btnAcessStudent);
 		
 		txtStudentID = new JTextField();
-		txtStudentID.setBounds(65, 89, 112, 26);
+		txtStudentID.setBounds(93, 89, 147, 26);
 		contentPane.add(txtStudentID);
 		txtStudentID.setColumns(10);
 		
 		btnEditClassroom = new JButton("Edit Classroom");
+		btnEditClassroom.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				classroomGUIEditor cge=new classroomGUIEditor(g,classroomGUI.this);
+				cge.setVisible(true);
+			}
+		});
 		btnEditClassroom.setBounds(277, 117, 147, 29);
 		contentPane.add(btnEditClassroom);
 		
@@ -101,17 +110,17 @@ public class classroomGUI extends JFrame {
 		
 		txtClassName = new JTextField();
 		txtClassName.setEditable(false);
-		txtClassName.setBounds(243, 1, 167, 26);
+		txtClassName.setBounds(257, 1, 153, 26);
 		contentPane.add(txtClassName);
 		txtClassName.setColumns(10);
 		
 		txtClassNotes = new JTextArea();
 		txtClassNotes.setEditable(false);
-		txtClassNotes.setBounds(65, 35, 222, 42);
+		txtClassNotes.setBounds(87, 35, 200, 42);
 		contentPane.add(txtClassNotes);
 		
 		lblStudentID = new JLabel("Student ID:");
-		lblStudentID.setBounds(6, 93, 78, 16);
+		lblStudentID.setBounds(6, 93, 77, 16);
 		contentPane.add(lblStudentID);
 		
 		lblStudents = new JLabel("Students:");
@@ -136,5 +145,12 @@ public class classroomGUI extends JFrame {
 		String x=g.StringOfAllStudents();
 		txtStudents.setText(x);
 		}
-
+	public void refreshGradebook() {
+		cbg.refreshClassrooms();
+	}
+	public void deleteClassroom() {
+		dm.delete(g);
+		cbg.refreshClassrooms();
+		dispose();
+	}
 }
