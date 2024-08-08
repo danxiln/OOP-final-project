@@ -32,7 +32,7 @@ public class classroomGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblClassName = new JLabel("Class Name:");
-		lblClassName.setBounds(174, 6, 78, 16);
+		lblClassName.setBounds(174, 6, 66, 16);
 		contentPane.add(lblClassName);
 		
 		JLabel lblClassID = new JLabel("Class ID:");
@@ -55,6 +55,8 @@ public class classroomGUI extends JFrame {
 		JButton btnAddStudent = new JButton("Add Student");
 		btnAddStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				classroomGUIAdder cga=new classroomGUIAdder();
+				cga.setVisible(true);
 			}
 		});
 		btnAddStudent.setBounds(328, 88, 99, 29);
@@ -65,7 +67,7 @@ public class classroomGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnAcessStudent.setBounds(187, 88, 117, 29);
+		btnAcessStudent.setBounds(181, 88, 106, 29);
 		contentPane.add(btnAcessStudent);
 		
 		txtStudentID = new JTextField();
@@ -74,7 +76,7 @@ public class classroomGUI extends JFrame {
 		txtStudentID.setColumns(10);
 		
 		JButton btnDeleteClassroom = new JButton("Delete Classroom");
-		btnDeleteClassroom.setBounds(265, 117, 147, 29);
+		btnDeleteClassroom.setBounds(277, 117, 147, 29);
 		contentPane.add(btnDeleteClassroom);
 		
 		txtClassID = new JTextField();
