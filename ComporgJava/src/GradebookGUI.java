@@ -52,10 +52,11 @@ public class GradebookGUI extends JFrame {
 				gb.setVisible(true);
 			}
 		});
-		btnAddClassroom.setBounds(260, 46, 150, 29);
+		btnAddClassroom.setBounds(260, 76, 150, 29);
 		contentPane.add(btnAddClassroom);
 		
 		txtAcessInput = new JTextField();
+		txtAcessInput.setEditable(false);
 		txtAcessInput.setBounds(110, 6, 130, 26);
 		contentPane.add(txtAcessInput);
 		txtAcessInput.setColumns(10);
@@ -70,7 +71,7 @@ public class GradebookGUI extends JFrame {
 				}
 			}
 		});
-		btnAcessClassroom.setBounds(260, 6, 150, 29);
+		btnAcessClassroom.setBounds(260, 5, 150, 29);
 		contentPane.add(btnAcessClassroom);
 		
 		lblClassroomID = new JLabel("Clasroom ID:");
@@ -87,6 +88,7 @@ public class GradebookGUI extends JFrame {
 		contentPane.add(btnRefresh);
 		
 		txtClassroom = new JTextArea();
+		txtClassroom.setEditable(false);
 		txtClassroom.setBounds(31, 110, 379, 156);
 		contentPane.add(txtClassroom);
 	}

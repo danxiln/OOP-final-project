@@ -7,15 +7,17 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class classroomGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField txtStudentID;
+	private JTextField txtClassID;
+	private JTextField txtClassName;
+	private JTextField txtClassYear;
 
 	/**
 	 * Launch the application.
@@ -30,7 +32,7 @@ public class classroomGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblClassName = new JLabel("Class Name:");
-		lblClassName.setBounds(136, 6, 78, 16);
+		lblClassName.setBounds(174, 6, 78, 16);
 		contentPane.add(lblClassName);
 		
 		JLabel lblClassID = new JLabel("Class ID:");
@@ -46,43 +48,51 @@ public class classroomGUI extends JFrame {
 		contentPane.add(lblClassNotes);
 		
 		JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
 		textArea.setBounds(16, 151, 394, 115);
 		contentPane.add(textArea);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(91, 120, 117, 29);
+		JButton btnNewButton = new JButton("Refresh");
+		btnNewButton.setBounds(54, 120, 99, 29);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Add Student");
-		btnNewButton_1.setBounds(333, 88, 117, 29);
+		btnNewButton_1.setBounds(326, 120, 99, 29);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Search");
-		btnNewButton_2.setBounds(214, 88, 117, 29);
-		contentPane.add(btnNewButton_2);
+		JButton btnSearch = new JButton("Access Student");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnSearch.setBounds(242, 88, 117, 29);
+		contentPane.add(btnSearch);
 		
-		textField = new JTextField();
-		textField.setBounds(81, 88, 130, 26);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtStudentID = new JTextField();
+		txtStudentID.setBounds(65, 89, 167, 26);
+		contentPane.add(txtStudentID);
+		txtStudentID.setColumns(10);
 		
 		JButton btnNewButton_3 = new JButton("Delete Classroom");
-		btnNewButton_3.setBounds(243, 120, 189, 29);
+		btnNewButton_3.setBounds(163, 120, 153, 29);
 		contentPane.add(btnNewButton_3);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(65, 1, 67, 26);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		txtClassID = new JTextField();
+		txtClassID.setEditable(false);
+		txtClassID.setBounds(65, 1, 99, 26);
+		contentPane.add(txtClassID);
+		txtClassID.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(214, 1, 171, 26);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		txtClassName = new JTextField();
+		txtClassName.setEditable(false);
+		txtClassName.setBounds(243, 1, 167, 26);
+		contentPane.add(txtClassName);
+		txtClassName.setColumns(10);
 		
-		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setBounds(96, 34, 189, 42);
-		contentPane.add(textArea_1);
+		JTextArea txtClassNotes = new JTextArea();
+		txtClassNotes.setEditable(false);
+		txtClassNotes.setBounds(65, 35, 222, 42);
+		contentPane.add(txtClassNotes);
 		
 		JLabel lblStudentID = new JLabel("Student ID:");
 		lblStudentID.setBounds(6, 93, 78, 16);
@@ -92,10 +102,11 @@ public class classroomGUI extends JFrame {
 		lblStudents.setBounds(6, 123, 61, 16);
 		contentPane.add(lblStudents);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(297, 50, 130, 26);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		txtClassYear = new JTextField();
+		txtClassYear.setEditable(false);
+		txtClassYear.setBounds(297, 50, 130, 26);
+		contentPane.add(txtClassYear);
+		txtClassYear.setColumns(10);
 	}
 
 }

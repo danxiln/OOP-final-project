@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
 
 public class Gradebook_AdderGUI extends JFrame {
 
@@ -15,9 +16,14 @@ public class Gradebook_AdderGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtClassName;
 	private JTextField txtYear;
-	private JTextField txtClassNotes;
 	private JTextField txtClassID;
-
+	private JTextArea txtClassNotes;
+	private JLabel lblClassID;
+	private JLabel lblClassNotes;
+	private JLabel lblYear;
+	private JLabel lblClassName;
+	private JButton btnAddClassroom ;
+	private JButton btnExit;
 	/**
 	 * Launch the application.
 	 */
@@ -34,11 +40,11 @@ public class Gradebook_AdderGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblClassName = new JLabel("Class Name:");
+		lblClassName = new JLabel("Class Name:");
 		lblClassName.setBounds(33, 20, 95, 16);
 		contentPane.add(lblClassName);
 		
-		JButton btnAddClassroom = new JButton("Add ");
+		btnAddClassroom = new JButton("Add ");
 		btnAddClassroom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String id=txtClassID.getText();
@@ -53,7 +59,7 @@ public class Gradebook_AdderGUI extends JFrame {
 		btnAddClassroom.setBounds(64, 219, 117, 29);
 		contentPane.add(btnAddClassroom);
 		
-		JButton btnExit = new JButton("Exit");
+		btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -62,7 +68,7 @@ public class Gradebook_AdderGUI extends JFrame {
 		btnExit.setBounds(260, 219, 117, 29);
 		contentPane.add(btnExit);
 		
-		JLabel lblYear = new JLabel("Year:");
+		lblYear = new JLabel("Year:");
 		lblYear.setBounds(32, 58, 61, 16);
 		contentPane.add(lblYear);
 		
@@ -76,16 +82,11 @@ public class Gradebook_AdderGUI extends JFrame {
 		contentPane.add(txtYear);
 		txtYear.setColumns(10);
 		
-		JLabel lblClassNotes = new JLabel("Class Notes:");
+		lblClassNotes = new JLabel("Class Notes:");
 		lblClassNotes.setBounds(33, 128, 95, 16);
 		contentPane.add(lblClassNotes);
 		
-		txtClassNotes = new JTextField();
-		txtClassNotes.setBounds(140, 123, 218, 84);
-		contentPane.add(txtClassNotes);
-		txtClassNotes.setColumns(10);
-		
-		JLabel lblClassID = new JLabel("Class ID:");
+		lblClassID = new JLabel("Class ID:");
 		lblClassID.setBounds(33, 96, 61, 16);
 		contentPane.add(lblClassID);
 		
@@ -93,6 +94,9 @@ public class Gradebook_AdderGUI extends JFrame {
 		txtClassID.setBounds(140, 85, 130, 26);
 		contentPane.add(txtClassID);
 		txtClassID.setColumns(10);
+		
+		txtClassNotes = new JTextArea();
+		txtClassNotes.setBounds(105, 124, 257, 90);
+		contentPane.add(txtClassNotes);
 	}
-
 }
