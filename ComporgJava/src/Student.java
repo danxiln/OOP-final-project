@@ -56,17 +56,6 @@ public class Student implements Comparable<Student> {
 	}
 	
 	// return string interpretation of student object
-	public String translateString() {
-		String name_string = String.format("%1$-"+(name_format + 3) + "s", getName());
-		String id_string = String.format("%1$-"+(studentid_format + 4) + "s", getstudentID());
-		String grade_string = String.format("%1$-"+(grade_format + 4) + "s", getGrade());
-		String str = (getcurrentID() + " |" + 
-			      name_string + "|" + 
-			      id_string + "|" +
-			      grade_string + "|" + 
-			      getNotes());
-		return str;
-	}
 }
 		
 
