@@ -44,38 +44,38 @@ public class classroomGUI extends JFrame {
 		contentPane.add(lblClassYear);
 		
 		JLabel lblClassNotes = new JLabel("ClassNotes:");
-		lblClassNotes.setBounds(6, 26, 78, 29);
+		lblClassNotes.setBounds(6, 27, 61, 29);
 		contentPane.add(lblClassNotes);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setEditable(false);
-		textArea.setBounds(16, 151, 394, 115);
-		contentPane.add(textArea);
+		JTextArea txtStudents = new JTextArea();
+		txtStudents.setEditable(false);
+		txtStudents.setBounds(16, 151, 394, 115);
+		contentPane.add(txtStudents);
 		
-		JButton btnNewButton = new JButton("Refresh");
-		btnNewButton.setBounds(54, 120, 99, 29);
-		contentPane.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("Add Student");
-		btnNewButton_1.setBounds(326, 120, 99, 29);
-		contentPane.add(btnNewButton_1);
-		
-		JButton btnSearch = new JButton("Access Student");
-		btnSearch.addActionListener(new ActionListener() {
+		JButton btnAddStudent = new JButton("Add Student");
+		btnAddStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnSearch.setBounds(242, 88, 117, 29);
-		contentPane.add(btnSearch);
+		btnAddStudent.setBounds(328, 88, 99, 29);
+		contentPane.add(btnAddStudent);
+		
+		JButton btnAcessStudent = new JButton("Access Student");
+		btnAcessStudent.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnAcessStudent.setBounds(187, 88, 117, 29);
+		contentPane.add(btnAcessStudent);
 		
 		txtStudentID = new JTextField();
-		txtStudentID.setBounds(65, 89, 167, 26);
+		txtStudentID.setBounds(65, 89, 112, 26);
 		contentPane.add(txtStudentID);
 		txtStudentID.setColumns(10);
 		
-		JButton btnNewButton_3 = new JButton("Delete Classroom");
-		btnNewButton_3.setBounds(163, 120, 153, 29);
-		contentPane.add(btnNewButton_3);
+		JButton btnDeleteClassroom = new JButton("Delete Classroom");
+		btnDeleteClassroom.setBounds(265, 117, 147, 29);
+		contentPane.add(btnDeleteClassroom);
 		
 		txtClassID = new JTextField();
 		txtClassID.setEditable(false);
