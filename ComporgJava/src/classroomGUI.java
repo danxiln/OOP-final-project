@@ -18,11 +18,23 @@ public class classroomGUI extends JFrame {
 	private JTextField txtClassID;
 	private JTextField txtClassName;
 	private JTextField txtClassYear;
+	private JLabel lblClassName;
+	private JLabel lblClassID;
+	private JLabel lblClassYear;
+	private JLabel lblClassNotes;
+	private JTextArea textArea;
+	private JButton btnAddStudent;
+	private JButton btnSearch;
+	private JButton btnDeleteClassroom;
+	private JTextArea txtClassNotes;
+	private JLabel lblStudentID;
+	private JLabel lblStudents ;
 
 	/**
 	 * Launch the application.
 	 */
 	public classroomGUI(Classroom g) {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -31,32 +43,32 @@ public class classroomGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblClassName = new JLabel("Class Name:");
+		lblClassName = new JLabel("Class Name:");
 		lblClassName.setBounds(181, 10, 61, 16);
 		contentPane.add(lblClassName);
 		
-		JLabel lblClassID = new JLabel("Class ID:");
+		lblClassID = new JLabel("Class ID:");
 		lblClassID.setBounds(6, 10, 78, 16);
 		contentPane.add(lblClassID);
 		
-		JLabel lblClassYear = new JLabel("Class Year:");
+		lblClassYear = new JLabel("Class Year:");
 		lblClassYear.setBounds(249, 37, 78, 16);
 		contentPane.add(lblClassYear);
 		
-		JLabel lblClassNotes = new JLabel("ClassNotes:");
+		lblClassNotes = new JLabel("ClassNotes:");
 		lblClassNotes.setBounds(6, 37, 78, 16);
 		contentPane.add(lblClassNotes);
 		
-		JTextArea textArea = new JTextArea();
+		textArea = new JTextArea();
 		textArea.setEditable(false);
 		textArea.setBounds(23, 147, 380, 62);
 		contentPane.add(textArea);
 		
-		JButton btnNewButton_1 = new JButton("Add Student");
-		btnNewButton_1.setBounds(23, 220, 150, 29);
-		contentPane.add(btnNewButton_1);
+		btnAddStudent = new JButton("Add Student");
+		btnAddStudent.setBounds(23, 220, 150, 29);
+		contentPane.add(btnAddStudent);
 		
-		JButton btnSearch = new JButton("Access Student");
+		btnSearch = new JButton("Access Student");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -69,9 +81,9 @@ public class classroomGUI extends JFrame {
 		contentPane.add(txtStudentID);
 		txtStudentID.setColumns(10);
 		
-		JButton btnNewButton_3 = new JButton("Delete Classroom");
-		btnNewButton_3.setBounds(210, 220, 180, 29);
-		contentPane.add(btnNewButton_3);
+		btnDeleteClassroom = new JButton("Delete Classroom");
+		btnDeleteClassroom.setBounds(210, 220, 180, 29);
+		contentPane.add(btnDeleteClassroom);
 		
 		txtClassID = new JTextField();
 		txtClassID.setEditable(false);
@@ -85,16 +97,16 @@ public class classroomGUI extends JFrame {
 		contentPane.add(txtClassName);
 		txtClassName.setColumns(10);
 		
-		JTextArea txtClassNotes = new JTextArea();
+		txtClassNotes = new JTextArea();
 		txtClassNotes.setEditable(false);
 		txtClassNotes.setBounds(16, 57, 250, 26);
 		contentPane.add(txtClassNotes);
 		
-		JLabel lblStudentID = new JLabel("Student ID:");
+		lblStudentID = new JLabel("Student ID:");
 		lblStudentID.setBounds(6, 94, 78, 16);
 		contentPane.add(lblStudentID);
 		
-		JLabel lblStudents = new JLabel("Students:");
+		lblStudents = new JLabel("Students:");
 		lblStudents.setBounds(6, 123, 61, 16);
 		contentPane.add(lblStudents);
 		
