@@ -58,7 +58,6 @@ public class GradebookGUI extends JFrame {
 		contentPane.add(btnAddClassroom);
 		
 		txtAcessInput = new JTextField();
-		txtAcessInput.setEditable(false);
 		txtAcessInput.setBounds(110, 6, 130, 26);
 		contentPane.add(txtAcessInput);
 		txtAcessInput.setColumns(10);

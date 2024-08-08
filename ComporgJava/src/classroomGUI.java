@@ -40,11 +40,11 @@ public class classroomGUI extends JFrame {
 		contentPane.add(lblClassID);
 		
 		JLabel lblClassYear = new JLabel("Class Year:");
-		lblClassYear.setBounds(50, 100, 78, 16);
+		lblClassYear.setBounds(50, 94, 78, 16);
 		contentPane.add(lblClassYear);
 		
 		JLabel lblClassNotes = new JLabel("ClassNotes:");
-		lblClassNotes.setBounds(50, 140, 78, 16);
+		lblClassNotes.setBounds(50, 150, 78, 16);
 		contentPane.add(lblClassNotes);
 		
 		JTextArea textArea = new JTextArea();
