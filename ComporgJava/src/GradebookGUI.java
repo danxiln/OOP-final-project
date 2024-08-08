@@ -21,7 +21,6 @@ public class GradebookGUI extends JFrame {
 	private JButton btnAcessClassroom;
 	private JLabel lblClassroomID;
 	private DataModel newdm;
-	private JButton btnRefresh;
 	private JTextArea txtClassroom;
 
 	/**
@@ -50,7 +49,7 @@ public class GradebookGUI extends JFrame {
 		btnAddClassroom = new JButton("Add Classroom");
 		btnAddClassroom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Gradebook_AdderGUI gb =new Gradebook_AdderGUI(dm);
+				Gradebook_AdderGUI gb =new Gradebook_AdderGUI(dm,GradebookGUI.this);
 				gb.setVisible(true);
 			}
 		});
@@ -84,15 +83,6 @@ public class GradebookGUI extends JFrame {
 		lblClassroomID = new JLabel("Clasroom ID:");
 		lblClassroomID.setBounds(6, 11, 102, 16);
 		contentPane.add(lblClassroomID);
-		
-		btnRefresh = new JButton("Refresh");
-		btnRefresh.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				refreshClassrooms();
-			}
-		});
-		btnRefresh.setBounds(98, 77, 117, 29);
-		contentPane.add(btnRefresh);
 		
 		txtClassroom = new JTextArea();
 		txtClassroom.setEditable(false);
