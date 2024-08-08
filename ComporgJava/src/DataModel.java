@@ -30,15 +30,17 @@ public class DataModel {
 
 	public String StringOfAllClasses() {
 		// formating to print classrooms in the appropriate format
-		String all=String.format("%-8s | %-30s | %-6s | %s\n",
-		       	    		 "ID", "Name", "Year", "Notes");
+		String all=String.format("%-8s | %-30s | %s\n",
+		       	    		 "ID", "Name", "Year");
 		for (Classroom current : Gradebook) {
-			all += String.format("%-8s | %-30s | %-6s | %s\n",
+			all += String.format("%-8s | %-30s | %s\n",
 					     current.getClassID(),
 					     current.getName(),
-					     current.getYear(),
-					     current.getNotes());
+					     current.getYear());
 		}
 		return all;
+	}
+	public void delete(Classroom g) {
+		Gradebook.remove(g);
 	}
 }
