@@ -49,6 +49,15 @@ public class Classroom {
 		}
 		return null;
 	}
+	public String StringOfAllStudents() {
+		String all="ID: Name: \n";
+		for (int i=0;i<students.size();i++) {
+			Student current=students.get(i);
+			all+=current.getcurrentID()+" "+current.getName()+" "+"\n";
+		}
+		return all;
+	}
+	
 	
 }
 

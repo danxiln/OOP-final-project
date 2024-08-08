@@ -6,11 +6,10 @@ public class Student implements Comparable<Student> {
 	static int currentid;
 	String name, idNumber, grade, notes;
 
-	Student(String student_name, String studentid, String student_grade, String student_note) {
+	Student(String student_name, String studentid , String student_note) {
 		currentid = students;
 		name = student_name;
 		idNumber = studentid;
-		grade = student_grade;
 		notes = student_note;
 	}
 

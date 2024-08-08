@@ -18,11 +18,24 @@ public class classroomGUI extends JFrame {
 	private JTextField txtClassID;
 	private JTextField txtClassName;
 	private JTextField txtClassYear;
+	private JLabel lblClassName;
+	private JLabel lblClassID;
+	private JLabel lblClassYear;
+	private JLabel lblClassNotes;
+	private JTextArea txtStudents;
+	private JButton btnAddStudent;
+	private JButton btnAcessStudent;
+	private JButton btnEditClassroom;
+	private JTextArea txtClassNotes;
+	private JLabel lblStudentID;
+	private JLabel lblStudents;
+	private Classroom g;
 
 	/**
 	 * Launch the application.
 	 */
 	public classroomGUI(Classroom g) {
+		this.g=g;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -31,40 +44,41 @@ public class classroomGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblClassName = new JLabel("Class Name:");
+		lblClassName = new JLabel("Class Name:");
 		lblClassName.setBounds(174, 6, 66, 16);
 		contentPane.add(lblClassName);
 		
-		JLabel lblClassID = new JLabel("Class ID:");
+		lblClassID = new JLabel("Class ID:");
 		lblClassID.setBounds(6, 6, 112, 16);
 		contentPane.add(lblClassID);
 		
-		JLabel lblClassYear = new JLabel("Class Year:");
+		lblClassYear = new JLabel("Class Year:");
 		lblClassYear.setBounds(297, 33, 153, 16);
 		contentPane.add(lblClassYear);
 		
-		JLabel lblClassNotes = new JLabel("ClassNotes:");
+		lblClassNotes = new JLabel("ClassNotes:");
 		lblClassNotes.setBounds(6, 27, 61, 29);
 		contentPane.add(lblClassNotes);
 		
-		JTextArea txtStudents = new JTextArea();
+		txtStudents = new JTextArea();
 		txtStudents.setEditable(false);
 		txtStudents.setBounds(16, 151, 394, 115);
 		contentPane.add(txtStudents);
 		
-		JButton btnAddStudent = new JButton("Add Student");
+		btnAddStudent = new JButton("Add Student");
 		btnAddStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				classroomGUIAdder cga=new classroomGUIAdder();
+				ClassroomGUIAdder cga=new ClassroomGUIAdder(g,classroomGUI.this);
 				cga.setVisible(true);
 			}
 		});
 		btnAddStudent.setBounds(328, 88, 99, 29);
 		contentPane.add(btnAddStudent);
 		
-		JButton btnAcessStudent = new JButton("Access Student");
+		btnAcessStudent = new JButton("Access Student");
 		btnAcessStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		btnAcessStudent.setBounds(181, 88, 106, 29);
@@ -75,9 +89,9 @@ public class classroomGUI extends JFrame {
 		contentPane.add(txtStudentID);
 		txtStudentID.setColumns(10);
 		
-		JButton btnDeleteClassroom = new JButton("Delete Classroom");
-		btnDeleteClassroom.setBounds(277, 117, 147, 29);
-		contentPane.add(btnDeleteClassroom);
+		btnEditClassroom = new JButton("Edit Classroom");
+		btnEditClassroom.setBounds(277, 117, 147, 29);
+		contentPane.add(btnEditClassroom);
 		
 		txtClassID = new JTextField();
 		txtClassID.setEditable(false);
@@ -91,16 +105,16 @@ public class classroomGUI extends JFrame {
 		contentPane.add(txtClassName);
 		txtClassName.setColumns(10);
 		
-		JTextArea txtClassNotes = new JTextArea();
+		txtClassNotes = new JTextArea();
 		txtClassNotes.setEditable(false);
 		txtClassNotes.setBounds(65, 35, 222, 42);
 		contentPane.add(txtClassNotes);
 		
-		JLabel lblStudentID = new JLabel("Student ID:");
+		lblStudentID = new JLabel("Student ID:");
 		lblStudentID.setBounds(6, 93, 78, 16);
 		contentPane.add(lblStudentID);
 		
-		JLabel lblStudents = new JLabel("Students:");
+		lblStudents = new JLabel("Students:");
 		lblStudents.setBounds(6, 123, 61, 16);
 		contentPane.add(lblStudents);
 		
@@ -109,6 +123,18 @@ public class classroomGUI extends JFrame {
 		txtClassYear.setBounds(297, 50, 130, 26);
 		contentPane.add(txtClassYear);
 		txtClassYear.setColumns(10);
+	
+		refreshStudents();
+		
+		
 	}
+	public void refreshStudents() {
+		txtClassID.setText(g.getClassID());
+		txtClassName.setText(g.getName());
+		txtClassYear.setText(g.getYear());
+		txtClassNotes.setText(g.getNotes());
+		String x=g.StringOfAllStudents();
+		txtStudents.setText(x);
+		}
 
 }
