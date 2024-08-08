@@ -66,7 +66,7 @@ public class GradebookGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Classroom currentClassroom=dm.searchClass(txtAcessInput.getText());
 				if(currentClassroom!=null) {
-					classroomGUI cg=new classroomGUI(currentClassroom);
+					classroomGUI cg=new classroomGUI(dm,currentClassroom,GradebookGUI.this);
 					cg.setVisible(true);
 				}
 				// error message to display when classroom with ID was not found
