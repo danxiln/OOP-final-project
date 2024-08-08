@@ -1,5 +1,5 @@
 import java.awt.EventQueue;
-
+import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.*;
 import javax.swing.JTextArea;
+import javax.swing.JOptionPane;
+
 public class GradebookGUI extends JFrame {
 
 	private JPanel contentPane;
@@ -69,6 +71,12 @@ public class GradebookGUI extends JFrame {
 					classroomGUI cg=new classroomGUI(currentClassroom);
 					cg.setVisible(true);
 				}
+				// error message to display when classroom with ID was not found
+				else {
+					JOptionPane.showMessageDialog(contentPane, "Classroom with ID " + 
+					txtAcessInput.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
+
+				}
 			}
 		});
 		btnAcessClassroom.setBounds(260, 5, 150, 29);
@@ -90,6 +98,7 @@ public class GradebookGUI extends JFrame {
 		txtClassroom = new JTextArea();
 		txtClassroom.setEditable(false);
 		txtClassroom.setBounds(31, 110, 379, 156);
+		txtClassroom.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		contentPane.add(txtClassroom);
 	}
 	public void refreshClassrooms() {

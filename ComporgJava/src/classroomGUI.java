@@ -26,30 +26,30 @@ public class classroomGUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new EmptyBorder(15, 15, 15, 15));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblClassName = new JLabel("Class Name:");
-		lblClassName.setBounds(174, 6, 78, 16);
+		lblClassName.setBounds(50, 20, 78, 16);
 		contentPane.add(lblClassName);
 		
 		JLabel lblClassID = new JLabel("Class ID:");
-		lblClassID.setBounds(6, 6, 112, 16);
+		lblClassID.setBounds(50, 60, 78, 16);
 		contentPane.add(lblClassID);
 		
 		JLabel lblClassYear = new JLabel("Class Year:");
-		lblClassYear.setBounds(297, 33, 153, 16);
+		lblClassYear.setBounds(50, 100, 78, 16);
 		contentPane.add(lblClassYear);
 		
 		JLabel lblClassNotes = new JLabel("ClassNotes:");
-		lblClassNotes.setBounds(6, 26, 78, 29);
+		lblClassNotes.setBounds(50, 140, 78, 16);
 		contentPane.add(lblClassNotes);
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);
-		textArea.setBounds(16, 151, 394, 115);
+		textArea.setBounds(144, 55, 250, 26);
 		contentPane.add(textArea);
 		
 		JButton btnNewButton = new JButton("Refresh");
@@ -57,7 +57,7 @@ public class classroomGUI extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Add Student");
-		btnNewButton_1.setBounds(326, 120, 99, 29);
+		btnNewButton_1.setBounds(50, 220, 150, 29);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnSearch = new JButton("Access Student");
@@ -74,7 +74,7 @@ public class classroomGUI extends JFrame {
 		txtStudentID.setColumns(10);
 		
 		JButton btnNewButton_3 = new JButton("Delete Classroom");
-		btnNewButton_3.setBounds(163, 120, 153, 29);
+		btnNewButton_3.setBounds(210, 220, 180, 29);
 		contentPane.add(btnNewButton_3);
 		
 		txtClassID = new JTextField();
@@ -85,13 +85,13 @@ public class classroomGUI extends JFrame {
 		
 		txtClassName = new JTextField();
 		txtClassName.setEditable(false);
-		txtClassName.setBounds(243, 1, 167, 26);
+		txtClassName.setBounds(140, 15, 250, 26);
 		contentPane.add(txtClassName);
 		txtClassName.setColumns(10);
 		
 		JTextArea txtClassNotes = new JTextArea();
 		txtClassNotes.setEditable(false);
-		txtClassNotes.setBounds(65, 35, 222, 42);
+		txtClassNotes.setBounds(140, 55, 250, 26);
 		contentPane.add(txtClassNotes);
 		
 		JLabel lblStudentID = new JLabel("Student ID:");
