@@ -65,7 +65,7 @@ public class GradebookGUI extends JFrame {
 		btnAcessClassroom = new JButton("Access Classroom");
 		btnAcessClassroom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Classroom currentClassroom=dm.searchClass(txtAcessInput.getText());
+				Classroom currentClassroom = newdm.selectClass(txtAcessInput.getText());
 				if(currentClassroom!=null) {
 					classroomGUI cg=new classroomGUI(currentClassroom);
 					cg.setVisible(true);
