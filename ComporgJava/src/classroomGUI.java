@@ -65,7 +65,7 @@ public class classroomGUI extends JFrame {
 		
 		txtStudents = new JTextArea();
 		txtStudents.setEditable(false);
-		txtStudents.setBounds(16, 151, 394, 115);
+		txtStudents.setBounds(16, 164, 394, 102);
 		contentPane.add(txtStudents);
 		
 		btnAddStudent = new JButton("Add Student");
@@ -75,7 +75,7 @@ public class classroomGUI extends JFrame {
 				cga.setVisible(true);
 			}
 		});
-		btnAddStudent.setBounds(84, 117, 130, 29);
+		btnAddStudent.setBounds(87, 124, 130, 29);
 		contentPane.add(btnAddStudent);
 		
 		btnAcessStudent = new JButton("Access Student");
@@ -84,11 +84,11 @@ public class classroomGUI extends JFrame {
 				
 			}
 		});
-		btnAcessStudent.setBounds(260, 88, 150, 29);
+		btnAcessStudent.setBounds(237, 86, 150, 29);
 		contentPane.add(btnAcessStudent);
 		
 		txtStudentID = new JTextField();
-		txtStudentID.setBounds(93, 89, 147, 26);
+		txtStudentID.setBounds(65, 87, 162, 26);
 		contentPane.add(txtStudentID);
 		txtStudentID.setColumns(10);
 		
@@ -99,7 +99,7 @@ public class classroomGUI extends JFrame {
 				cge.setVisible(true);
 			}
 		});
-		btnEditClassroom.setBounds(277, 117, 147, 29);
+		btnEditClassroom.setBounds(250, 124, 147, 29);
 		contentPane.add(btnEditClassroom);
 		
 		txtClassID = new JTextField();
@@ -124,7 +124,7 @@ public class classroomGUI extends JFrame {
 		contentPane.add(lblStudentID);
 		
 		lblStudents = new JLabel("Students:");
-		lblStudents.setBounds(6, 123, 61, 16);
+		lblStudents.setBounds(16, 130, 61, 16);
 		contentPane.add(lblStudents);
 		
 		txtClassYear = new JTextField();

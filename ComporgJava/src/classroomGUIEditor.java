@@ -94,6 +94,11 @@ public class classroomGUIEditor extends JFrame {
 		contentPane.add(btnDeleteClass);
 		
 		btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btnExit.setBounds(306, 204, 89, 23);
 		contentPane.add(btnExit);
 		
