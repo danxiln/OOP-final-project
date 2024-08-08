@@ -1,10 +1,10 @@
+import java.util.ArrayList;
+
 public class Student implements Comparable<Student> {
 	static int students = 0;
-	static int name_format = 0;
-	static int studentid_format = 0;
-	static int grade_format = 0;
 	static int currentid;
 	String name, idNumber, grade, notes;
+	ArrayList<Assignment> assignments;
 
 	Student(String student_name, String studentid , String student_note) {
 		currentid = students;
@@ -54,7 +54,11 @@ public class Student implements Comparable<Student> {
 		return name.compareTo(student.name);
 	}
 	
-	// return string interpretation of student object
+	// method to add assignment item to individual student
+	public void addAssignment(Assignment assignment) {
+		assignments.add(assignment);
+	}
+
 }
 		
 
