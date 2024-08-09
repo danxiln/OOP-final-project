@@ -53,16 +53,19 @@ public class Classroom {
 		Collections.sort(students);
 		Student.incramentStudent();
 	}
-	public static Classroom searchGradeBookByID(ArrayList<Classroom> gradebook, String ID) {
-		for (Classroom c1:gradebook) {
-			if(c1.getName().equals(ID)) {
-				return c1;
+	public Student selectStudent(String studentID) {
+		for (Student s : students) {
+			if (s.getstudentID().equals(studentID)) {
+				return s;
 			}
 		}
+		
+		// return null if not possible
 		return null;
 	}
-	
-	
+	public int getClassSize() {
+		return students.size();
+	}
 	
 	public String StringOfAllStudents() {
 		// formating to print classrooms in the appropriate format
@@ -74,6 +77,9 @@ public class Classroom {
 					     current.getName());
 		}
 		return all;
+	}
+	public void deleteStudent(Student s) {
+		students.remove(s);
 	}
 	
 	

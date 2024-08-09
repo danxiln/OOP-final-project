@@ -11,6 +11,7 @@ public class Student implements Comparable<Student> {
 		name = student_name;
 		idNumber = studentid;
 		notes = student_note;
+		assignments=new ArrayList<Assignment>();
 	}
 
 	// Methods to return attributes of Student variable
@@ -39,7 +40,18 @@ public class Student implements Comparable<Student> {
 	String getNotes() {
 		return notes;
 	}
-	
+	int getStudentSize() {
+		return assignments.size();
+	}
+	public void setName(String n) {
+		name=n;
+	}
+	public void setID(String id) {
+		idNumber=id;
+	}
+	public void setNotes(String n) {
+		notes=n;
+	}
 	// method to reset the number of studnets to 0 or to add a static student
 	void reset(){
 		students = 0;
@@ -57,6 +69,36 @@ public class Student implements Comparable<Student> {
 	// method to add assignment item to individual student
 	public void addAssignment(Assignment assignment) {
 		assignments.add(assignment);
+	}
+	public Assignment selectAssigment(String assigmentID) {
+		for (Assignment a : assignments) {
+			if (a.getID().equals(assigmentID)) {
+				return a;
+			}
+		}
+		
+		// return null if not possible
+		return null;
+	}
+	
+	public String StringOfAllAssigments() {
+		// formating to print classrooms in the appropriate format
+		String all=String.format("%-8s |%-8s |%12s| %8s\n",
+		       	    		 "ID", "Name","Due Date","Grade");
+		if(assignments!=null) {
+		for (Assignment current : assignments) {
+			all += String.format("%-8s |%-8s |%12s |%8s\n",
+					     current.getID(),
+					     current.getName(),
+					     current.getdueDate(),
+					     current.getGrade());
+		}
+		}
+		return all;
+	}
+	public void deleteAssignment(Assignment a) {
+		assignments.remove(a);
+		
 	}
 
 }

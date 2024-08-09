@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
@@ -81,7 +82,17 @@ public class classroomGUI extends JFrame {
 		btnAcessStudent = new JButton("Access Student");
 		btnAcessStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				Student currentStudent = g.selectStudent(txtStudentID.getText());
+				if(currentStudent!=null) {
+					studentGUI sg=new studentGUI(currentStudent,g,classroomGUI.this);
+					sg.setVisible(true);
+				}
+				// error message to display when classroom with ID was not found
+				else {
+					JOptionPane.showMessageDialog(contentPane, "Classroom with ID " + 
+							txtStudentID.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
+
+				}
 			}
 		});
 		btnAcessStudent.setBounds(237, 86, 150, 29);
@@ -142,8 +153,10 @@ public class classroomGUI extends JFrame {
 		txtClassName.setText(g.getName());
 		txtClassYear.setText(g.getYear());
 		txtClassNotes.setText(g.getNotes());
-		String x=g.StringOfAllStudents();
-		txtStudents.setText(x);
+		if(g!=null) {
+			String x=g.StringOfAllStudents();
+			txtStudents.setText(x);
+			}
 		}
 	public void refreshGradebook() {
 		cbg.refreshClassrooms();

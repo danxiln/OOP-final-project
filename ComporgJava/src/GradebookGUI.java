@@ -91,7 +91,9 @@ public class GradebookGUI extends JFrame {
 		contentPane.add(txtClassroom);
 	}
 	public void refreshClassrooms() {
-		String x=newdm.StringOfAllClasses();
-		txtClassroom.setText(x);
+		if(newdm!=null) {
+			String x=newdm.StringOfAllClasses();
+			txtClassroom.setText(x);
+		}
 		}
 }

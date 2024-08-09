@@ -12,9 +12,10 @@ public class DataModel {
 	public void addClass(Classroom nclass) {
 		Gradebook.add(nclass);
 	}
-	public Classroom searchClass(String id) {
-		 return Classroom.searchGradeBookByID(Gradebook,id);
+	public int getSize() {
+		return Gradebook.size();
 	}
+
 
 	// function to select a classroom by classID
 	public Classroom selectClass(String classID) {
