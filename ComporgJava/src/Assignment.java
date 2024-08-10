@@ -14,7 +14,9 @@ public class Assignment implements Comparable<Assignment> {
 		IdCounter+=1;
 	}
 
-
+public static int getIdCounter() {
+	return IdCounter;
+}
 	public String getID() {
 		return id;
 	}

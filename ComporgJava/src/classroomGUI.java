@@ -89,7 +89,7 @@ public class classroomGUI extends JFrame {
 				}
 				// error message to display when classroom with ID was not found
 				else {
-					JOptionPane.showMessageDialog(contentPane, "Classroom with ID " + 
+					JOptionPane.showMessageDialog(contentPane, "Student with ID " + 
 							txtStudentID.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
 
 				}

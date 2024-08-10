@@ -100,6 +100,16 @@ public class Student implements Comparable<Student> {
 		assignments.remove(a);
 		
 	}
+	public Assignment selectAssignment(String AssigmentID) {
+		for (Assignment a : assignments) {
+			if (a.getID().equals(AssigmentID)) {
+				return a;
+			}
+		}
+		
+		// return null if not possible
+		return null;
+	}
 
 }
 		
