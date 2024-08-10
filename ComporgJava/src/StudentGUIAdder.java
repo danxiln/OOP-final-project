@@ -101,7 +101,8 @@ public class StudentGUIAdder extends JFrame {
 				String grade = txtAssignmentGrade.getText();
 				String weight = txtAssignmentWeight.getText();
 				String notes = txtAssignmentNotes.getText();
-				Assignment current=new Assignment(name,dueDate,type,grade,weight,notes);
+				String id=txtAssignmentID.getText();
+				Assignment current=new Assignment(name,dueDate,type,grade,weight,notes,id);
 				s.addAssignment(current);
 				sg.refreshGUI();
 				dispose();
