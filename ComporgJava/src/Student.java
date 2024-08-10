@@ -3,8 +3,9 @@ import java.util.*;
 public class Student implements Comparable<Student> {
 	static int students = 0;
 	static int currentid;
-	String name, idNumber, grade, notes;
+	String name, idNumber, notes;
 	ArrayList<Assignment> assignments;
+	double grade;
 
 	Student(String student_name, String studentid , String student_note) {
 		currentid = students;
@@ -12,6 +13,7 @@ public class Student implements Comparable<Student> {
 		idNumber = studentid;
 		notes = student_note;
 		assignments=new ArrayList<Assignment>();
+		grade = 0;
 	}
 
 	// Methods to return attributes of Student variable
@@ -34,7 +36,7 @@ public class Student implements Comparable<Student> {
 	}
 
 	String getGrade() {
-		return grade;
+		return String.format("%.2f", grade);
 	}
 
 	String getNotes() {
@@ -135,7 +137,8 @@ public class Student implements Comparable<Student> {
                 }
 
                 double overallGrade = (totalGrades / totalWeights);
-                return overallGrade;
+                grade = overallGrade;
+		return grade;
         }
 
 	// calculate grade by type of assignment
@@ -157,7 +160,7 @@ public class Student implements Comparable<Student> {
 			return 0;
 		}
 
-		typeGrade = (totalGrades / totalWeights);
+		double typeGrade = (totalGrades / totalWeights);
 		return typeGrade;
 	}
 
