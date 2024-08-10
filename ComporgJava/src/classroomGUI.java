@@ -72,7 +72,7 @@ public class classroomGUI extends JFrame {
 		btnAddStudent = new JButton("Add Student");
 		btnAddStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClassroomGUIAdder cga=new ClassroomGUIAdder(g,classroomGUI.this);
+				classroomGUIAdder cga=new classroomGUIAdder(g,classroomGUI.this);
 				cga.setVisible(true);
 			}
 		});

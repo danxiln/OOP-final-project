@@ -10,7 +10,7 @@ import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class ClassroomGUIAdder extends JFrame {
+public class classroomGUIAdder extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtStudentName;
@@ -22,7 +22,7 @@ public class ClassroomGUIAdder extends JFrame {
 	private JButton btnExit;
 	private JTextArea txtStudentNotes;
 
-	public ClassroomGUIAdder(Classroom g,classroomGUI cgu) {
+	public classroomGUIAdder(Classroom g,classroomGUI cgu) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
