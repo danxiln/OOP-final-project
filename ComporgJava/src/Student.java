@@ -138,6 +138,31 @@ public class Student implements Comparable<Student> {
                 return overallGrade;
         }
 
+	// calculate grade by type of assignment
+	public double calcGradeByType(String type) {
+                double totalGrades = 0;
+                double totalWeights = 0;
+
+		for (Assignment assignment : assignments) {
+			if (type == null || assignment.getType().equalsIgnoreCase(type)) {
+				double grade = Double.parseDouble(assignment.getGrade());
+				double weight = Double.parseDouble(assignment.getWeight().replace("x","");
+
+				totalGrades += grade * weight;
+				totalWeights += weight;
+			}
+		}
+
+		if (totalWeights == 0) {
+			return 0;
+		}
+
+		typeGrade = (totalGrades / totalWeights);
+		return typeGrade;
+	}
+
+
+	
 	public Assignment selectAssignment(String AssigmentID) {
 		for (Assignment a : assignments) {
 			if (a.getID().equals(AssigmentID)) {
@@ -148,9 +173,10 @@ public class Student implements Comparable<Student> {
 		// return null if not possible
 		return null;
 	}
-    public int hashCode() {
-        return Objects.hash(currentid);
-    }
+
+        public int hashCode() {
+                return Objects.hash(currentid);
+	}
 }
 		
 
