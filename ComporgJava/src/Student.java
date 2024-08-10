@@ -157,7 +157,7 @@ public class Student implements Comparable<Student> {
 			return 0;
 		}
 
-		typeGrade = (totalGrades / totalWeights);
+		double typeGrade = (totalGrades / totalWeights);
 		return typeGrade;
 	}
 
