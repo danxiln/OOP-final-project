@@ -49,7 +49,7 @@ public class classroomGUIAdder extends JFrame {
 				String id=txtStudentID.getText();
 				String name=txtStudentName.getText();
 				String notes=txtStudentNotes.getText();
-				Student newStudent =new Student(id, name, notes);
+				Student newStudent =new Student(name, id, notes);
 				g.addStudent(newStudent);	
 				cgu.refreshStudents();
 				dispose();

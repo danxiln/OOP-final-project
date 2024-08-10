@@ -60,6 +60,7 @@ public class assignmentGUI extends JFrame {
 		contentPane.add(lblAssingmentID);
 		
 		txtAssingmentID = new JTextField();
+		txtAssingmentID.setEditable(false);
 		txtAssingmentID.setBounds(133, 33, 176, 20);
 		contentPane.add(txtAssingmentID);
 		txtAssingmentID.setColumns(10);
