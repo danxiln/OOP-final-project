@@ -3,8 +3,8 @@ public class Assignment implements Comparable<Assignment> {
 	String dueDate, name, type, grade, weight, notes,id;
 
 	Assignment(String assignment_name, String assignment_dueDate, String assignment_type,
- 		   String assignment_grade, String assignment_weight, String assignment_notes) {
-		id = Integer.toString(IdCounter);
+ 		   String assignment_grade, String assignment_weight, String assignment_notes,String assignment_id) {
+		id = assignment_id;
 		name = assignment_name;
 		dueDate = assignment_dueDate;
 		type = assignment_type;

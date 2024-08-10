@@ -33,6 +33,15 @@ public class classroomGUI extends JFrame {
 	private Classroom g;
 	private DataModel dm;
 	private GradebookGUI cbg;
+	private JLabel lblOverall;
+	private JLabel lblQuiz;
+	private JLabel lblExam;
+	private JLabel lblProject;
+	private JTextField txtOverall;
+	private JTextField txtExam;
+	private JTextField txtProject;
+	private JTextField txtQuiz;
+	private JTextField txtHomework;
 	/**
 	 * Launch the application.
 	 */
@@ -41,7 +50,7 @@ public class classroomGUI extends JFrame {
 		this.dm=dm;
 		this.g=g;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 706, 342);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -69,7 +78,7 @@ public class classroomGUI extends JFrame {
 		txtStudents.setBounds(16, 164, 394, 102);
 		contentPane.add(txtStudents);
 		
-		btnAddStudent = new JButton("Add Student");
+		btnAddStudent =  new JButton("Add Student");
 		btnAddStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				classroomGUIAdder cga=new classroomGUIAdder(g,classroomGUI.this);
@@ -143,6 +152,51 @@ public class classroomGUI extends JFrame {
 		txtClassYear.setBounds(297, 50, 130, 26);
 		contentPane.add(txtClassYear);
 		txtClassYear.setColumns(10);
+		
+		lblOverall = new JLabel("Overall:");
+		lblOverall.setBounds(445, 7, 46, 14);
+		contentPane.add(lblOverall);
+		
+		lblQuiz = new JLabel("Quiz:");
+		lblQuiz.setBounds(445, 63, 46, 14);
+		contentPane.add(lblQuiz);
+		
+		lblExam = new JLabel("Exam:");
+		lblExam.setBounds(445, 34, 46, 14);
+		contentPane.add(lblExam);
+		
+		lblProject = new JLabel("Project");
+		lblProject.setBounds(445, 93, 46, 14);
+		contentPane.add(lblProject);
+		
+		txtOverall = new JTextField();
+		txtOverall.setBounds(532, 4, 86, 20);
+		contentPane.add(txtOverall);
+		txtOverall.setColumns(10);
+		
+		txtExam = new JTextField();
+		txtExam.setBounds(532, 31, 86, 20);
+		contentPane.add(txtExam);
+		txtExam.setColumns(10);
+		
+		txtProject = new JTextField();
+		txtProject.setBounds(532, 91, 86, 20);
+		contentPane.add(txtProject);
+		txtProject.setColumns(10);
+		
+		txtQuiz = new JTextField();
+		txtQuiz.setBounds(532, 57, 86, 20);
+		contentPane.add(txtQuiz);
+		txtQuiz.setColumns(10);
+		
+		txtHomework = new JTextField();
+		txtHomework.setBounds(532, 124, 86, 20);
+		contentPane.add(txtHomework);
+		txtHomework.setColumns(10);
+		
+		JLabel lblHomework = new JLabel("Homework");
+		lblHomework.setBounds(445, 124, 77, 14);
+		contentPane.add(lblHomework);
 	
 		refreshStudents();
 		
