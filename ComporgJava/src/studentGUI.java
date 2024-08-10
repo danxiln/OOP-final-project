@@ -17,19 +17,28 @@ public class studentGUI extends JFrame {
 	private JTextField txtStudentID;
 	private JTextField txtStudentName;
 	private JTextField txtStudentGPA;
-	private JTextField txtAssigmentID;
+	private JTextField txtExamGrade;
+	private JTextField txtProjectGrade;
+	private JTextField txtQuizGrade;
+	private JTextField txtHomeworkGrade;
+	private JTextField txtAssignmentID;
 	private JLabel lblStudentID ;
 	private JLabel lblStudentName;
 	private JLabel lblStudentNotes;
+
 	private JLabel lblStudentGPA;
+	private JLabel lblExamGrade;
+	private JLabel lblProjectGrade;
+	private JLabel lblQuizGrade;
+	private JLabel lblHomeworkGrade;
+
 	private JTextArea txtStudentNotes;
-	private JLabel lblAssigmentID;
-	private JLabel lblAssigments;
-	private JButton btnAddAssigment;
+	private JLabel lblAssignmentID;
+	private JLabel lblAssignments;
+	private JButton btnAddAssignment;
 	private JButton btnEditStudent;
-	private JButton btnAccessAssigment;
-	private JTextArea txtAssigments;
-	
+	private JButton btnAccessAssignment;
+	private JTextArea txtAssignments;	
 
 	private Student s;
 	private Classroom g;
@@ -87,33 +96,88 @@ public class studentGUI extends JFrame {
 		contentPane.add(txtStudentGPA);
 		txtStudentGPA.setColumns(10);
 		
+	        lblExamGrade = new JLabel("Exam GPA:");
+		lblExamGrade.setBounds(10, 75, 113, 14);
+        	contentPane.add(lblExamGrade);
+
+        	txtExamGrade = new JTextField();
+        	txtExamGrade.setEditable(false);
+        	txtExamGrade.setBounds(10, 90, 100, 20);
+        	contentPane.add(txtExamGrade);
+        	txtExamGrade.setColumns(10);
+
+		lblProjectGrade = new JLabel("Project GPA:");
+        	lblProjectGrade.setBounds(120, 75, 113, 14);
+        	contentPane.add(lblProjectGrade);
+
+        	txtProjectGrade = new JTextField();
+        	txtProjectGrade.setEditable(false);
+        	txtProjectGrade.setBounds(120, 90, 100, 20);
+        	contentPane.add(txtProjectGrade);
+        	txtProjectGrade.setColumns(10);
+
+		lblQuizGrade = new JLabel("Quiz GPA:");
+        	lblQuizGrade.setBounds(230, 75, 113, 14);
+        	contentPane.add(lblQuizGrade);
+
+        	txtQuizGrade = new JTextField();
+        	txtQuizGrade.setEditable(false);
+        	txtQuizGrade.setBounds(230, 90, 100, 20);
+        	contentPane.add(txtQuizGrade);
+        	txtQuizGrade.setColumns(10);
+
+        	lblHomeworkGrade = new JLabel("Homework GPA:");
+        	lblHomeworkGrade.setBounds(340, 75, 113, 14);
+        	contentPane.add(lblHomeworkGrade);
+
+        	txtHomeworkGrade = new JTextField();
+        	txtHomeworkGrade.setEditable(false);
+       	 	txtHomeworkGrade.setBounds(340, 90, 100, 20);
+        	contentPane.add(txtHomeworkGrade);
+        	txtHomeworkGrade.setColumns(10);
+
 		txtStudentNotes = new JTextArea();
 		txtStudentNotes.setEditable(false);
 		txtStudentNotes.setBounds(83, 39, 190, 49);
 		contentPane.add(txtStudentNotes);
 		
-		lblAssigmentID = new JLabel("Assigment ID:");
-		lblAssigmentID.setBounds(10, 108, 86, 14);
-		contentPane.add(lblAssigmentID);
+		lblAssignmentID = new JLabel("Assignment ID:");
+		lblAssignmentID.setBounds(10, 108, 86, 14);
+		contentPane.add(lblAssignmentID);
 		
-		txtAssigmentID = new JTextField();
-		txtAssigmentID.setBounds(93, 105, 152, 20);
-		contentPane.add(txtAssigmentID);
-		txtAssigmentID.setColumns(10);
+		txtAssignmentID = new JTextField();
+		txtAssignmentID.setBounds(93, 105, 152, 20);
+		contentPane.add(txtAssignmentID);
+		txtAssignmentID.setColumns(10);
 		
-		lblAssigments = new JLabel("Assignments:");
-		lblAssigments.setBounds(10, 133, 88, 14);
-		contentPane.add(lblAssigments);
+		txtAssignmentID = new JTextField();
+		txtAssignmentID.setBounds(93, 105, 152, 20);
+		contentPane.add(txtAssignmentID);
+		txtAssignmentID.setColumns(10);
+
+		lblAssignments = new JLabel("Assignments:");
+		lblAssignments.setBounds(10, 133, 88, 14);
+		contentPane.add(lblAssignments);
 		
-		btnAddAssigment = new JButton("Add Assignment");
-		btnAddAssigment.addActionListener(new ActionListener() {
+		btnAddAssignment = new JButton("Add Assignment");
+		btnAddAssignment.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				StudentGUIAdder sga=new StudentGUIAdder(s,studentGUI.this);
 				sga.setVisible(true);
+
+				// calculate grade after entering assignments
+				s.calcGrade();
+				txtStudentGPA.setText(s.getGrade());
+				txtExamGrade.setText(String.format("%.2f", s.calcGradeByType("Exam")));
+				txtProjectGrade.setText(String.format("%.2f", s.calcGradeByType("Project")));
+				txtQuizGrade.setText(String.format("%.2f", s.calcGradeByType("Quiz")));
+				txtHomeworkGrade.setText(String.format("%.2f", s.calcGradeByType("Homework")));
+				refreshGUI();
 			}
 		});
-		btnAddAssigment.setBounds(103, 129, 150, 23);
-		contentPane.add(btnAddAssigment);
+
+		btnAddAssignment.setBounds(103, 129, 150, 23);
+		contentPane.add(btnAddAssignment);
 		
 		btnEditStudent = new JButton("Edit Student");
 		btnEditStudent.addActionListener(new ActionListener() {
@@ -125,34 +189,34 @@ public class studentGUI extends JFrame {
 		btnEditStudent.setBounds(289, 129, 135, 23);
 		contentPane.add(btnEditStudent);
 		
-		btnAccessAssigment = new JButton("Access Assignment");
-		btnAccessAssigment.addActionListener(new ActionListener() {
+		btnAccessAssignment = new JButton("Access Assignment");
+		btnAccessAssignment.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Assignment currentAssigment = s.selectAssignment(txtAssigmentID.getText());
-				if(currentAssigment!=null) {
-					assignmentGUI ag=new assignmentGUI(currentAssigment,studentGUI.this);
+				String assignmentID = txtAssignmentID.getText();
+				Assignment currentAssignment = s.selectAssignment(txtAssignmentID.getText());
+				if(currentAssignment!=null) {
+					assignmentGUI ag=new assignmentGUI(currentAssignment,studentGUI.this);
 					ag.setVisible(true);
 				}
-				// error message to display when classroom with ID was not found
+				// error message to display when assignment with ID was not found
 				else {
 					JOptionPane.showMessageDialog(contentPane, "Assignment with ID " + 
-							txtAssigmentID.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
+							txtAssignmentID.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
 
 				}
 				
-				String id=txtAssigmentID.getText();
+				String id=txtAssignmentID.getText();
 				Assignment a= s.selectAssignment(id);
 				assignmentGUI ag=new assignmentGUI(a,studentGUI.this);
 				ag.setVisible(true);
 			}
 		});
-		btnAccessAssigment.setBounds(272, 104, 152, 23);
-		contentPane.add(btnAccessAssigment);
+		btnAccessAssignment.setBounds(272, 104, 152, 23);
+		contentPane.add(btnAccessAssignment);
 		
-		txtAssigments = new JTextArea();
-		txtAssigments.setBounds(10, 158, 414, 92);
-		contentPane.add(txtAssigments);
+		txtAssignments = new JTextArea();
+		txtAssignments.setBounds(10, 158, 414, 92);
+		contentPane.add(txtAssignments);
 		refreshGUI();
 	}
 	public void refreshGUI() {
@@ -162,7 +226,7 @@ public class studentGUI extends JFrame {
 		txtStudentNotes.setText(s.getNotes());
 		if(s!=null) {
 			String x=s.StringOfAllAssigments();
-			txtAssigments.setText(x);
+			txtAssignments.setText(x);
 		}
 	}
 	public void deleteStudent() {
