@@ -31,6 +31,8 @@ public class Assignment implements Comparable<Assignment> {
 		return type;
 	}
 
+	// use getGrade and getWeight methods to retrieve grade's to be used as part of 
+	// auto calculation
 	public String getGrade() {
 		return grade;
 	}

@@ -83,11 +83,11 @@ public class Student implements Comparable<Student> {
 	
 	public String StringOfAllAssigments() {
 		// formating to print classrooms in the appropriate format
-		String all=String.format("%-8s |%-8s |%12s| %8s\n",
+		String all=String.format("%-8s |%-20s |%12s| %8s\n",
 		       	    		 "ID", "Name","Due Date","Grade");
 		if(assignments!=null) {
 		for (Assignment current : assignments) {
-			all += String.format("%-8s |%-8s |%12s |%8s\n",
+			all += String.format("%-8s |%-20s |%12s |%8s\n",
 					     current.getID(),
 					     current.getName(),
 					     current.getdueDate(),
@@ -101,6 +101,31 @@ public class Student implements Comparable<Student> {
 		
 	}
 
+	// method to calcualte overall assignment grade
+	public double calcGrade() {
+		double totalGrades = 0;
+		double totalWeights = 0;
+
+		for (Assignment assignment : assignments) {
+			// parse through grade and weight from the assignments and convert string to numerical
+			double grade = Double.parseDouble(assignment.getGrade());
+			double weight = Double.parseDouble(assignment.getWeight().replace("x", ""));
+
+			// multiply the grade by the weight to get how much the assignment is worth
+			// and add it total
+			totalGrades += grade * weight;
+
+			// find the total weights by adding the weight of each assignment together
+			totalWeights += weight;
+		}
+		// stop error if no assignments are added
+		if (totalWeights == 0) {
+			return 0;
+		}
+
+		double overallGrade = (totalGrades / totalWeights);
+		return overallGrade;
+	}
 }
 		
 
