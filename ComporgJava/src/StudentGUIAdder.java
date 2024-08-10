@@ -60,7 +60,6 @@ public class StudentGUIAdder extends JFrame {
 		contentPane.add(lblAssignmentID);
 		
 		txtAssignmentID = new JTextField();
-		txtAssignmentID.setEditable(false);
 		txtAssignmentID.setBounds(143, 33, 156, 20);
 		contentPane.add(txtAssignmentID);
 		txtAssignmentID.setColumns(10);
@@ -136,7 +135,6 @@ public class StudentGUIAdder extends JFrame {
 		txtAssignmentNotes = new JTextArea();
 		txtAssignmentNotes.setBounds(153, 170, 266, 53);
 		contentPane.add(txtAssignmentNotes);
-		txtAssignmentID.setText(Integer.toString(Assignment.getIdCounter()));
 		
 	}
 }
