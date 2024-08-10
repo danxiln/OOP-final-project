@@ -72,7 +72,7 @@ public class classroomGUI extends JFrame {
 		btnAddStudent = new JButton("Add Student");
 		btnAddStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClassroomGUIAdder cga=new ClassroomGUIAdder(g,classroomGUI.this);
+				classroomGUIAdder cga=new classroomGUIAdder(g,classroomGUI.this);
 				cga.setVisible(true);
 			}
 		});
@@ -89,7 +89,7 @@ public class classroomGUI extends JFrame {
 				}
 				// error message to display when classroom with ID was not found
 				else {
-					JOptionPane.showMessageDialog(contentPane, "Classroom with ID " + 
+					JOptionPane.showMessageDialog(contentPane, "Student with ID " + 
 							txtStudentID.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
 
 				}

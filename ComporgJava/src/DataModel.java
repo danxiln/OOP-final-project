@@ -3,9 +3,12 @@ import java.util.ArrayList;
 
 public class DataModel {
 	private ArrayList<Classroom> Gradebook;
+	private Set<Student> students;
 	
 	DataModel(){
 		Gradebook= new ArrayList<Classroom>();
+        students = new HashSet<>();
+
 	}
 	
 	// function to add a classroom
@@ -43,5 +46,21 @@ public class DataModel {
 	}
 	public void delete(Classroom g) {
 		Gradebook.remove(g);
+	}
+	public void sortSet() {
+		for(Classroom currentClass:Gradebook) {
+			students.addAll(currentClass.getAllStudents());
+		}
+	}
+	
+	public String StringOfAllStudents() {
+		// formating to print classrooms in the appropriate format
+		
+		String all=String.format("%-8s | %s\n",
+			       	    		 "ID", "Name");
+			for(Student currentStudent:students) {
+					all += currentStudent.toString();
+			}
+		return all;
 	}
 }

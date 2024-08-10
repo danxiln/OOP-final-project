@@ -22,6 +22,8 @@ public class GradebookGUI extends JFrame {
 	private JLabel lblClassroomID;
 	private DataModel newdm;
 	private JTextArea txtClassroom;
+	private JButton btnViewAllAssignments;
+	private JButton btnViewStudents;
 
 	/**
 	 * Launch the application.
@@ -86,9 +88,26 @@ public class GradebookGUI extends JFrame {
 		
 		txtClassroom = new JTextArea();
 		txtClassroom.setEditable(false);
-		txtClassroom.setBounds(31, 110, 379, 156);
+		txtClassroom.setBounds(31, 109, 379, 100);
 		txtClassroom.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		contentPane.add(txtClassroom);
+		
+		btnViewAllAssignments = new JButton("View Assignments");
+		btnViewAllAssignments.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnViewAllAssignments.setBounds(28, 220, 139, 23);
+		contentPane.add(btnViewAllAssignments);
+		
+		btnViewStudents = new JButton("View Students");
+		btnViewStudents.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ClassroomStudents cs=new ClassroomStudents(dm);
+			}
+		});
+		btnViewStudents.setBounds(247, 220, 150, 23);
+		contentPane.add(btnViewStudents);
 	}
 	public void refreshClassrooms() {
 		if(newdm!=null) {

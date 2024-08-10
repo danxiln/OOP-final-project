@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
@@ -16,7 +17,7 @@ public class studentGUI extends JFrame {
 	private JTextField txtStudentID;
 	private JTextField txtStudentName;
 	private JTextField txtStudentGPA;
-	private JTextField textField;
+	private JTextField txtAssigmentID;
 	private JLabel lblStudentID ;
 	private JLabel lblStudentName;
 	private JLabel lblStudentNotes;
@@ -95,10 +96,10 @@ public class studentGUI extends JFrame {
 		lblAssigmentID.setBounds(10, 108, 86, 14);
 		contentPane.add(lblAssigmentID);
 		
-		textField = new JTextField();
-		textField.setBounds(93, 105, 152, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtAssigmentID = new JTextField();
+		txtAssigmentID.setBounds(93, 105, 152, 20);
+		contentPane.add(txtAssigmentID);
+		txtAssigmentID.setColumns(10);
 		
 		lblAssigments = new JLabel("Assignments:");
 		lblAssigments.setBounds(10, 133, 88, 14);
@@ -125,6 +126,27 @@ public class studentGUI extends JFrame {
 		contentPane.add(btnEditStudent);
 		
 		btnAccessAssigment = new JButton("Access Assignment");
+		btnAccessAssigment.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Assignment currentAssigment = s.selectAssignment(txtAssigmentID.getText());
+				if(currentAssigment!=null) {
+					assignmentGUI ag=new assignmentGUI(currentAssigment,studentGUI.this);
+					ag.setVisible(true);
+				}
+				// error message to display when classroom with ID was not found
+				else {
+					JOptionPane.showMessageDialog(contentPane, "Assignment with ID " + 
+							txtAssigmentID.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
+
+				}
+				
+				String id=txtAssigmentID.getText();
+				Assignment a= s.selectAssignment(id);
+				assignmentGUI ag=new assignmentGUI(a,studentGUI.this);
+				ag.setVisible(true);
+			}
+		});
 		btnAccessAssigment.setBounds(272, 104, 152, 23);
 		contentPane.add(btnAccessAssigment);
 		

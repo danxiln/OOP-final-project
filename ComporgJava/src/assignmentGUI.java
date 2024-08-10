@@ -32,12 +32,12 @@ public class assignmentGUI extends JFrame {
 	private JButton btnDelete;
 	private JButton btnExit;
 	
-	private Assignment a;
-	private studentGUI sg;
+	private Assignment newa;
+	private studentGUI newsg;
 
 	public assignmentGUI(Assignment a,studentGUI sg) {
-		this.a=a;
-		this.sg=sg;
+		this.newa=a;
+		this.newsg=sg;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -60,6 +60,7 @@ public class assignmentGUI extends JFrame {
 		contentPane.add(lblAssingmentID);
 		
 		txtAssingmentID = new JTextField();
+		txtAssingmentID.setEditable(false);
 		txtAssingmentID.setBounds(133, 33, 176, 20);
 		contentPane.add(txtAssingmentID);
 		txtAssingmentID.setColumns(10);
@@ -111,13 +112,13 @@ public class assignmentGUI extends JFrame {
 		btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				a.setName(txtAssingmentName.getText());
-				a.setID(txtAssingmentID.getText());
-				a.setDueDate(txtAssingmentDueDate.getText());
-				a.setType(txtAssignmentType.getText());
-				a.setGrade(txtAssignmentGrade.getText());
-				a.setWeight(txtAssingmentWeight.getText());
-				sg.refreshGUI();
+				newa.setName(txtAssingmentName.getText());
+				newa.setID(txtAssingmentID.getText());
+				newa.setDueDate(txtAssingmentDueDate.getText());
+				newa.setType(txtAssignmentType.getText());
+				newa.setGrade(txtAssignmentGrade.getText());
+				newa.setWeight(txtAssingmentWeight.getText());
+				newsg.refreshGUI();
 				dispose();
 			}
 		});
@@ -127,11 +128,11 @@ public class assignmentGUI extends JFrame {
 		btnDelete = new JButton("Delete Assingment");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sg.deleteAssignment(a);
+				newsg.deleteAssignment(a);
 				dispose();
 			}
 		});
-		btnDelete.setBounds(133, 234, 136, 23);
+		btnDelete.setBounds(143, 227, 136, 23);
 		contentPane.add(btnDelete);
 		
 		btnExit = new JButton("Exit");
@@ -142,12 +143,12 @@ public class assignmentGUI extends JFrame {
 		});
 		btnExit.setBounds(335, 227, 89, 23);
 		contentPane.add(btnExit);
-		txtAssingmentName.setText(a.getName());
-		txtAssingmentID.setText(a.getID());
-		txtAssingmentDueDate.setText(a.getdueDate());
-		txtAssignmentType.setText(a.getType());
-		txtAssignmentGrade.setText(a.getGrade());
-		txtAssingmentWeight.setText(a.getWeight());
+		txtAssingmentName.setText(newa.getName());
+		txtAssingmentID.setText(newa.getID());
+		txtAssingmentDueDate.setText(newa.getdueDate());
+		txtAssignmentType.setText(newa.getType());
+		txtAssignmentGrade.setText(newa.getGrade());
+		txtAssingmentWeight.setText(newa.getWeight());
 	}
 
 }
