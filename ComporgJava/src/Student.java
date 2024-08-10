@@ -146,7 +146,7 @@ public class Student implements Comparable<Student> {
 		for (Assignment assignment : assignments) {
 			if (type == null || assignment.getType().equalsIgnoreCase(type)) {
 				double grade = Double.parseDouble(assignment.getGrade());
-				double weight = Double.parseDouble(assignment.getWeight().replace("x","");
+				double weight = Double.parseDouble(assignment.getWeight().replace("x",""));
 
 				totalGrades += grade * weight;
 				totalWeights += weight;
