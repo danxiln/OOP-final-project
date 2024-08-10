@@ -81,6 +81,9 @@ public class Classroom {
 	public void deleteStudent(Student s) {
 		students.remove(s);
 	}
+	public ArrayList<Student>  getAllStudents() {
+		return students;
+	}
 	
 	
 }

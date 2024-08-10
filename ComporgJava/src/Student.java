@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+import java.util.*;
 public class Student implements Comparable<Student> {
 	static int students = 0;
 	static int currentid;
@@ -96,6 +96,17 @@ public class Student implements Comparable<Student> {
 		}
 		return all;
 	}
+	public String toString() {
+		String all="";
+		for (Assignment current : assignments) {
+			all += String.format("%-8s |%-8s |%12s |%8s\n",
+					     current.getID(),
+					     current.getName(),
+					     current.getdueDate(),
+					     current.getGrade());
+		}
+		return all;
+	}
 	public void deleteAssignment(Assignment a) {
 		assignments.remove(a);
 		
@@ -110,7 +121,9 @@ public class Student implements Comparable<Student> {
 		// return null if not possible
 		return null;
 	}
-
+    public int hashCode() {
+        return Objects.hash(currentid);
+    }
 }
 		
 
