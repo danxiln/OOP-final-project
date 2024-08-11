@@ -115,7 +115,7 @@ public class assignmentGUI extends JFrame {
 		btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btn_save();
+				btn_clickSave();
 			}
 		});
 		btnSave.setBounds(26, 227, 89, 23);
@@ -147,7 +147,7 @@ public class assignmentGUI extends JFrame {
 		txtAssingmentWeight.setText(newa.getWeight());
 	}
 
-	public void btn_save() {
+	public void btn_clickSave() {
 		String assignmentType = txtAssignmentType.getText();
 		if (assignmentType.isEmpty()) {
 			JOptionPane.showMessageDialog(contentPane, "Assignment Type cannot be empty.", "Error",
