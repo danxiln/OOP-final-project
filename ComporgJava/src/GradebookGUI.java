@@ -49,8 +49,7 @@ public class GradebookGUI extends JFrame {
 		btnAddClassroom = new JButton("Add Classroom");
 		btnAddClassroom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Gradebook_AdderGUI gb =new Gradebook_AdderGUI(dm);
-				gb.setVisible(true);
+				btn_clickAddClassroom();
 			}
 		});
 		btnAddClassroom.setBounds(260, 76, 150, 29);
@@ -127,5 +126,9 @@ public class GradebookGUI extends JFrame {
 			txtAcessInput.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
 
 		}
+	}
+	public void btn_clickAddClassroom() {
+		Gradebook_AdderGUI gb =new Gradebook_AdderGUI(dm);
+		gb.setVisible(true);
 	}
 }
