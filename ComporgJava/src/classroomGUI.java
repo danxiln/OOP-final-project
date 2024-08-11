@@ -202,6 +202,7 @@ public class classroomGUI extends JFrame {
 		contentPane.add(txtHomework);
 		txtHomework.setColumns(10);
 		
+
 		JLabel lblHomework = new JLabel("Homework:");
 		lblHomework.setBounds(445, 124, 77, 14);
 		contentPane.add(lblHomework);
