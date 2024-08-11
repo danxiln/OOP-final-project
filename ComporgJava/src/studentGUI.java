@@ -55,7 +55,7 @@ public class studentGUI extends JFrame {
 		this.g=g;
 		this.cg=cg;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 722, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -97,42 +97,42 @@ public class studentGUI extends JFrame {
 		txtStudentGPA.setColumns(10);
 		
 	        lblExamGrade = new JLabel("Exam GPA:");
-		lblExamGrade.setBounds(10, 75, 113, 14);
+		lblExamGrade.setBounds(434, 93, 113, 14);
         	contentPane.add(lblExamGrade);
 
         	txtExamGrade = new JTextField();
         	txtExamGrade.setEditable(false);
-        	txtExamGrade.setBounds(10, 90, 100, 20);
+        	txtExamGrade.setBounds(545, 90, 100, 20);
         	contentPane.add(txtExamGrade);
         	txtExamGrade.setColumns(10);
 
 		lblProjectGrade = new JLabel("Project GPA:");
-        	lblProjectGrade.setBounds(120, 75, 113, 14);
+        	lblProjectGrade.setBounds(434, 58, 113, 14);
         	contentPane.add(lblProjectGrade);
 
         	txtProjectGrade = new JTextField();
         	txtProjectGrade.setEditable(false);
-        	txtProjectGrade.setBounds(120, 90, 100, 20);
+        	txtProjectGrade.setBounds(545, 62, 100, 20);
         	contentPane.add(txtProjectGrade);
         	txtProjectGrade.setColumns(10);
 
 		lblQuizGrade = new JLabel("Quiz GPA:");
-        	lblQuizGrade.setBounds(230, 75, 113, 14);
+        	lblQuizGrade.setBounds(434, 36, 113, 14);
         	contentPane.add(lblQuizGrade);
 
         	txtQuizGrade = new JTextField();
         	txtQuizGrade.setEditable(false);
-        	txtQuizGrade.setBounds(230, 90, 100, 20);
+        	txtQuizGrade.setBounds(545, 33, 100, 20);
         	contentPane.add(txtQuizGrade);
         	txtQuizGrade.setColumns(10);
 
         	lblHomeworkGrade = new JLabel("Homework GPA:");
-        	lblHomeworkGrade.setBounds(340, 75, 113, 14);
+        	lblHomeworkGrade.setBounds(437, 11, 113, 14);
         	contentPane.add(lblHomeworkGrade);
 
         	txtHomeworkGrade = new JTextField();
         	txtHomeworkGrade.setEditable(false);
-       	 	txtHomeworkGrade.setBounds(340, 90, 100, 20);
+       	 	txtHomeworkGrade.setBounds(545, 8, 100, 20);
         	contentPane.add(txtHomeworkGrade);
         	txtHomeworkGrade.setColumns(10);
 
