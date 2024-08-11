@@ -115,99 +115,7 @@ public class assignmentGUI extends JFrame {
 		btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String assignmentType = txtAssignmentType.getText();
-				if (assignmentType.isEmpty()) {
-					JOptionPane.showMessageDialog(contentPane, "Assignment Type cannot be empty.", "Error",
-							JOptionPane.ERROR_MESSAGE);
-					return;
-				}
-
-				// Check if assignment is one of 4 possible choices, listed in README.md
-				if (!assignmentType.equals("Exam") && !assignmentType.equals("Project") &&
-						!assignmentType.equals("Homework") && !assignmentType.equals("Quiz")) {
-					JOptionPane.showMessageDialog(contentPane,
-							"Invalid Assignment Type. Please enter one of the following: Exam, Project, Homework, Quiz.",
-							"Error", JOptionPane.ERROR_MESSAGE);
-					return;
-				}
-				// ensure that the grade is between 0 and 100, any other option is not accepted
-				// by the system
-				String gradeText = txtAssignmentGrade.getText();
-				if (gradeText.isEmpty()) {
-					JOptionPane.showMessageDialog(contentPane, "Assignment Grade cannot be empty.", "Error",
-							JOptionPane.ERROR_MESSAGE);
-					return;
-				}
-
-				try {
-					double grade = Double.parseDouble(gradeText);
-					if (grade < 0 || grade > 100) {
-						JOptionPane.showMessageDialog(contentPane, "Assignment Grade must be between 0 and 100.",
-								"Error",
-								JOptionPane.ERROR_MESSAGE);
-						return;
-					}
-				} catch (NumberFormatException ex) {
-					JOptionPane.showMessageDialog(contentPane, "Assignment Grade must be a valid number.", "Error",
-							JOptionPane.ERROR_MESSAGE);
-				}
-
-				// ensure that weight is enteredd correctly (___X) format, 'x' must be there
-				String weightText = txtAssignmentWeight.getText();
-				if (weightText.isEmpty()) {
-					JOptionPane.showMessageDialog(contentPane, "Assignment Weight cannot be empty.", "Error",
-							JOptionPane.ERROR_MESSAGE);
-					return;
-				}
-
-				if (!weightText.endsWith("x")) {
-					JOptionPane.showMessageDialog(contentPane,
-							"Weight must end in 'x' in ___x format, i.e. 10x, 20x, 30x.", "Error",
-							JOptionPane.ERROR_MESSAGE);
-					return;
-				}
-
-				// also include errors if the number in weight is not formatted or valid
-				try {
-					double weight = Double.parseDouble(weightText.substring(0, weightText.length() - 1));
-					if (weight < 0) {
-						JOptionPane.showMessageDialog(contentPane, "Weight cannot be less than 0.", "Error",
-								JOptionPane.ERROR_MESSAGE);
-						return;
-					}
-				} catch (NumberFormatException ex) {
-					JOptionPane.showMessageDialog(contentPane, "Weight must be a valid number.", "Error",
-							JOptionPane.ERROR_MESSAGE);
-					return;
-				}
-
-				// make sure that none of the other fields are empty
-				if (txtAssignmentName.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(contentPane, "Assignment Name cannot be empty.", "Error",
-							JOptionPane.ERROR_MESSAGE);
-					return;
-				}
-
-				if (txtAssignmentID.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(contentPane, "Assignment ID cannot be empty.", "Error",
-							JOptionPane.ERROR_MESSAGE);
-					return;
-				}
-				if (txtAssignmentDueDate.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(contentPane, "Assignment Due Date cannot be empty.", "Error",
-							JOptionPane.ERROR_MESSAGE);
-					return;
-				}
-
-				// set assignment details if information is inputted correctly
-				newa.setName(txtAssingmentName.getText());
-				newa.setID(txtAssingmentID.getText());
-				newa.setDueDate(txtAssingmentDueDate.getText());
-				newa.setType(txtAssignmentType.getText());
-				newa.setGrade(txtAssignmentGrade.getText());
-				newa.setWeight(txtAssingmentWeight.getText());
-				newsg.refreshGUI();
-				dispose();
+				btn_save();
 			}
 		});
 		btnSave.setBounds(26, 227, 89, 23);
@@ -241,6 +149,12 @@ public class assignmentGUI extends JFrame {
 
 	public void btn_save() {
 		String assignmentType = txtAssignmentType.getText();
+		if (assignmentType.isEmpty()) {
+			JOptionPane.showMessageDialog(contentPane, "Assignment Type cannot be empty.", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+
 		// Check if assignment is one of 4 possible choices, listed in README.md
 		if (!assignmentType.equals("Exam") && !assignmentType.equals("Project") &&
 				!assignmentType.equals("Homework") && !assignmentType.equals("Quiz")) {
@@ -252,10 +166,17 @@ public class assignmentGUI extends JFrame {
 		// ensure that the grade is between 0 and 100, any other option is not accepted
 		// by the system
 		String gradeText = txtAssignmentGrade.getText();
+		if (gradeText.isEmpty()) {
+			JOptionPane.showMessageDialog(contentPane, "Assignment Grade cannot be empty.", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+
 		try {
 			double grade = Double.parseDouble(gradeText);
 			if (grade < 0 || grade > 100) {
-				JOptionPane.showMessageDialog(contentPane, "Assignment Grade must be between 0 and 100.", "Error",
+				JOptionPane.showMessageDialog(contentPane, "Assignment Grade must be between 0 and 100.",
+						"Error",
 						JOptionPane.ERROR_MESSAGE);
 				return;
 			}
@@ -266,10 +187,17 @@ public class assignmentGUI extends JFrame {
 
 		// ensure that weight is enteredd correctly (___X) format, 'x' must be there
 		String weightText = txtAssignmentWeight.getText();
-		if (!weightText.endsWith("x")) {
-			JOptionPane.showMessageDialog(contentPane, "Weight must end in 'x' in ___x format, i.e. 10x, 20x, 30x.",
-					"Error",
+		if (weightText.isEmpty()) {
+			JOptionPane.showMessageDialog(contentPane, "Assignment Weight cannot be empty.", "Error",
 					JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+
+		if (!weightText.endsWith("x")) {
+			JOptionPane.showMessageDialog(contentPane,
+					"Weight must end in 'x' in ___x format, i.e. 10x, 20x, 30x.", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return;
 		}
 
 		// also include errors if the number in weight is not formatted or valid
@@ -283,6 +211,7 @@ public class assignmentGUI extends JFrame {
 		} catch (NumberFormatException ex) {
 			JOptionPane.showMessageDialog(contentPane, "Weight must be a valid number.", "Error",
 					JOptionPane.ERROR_MESSAGE);
+			return;
 		}
 
 		// make sure that none of the other fields are empty
