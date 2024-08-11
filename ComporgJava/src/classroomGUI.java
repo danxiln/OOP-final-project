@@ -94,17 +94,7 @@ public class classroomGUI extends JFrame {
 		btnAcessStudent = new JButton("Access Student");
 		btnAcessStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Student currentStudent = g.selectStudent(txtStudentID.getText());
-				if(currentStudent!=null) {
-					studentGUI sg=new studentGUI(currentStudent,g,classroomGUI.this);
-					sg.setVisible(true);
-				}
-				// error message to display when classroom with ID was not found
-				else {
-					JOptionPane.showMessageDialog(contentPane, "Student with ID " + 
-							txtStudentID.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
-
-				}
+				btn_clickAccessStudent();
 			}
 		});
 		btnAcessStudent.setBounds(237, 86, 150, 29);
@@ -246,6 +236,7 @@ public class classroomGUI extends JFrame {
 		txtClassYear.setText(g.getYear());
 		txtClassNotes.setText(g.getNotes());
 		System.out.println("x");
+		cbg.refreshClassrooms();
 		if(g!=null) {
 			System.out.println("x");
 
@@ -258,13 +249,25 @@ public class classroomGUI extends JFrame {
         		txtQuiz.setText(String.format("%.2f", g.calcGradeByType("Quiz")));
         		txtHomework.setText(String.format("%.2f", g.calcGradeByType("Homework")));
 			}
+		
 		}
-	public void refreshGradebook() {
-		cbg.refreshClassrooms();
-	}
 	public void deleteClassroom() {
 		dm.delete(g);
 		cbg.refreshClassrooms();
 		dispose();
+	}
+	public void btn_clickAccessStudent() {
+		Student currentStudent = g.selectStudent(txtStudentID.getText());
+		if(currentStudent!=null) {
+			studentGUI sg=new studentGUI(currentStudent,g,classroomGUI.this);
+			sg.setVisible(true);
+		}
+		// error message to display when classroom with ID was not found
+		else {
+			JOptionPane.showMessageDialog(contentPane, "Student with ID " + 
+					txtStudentID.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
+
+		}
+		
 	}
 }
