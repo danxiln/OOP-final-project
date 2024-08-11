@@ -104,6 +104,7 @@ public class GradebookGUI extends JFrame {
 		btnViewStudents.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ClassroomStudents cs=new ClassroomStudents(dm);
+				cs.setVisible(true);
 			}
 		});
 		btnViewStudents.setBounds(247, 220, 150, 23);

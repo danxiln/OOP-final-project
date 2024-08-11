@@ -20,6 +20,7 @@ public class ClassroomStudents extends JFrame {
 	private JLabel lblAcessStudent;
 	private JTextField txtID;
 	private JButton btnSearch;
+	private JButton btnExit;
 	
 	
 	public ClassroomStudents(DataModel dm) {
@@ -33,11 +34,11 @@ public class ClassroomStudents extends JFrame {
 		contentPane.setLayout(null);
 		
 		Students = new JLabel("Students:");
-		Students.setBounds(10, 114, 91, 14);
+		Students.setBounds(10, 86, 91, 14);
 		contentPane.add(Students);
 		
 		txtStudents = new JTextArea();
-		txtStudents.setBounds(10, 139, 377, 111);
+		txtStudents.setBounds(20, 111, 377, 111);
 		contentPane.add(txtStudents);
 		
 		lblAcessStudent = new JLabel("Access Student by ID:");
@@ -57,6 +58,15 @@ public class ClassroomStudents extends JFrame {
 		});
 		btnSearch.setBounds(249, 7, 89, 23);
 		contentPane.add(btnSearch);
+		
+		btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnExit.setBounds(297, 233, 89, 23);
+		contentPane.add(btnExit);
 		
 		refreshStudents();
 		

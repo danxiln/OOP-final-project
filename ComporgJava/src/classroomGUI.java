@@ -10,6 +10,7 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
 
 public class classroomGUI extends JFrame {
 
@@ -42,6 +43,8 @@ public class classroomGUI extends JFrame {
 	private JTextField txtProject;
 	private JTextField txtQuiz;
 	private JTextField txtHomework;
+	private JButton btnSortByGrade;
+	private JButton btnSortbyAlphabet;
 	/**
 	 * Launch the application.
 	 */
@@ -197,6 +200,27 @@ public class classroomGUI extends JFrame {
 		JLabel lblHomework = new JLabel("Homework");
 		lblHomework.setBounds(445, 124, 77, 14);
 		contentPane.add(lblHomework);
+		
+		btnSortByGrade = new JButton("Sort By Grade");
+		btnSortByGrade.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnSortByGrade.setBounds(445, 165, 162, 23);
+		contentPane.add(btnSortByGrade);
+		
+		btnSortbyAlphabet = new JButton("Sort Alphabet");
+		btnSortbyAlphabet.setBounds(445, 213, 162, 23);
+		contentPane.add(btnSortbyAlphabet);
+		
+		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnExit.setBounds(297, 277, 89, 23);
+		contentPane.add(btnExit);
 	
 		refreshStudents();
 		
