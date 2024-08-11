@@ -14,9 +14,6 @@ public class assignmentGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtAssingmentName;
-	private JTextField txtAssingmentID;
-	private JTextField txtAssingmentDueDate;
 	private JTextField txtAssignmentType;
 	private JTextField txtAssignmentGrade;
 	private JTextField txtAssingmentWeight;
@@ -24,14 +21,14 @@ public class assignmentGUI extends JFrame {
 	private JTextField txtAssignmentID;
 	private JTextField txtAssignmentDueDate;
 	private JTextField txtAssignmentWeight;
-	private JLabel lblAssingmentName;
-	private JLabel lblAssingmentID;
-	private JLabel lblAssingmentDueDate;
-	private JLabel lblAssingmentType;
+	private JLabel lblAssignmentName;
+	private JLabel lblAssignmentID;
+	private JLabel lblAssignmentDueDate;
+	private JLabel lblAssignmentType;
 	private JLabel lblAssignmentGrade;
-	private JLabel lblAssingmentWeight;
-	private JLabel lblAssingmentNotes;
-	private JTextArea txtAssingmentNotes;
+	private JLabel lblAssignmentWeight;
+	private JLabel lblAssignmentNotes;
+	private JTextArea txtAssignmentNotes;
 	private JButton btnSave;
 	private JButton btnDelete;
 	private JButton btnExit;
@@ -50,36 +47,36 @@ public class assignmentGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		lblAssingmentName = new JLabel("Assingment Name:");
-		lblAssingmentName.setBounds(10, 11, 113, 14);
-		contentPane.add(lblAssingmentName);
+		lblAssignmentName = new JLabel("Assingment Name:");
+		lblAssignmentName.setBounds(10, 11, 113, 14);
+		contentPane.add(lblAssignmentName);
 
-		txtAssingmentName = new JTextField();
-		txtAssingmentName.setBounds(133, 8, 176, 20);
-		contentPane.add(txtAssingmentName);
-		txtAssingmentName.setColumns(10);
+		txtAssignmentName = new JTextField();
+		txtAssignmentName.setBounds(133, 8, 176, 20);
+		contentPane.add(txtAssignmentName);
+		txtAssignmentName.setColumns(10);
 
-		lblAssingmentID = new JLabel("Assingment ID:");
-		lblAssingmentID.setBounds(10, 36, 113, 14);
-		contentPane.add(lblAssingmentID);
+		lblAssignmentID = new JLabel("Assingment ID:");
+		lblAssignmentID.setBounds(10, 36, 113, 14);
+		contentPane.add(lblAssignmentID);
 
-		txtAssingmentID = new JTextField();
-		txtAssingmentID.setBounds(133, 33, 176, 20);
-		contentPane.add(txtAssingmentID);
-		txtAssingmentID.setColumns(10);
+		txtAssignmentID = new JTextField();
+		txtAssignmentID.setBounds(133, 33, 176, 20);
+		contentPane.add(txtAssignmentID);
+		txtAssignmentID.setColumns(10);
 
-		lblAssingmentDueDate = new JLabel("Assingment Due Date:");
-		lblAssingmentDueDate.setBounds(10, 61, 113, 14);
-		contentPane.add(lblAssingmentDueDate);
+		lblAssignmentDueDate = new JLabel("Assignment Due Date:");
+		lblAssignmentDueDate.setBounds(10, 61, 113, 14);
+		contentPane.add(lblAssignmentDueDate);
 
-		txtAssingmentDueDate = new JTextField();
-		txtAssingmentDueDate.setBounds(133, 58, 176, 20);
-		contentPane.add(txtAssingmentDueDate);
-		txtAssingmentDueDate.setColumns(10);
+		txtAssignmentDueDate = new JTextField();
+		txtAssignmentDueDate.setBounds(133, 58, 176, 20);
+		contentPane.add(txtAssignmentDueDate);
+		txtAssignmentDueDate.setColumns(10);
 
-		lblAssingmentType = new JLabel("Assingment Type:");
-		lblAssingmentType.setBounds(10, 86, 113, 14);
-		contentPane.add(lblAssingmentType);
+		lblAssignmentType = new JLabel("Assignment Type:");
+		lblAssignmentType.setBounds(10, 86, 113, 14);
+		contentPane.add(lblAssignmentType);
 
 		txtAssignmentType = new JTextField();
 		txtAssignmentType.setBounds(133, 83, 176, 20);
@@ -95,22 +92,22 @@ public class assignmentGUI extends JFrame {
 		contentPane.add(txtAssignmentGrade);
 		txtAssignmentGrade.setColumns(10);
 
-		lblAssingmentWeight = new JLabel("Assingment Weight:");
-		lblAssingmentWeight.setBounds(10, 136, 113, 14);
-		contentPane.add(lblAssingmentWeight);
+		lblAssignmentWeight = new JLabel("Assignment Weight:");
+		lblAssignmentWeight.setBounds(10, 136, 113, 14);
+		contentPane.add(lblAssignmentWeight);
 
-		txtAssingmentWeight = new JTextField();
-		txtAssingmentWeight.setBounds(133, 133, 176, 20);
-		contentPane.add(txtAssingmentWeight);
-		txtAssingmentWeight.setColumns(10);
+		txtAssignmentWeight = new JTextField();
+		txtAssignmentWeight.setBounds(133, 133, 176, 20);
+		contentPane.add(txtAssignmentWeight);
+		txtAssignmentWeight.setColumns(10);
 
-		lblAssingmentNotes = new JLabel("Assingment Notes:");
-		lblAssingmentNotes.setBounds(10, 161, 113, 14);
-		contentPane.add(lblAssingmentNotes);
+		lblAssignmentNotes = new JLabel("Assignment Notes:");
+		lblAssignmentNotes.setBounds(10, 161, 113, 14);
+		contentPane.add(lblAssignmentNotes);
 
-		txtAssingmentNotes = new JTextArea();
-		txtAssingmentNotes.setBounds(133, 164, 176, 59);
-		contentPane.add(txtAssingmentNotes);
+		txtAssignmentNotes = new JTextArea();
+		txtAssignmentNotes.setBounds(133, 164, 176, 59);
+		contentPane.add(txtAssignmentNotes);
 
 		btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
@@ -139,12 +136,12 @@ public class assignmentGUI extends JFrame {
 		});
 		btnExit.setBounds(335, 227, 89, 23);
 		contentPane.add(btnExit);
-		txtAssingmentName.setText(newa.getName());
-		txtAssingmentID.setText(newa.getID());
-		txtAssingmentDueDate.setText(newa.getdueDate());
+		txtAssignmentName.setText(newa.getName());
+		txtAssignmentID.setText(newa.getID());
+		txtAssignmentDueDate.setText(newa.getdueDate());
 		txtAssignmentType.setText(newa.getType());
 		txtAssignmentGrade.setText(newa.getGrade());
-		txtAssingmentWeight.setText(newa.getWeight());
+		txtAssignmentWeight.setText(newa.getWeight());
 	}
 
 	public void btn_save() {
@@ -157,7 +154,7 @@ public class assignmentGUI extends JFrame {
 
 		// Check if assignment is one of 4 possible choices, listed in README.md
 		if (!assignmentType.equals("Exam") && !assignmentType.equals("Project") &&
-				!assignmentType.equals("Homework") && !assignmentType.equals("Quiz")) {
+		    !assignmentType.equals("Homework") && !assignmentType.equals("Quiz")) {
 			JOptionPane.showMessageDialog(contentPane,
 					"Invalid Assignment Type. Please enter one of the following: Exam, Project, Homework, Quiz.",
 					"Error", JOptionPane.ERROR_MESSAGE);
@@ -171,9 +168,10 @@ public class assignmentGUI extends JFrame {
 					JOptionPane.ERROR_MESSAGE);
 			return;
 		}
-
+		
+		double grade;
 		try {
-			double grade = Double.parseDouble(gradeText);
+			grade = Double.parseDouble(gradeText);
 			if (grade < 0 || grade > 100) {
 				JOptionPane.showMessageDialog(contentPane, "Assignment Grade must be between 0 and 100.",
 						"Error",
@@ -183,6 +181,7 @@ public class assignmentGUI extends JFrame {
 		} catch (NumberFormatException ex) {
 			JOptionPane.showMessageDialog(contentPane, "Assignment Grade must be a valid number.", "Error",
 					JOptionPane.ERROR_MESSAGE);
+			return;
 		}
 
 		// ensure that weight is enteredd correctly (___X) format, 'x' must be there
@@ -201,8 +200,9 @@ public class assignmentGUI extends JFrame {
 		}
 
 		// also include errors if the number in weight is not formatted or valid
+		double weight;
 		try {
-			double weight = Double.parseDouble(weightText.substring(0, weightText.length() - 1));
+			weight = Double.parseDouble(weightText.substring(0, weightText.length() - 1));
 			if (weight < 0) {
 				JOptionPane.showMessageDialog(contentPane, "Weight cannot be less than 0.", "Error",
 						JOptionPane.ERROR_MESSAGE);
@@ -233,12 +233,12 @@ public class assignmentGUI extends JFrame {
 		}
 
 		// set assignment details if information is inputted correctly
-		newa.setName(txtAssingmentName.getText());
-		newa.setID(txtAssingmentID.getText());
-		newa.setDueDate(txtAssingmentDueDate.getText());
+		newa.setName(txtAssignmentName.getText());
+		newa.setID(txtAssignmentID.getText());
+		newa.setDueDate(txtAssignmentDueDate.getText());
 		newa.setType(txtAssignmentType.getText());
 		newa.setGrade(txtAssignmentGrade.getText());
-		newa.setWeight(txtAssingmentWeight.getText());
+		newa.setWeight(txtAssignmentWeight.getText());
 		newsg.refreshGUI();
 		dispose();
 	}
