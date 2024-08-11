@@ -95,6 +95,8 @@ public class GradebookGUI extends JFrame {
 		btnViewAllAssignments = new JButton("View Assignments");
 		btnViewAllAssignments.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				GradebookAssigments ga=new GradebookAssigments(dm);
+				ga.setVisible(true);
 			}
 		});
 		btnViewAllAssignments.setBounds(28, 220, 139, 23);
