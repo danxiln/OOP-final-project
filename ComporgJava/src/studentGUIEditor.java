@@ -91,7 +91,7 @@ public class studentGUIEditor extends JFrame {
 		btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dsspose();
+				dispose();
 			}
 		});
 		btnExit.setBounds(302, 215, 89, 23);
