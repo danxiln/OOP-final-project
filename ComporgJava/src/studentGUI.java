@@ -165,6 +165,7 @@ public class studentGUI extends JFrame {
                                 txtQuizGrade.setText(String.format("%.2f", s.calcGradeByType("Quiz")));
                                 txtHomeworkGrade.setText(String.format("%.2f", s.calcGradeByType("Homework")));
                                 refreshGUI();
+			
                         }
                 });
 
