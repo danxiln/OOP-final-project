@@ -114,5 +114,4 @@ public class classroomGUIEditor extends JFrame {
 		txtClassNotes.setText(g.getNotes());		
 		
 	}
-
 }

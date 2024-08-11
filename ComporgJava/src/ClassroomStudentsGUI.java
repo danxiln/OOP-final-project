@@ -16,7 +16,7 @@ public class ClassroomStudentsGUI extends JFrame {
 	private JPanel contentPane;
 	private JLabel Students;
 	private JTextArea txtStudents;
-	private DataModel newdm;
+	private DataModel dm;
 	private JLabel lblAcessStudent;
 	private JTextField txtID;
 	private JButton btnSearch;
@@ -28,7 +28,7 @@ public class ClassroomStudentsGUI extends JFrame {
 	
 	
 	public ClassroomStudentsGUI(DataModel dm) {
-		this.newdm=dm;
+		this.dm=dm;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -77,7 +77,7 @@ public class ClassroomStudentsGUI extends JFrame {
 		btnSort = new JButton("Sort");
 		btnSort.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtStudents.setText(newdm.StringOfAllStudentsByName(txtName.getText()));
+				txtStudents.setText(dm.StringOfAllStudentsByName(txtName.getText()));
 				
 			}
 		});
@@ -106,7 +106,7 @@ public class ClassroomStudentsGUI extends JFrame {
 		
 	}
 	private void refreshStudents() {
-		txtStudents.setText(newdm.StringOfAllStudents());
+		txtStudents.setText(dm.StringOfAllStudents());
 	}
 
 }

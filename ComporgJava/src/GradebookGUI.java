@@ -20,7 +20,7 @@ public class GradebookGUI extends JFrame {
 	private JButton btnAddClassroom;
 	private JButton btnAcessClassroom;
 	private JLabel lblClassroomID;
-	private DataModel newdm;
+	private DataModel dm;
 	private JTextArea txtClassroom;
 	private JButton btnViewAllAssignments;
 	private JButton btnViewStudents;
@@ -33,10 +33,7 @@ public class GradebookGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public GradebookGUI(DataModel dm) {
-		newdm=dm;
-		if(Classroom.getClassAmount()!=0) {
-			refreshClassrooms();
-		}
+		this.dm=dm;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -106,22 +103,22 @@ public class GradebookGUI extends JFrame {
 		btnRefresh = new JButton("refresh");
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				refreshClassrooms();
+				btn_refreshClassrooms();
 			}
 		});
 		btnRefresh.setBounds(100, 79, 89, 23);
 		contentPane.add(btnRefresh);
 	}
-	public void refreshClassrooms() {
-		if(newdm!=null) {
-			String x=newdm.StringOfAllClasses();
+	public void btn_refreshClassrooms() {
+		if(dm!=null) {
+			String x=dm.StringOfAllClasses();
 			txtClassroom.setText(x);
 		}
 		}
 	private void btn_clickAccessClassroom() {
-		Classroom currentClassroom = newdm.selectClass(txtAcessInput.getText());
+		Classroom currentClassroom = dm.selectClass(txtAcessInput.getText());
 		if(currentClassroom!=null) {
-			classroomGUI cg=new classroomGUI(newdm,currentClassroom);
+			classroomGUI cg=new classroomGUI(dm,currentClassroom);
 			cg.setVisible(true);
 		}
 		// error message to display when classroom with ID was not found

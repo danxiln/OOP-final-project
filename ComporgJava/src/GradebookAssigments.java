@@ -17,13 +17,13 @@ public class GradebookAssigments extends JFrame {
 	private JLabel lblAssigments;
 	private JTextArea txtAssignments;
 	private JButton btnExit;
-	DataModel newdm;
+	DataModel dm;
 	private JLabel lblAssingnmentID;
 	private JTextField txtID;
 	private JButton btnSearch;
 	private JButton btnRefresh;
 	public GradebookAssigments(DataModel dm) {
-		newdm=dm;
+		this.dm=dm;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -80,6 +80,6 @@ public class GradebookAssigments extends JFrame {
 		refreshAssignments();
 	}
 	public void refreshAssignments() {
-		txtAssignments.setText(newdm.StringOfAllAssignments());
+		txtAssignments.setText(dm.StringOfAllAssignments());
 	}
 }

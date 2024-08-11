@@ -28,8 +28,8 @@ public class GradebookAssingmentID extends JFrame {
 	private JTextArea txtStudents;
 	
 	
-	private DataModel newdm;
-	private String newid;
+	private DataModel dm;
+	private String id;
 	private JButton btnExit;
 
 	/**
@@ -37,8 +37,8 @@ public class GradebookAssingmentID extends JFrame {
 	 */
 	
 	public GradebookAssingmentID(DataModel dm, String id) {
-		newdm=dm;
-		newid=id;
+		this.dm=dm;
+		this.id=id;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 468, 385);
 		contentPane = new JPanel();
@@ -117,13 +117,13 @@ public class GradebookAssingmentID extends JFrame {
 		refreshAssignments();
 	}
 	public void refreshAssignments() {
-		Assignment base=newdm.baseAssignment(newid);
+		Assignment base=dm.baseAssignment(id);
 		txtName.setText(base.getName());
-		txtID.setText(newid);
+		txtID.setText(id);
 		txtWeight.setText(base.getWeight());
 		txtType.setText(base.getType());
 		txtDueDate.setText(base.getdueDate());
-		txtStudents.setText(newdm.getAllStudentsByAssignment(newid));
+		txtStudents.setText(dm.getAllStudentsByAssignment(id));
 	}
 
 }

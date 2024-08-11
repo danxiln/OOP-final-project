@@ -42,7 +42,6 @@ public class studentGUI extends JFrame {
 
         private Student s;
         private Classroom g;
-        private classroomGUI cg;
         private JButton btnExit;
         private JButton btnRefresh;
 
@@ -55,7 +54,6 @@ public class studentGUI extends JFrame {
         public studentGUI(Student s,Classroom g) {
                 this.s=s;
                 this.g=g;
-                this.cg=cg;
                 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 setBounds(100, 100, 722, 300);
                 contentPane = new JPanel();
@@ -165,7 +163,7 @@ public class studentGUI extends JFrame {
                                 txtProjectGrade.setText(String.format("%.2f", s.calcGradeByType("Project")));
                                 txtQuizGrade.setText(String.format("%.2f", s.calcGradeByType("Quiz")));
                                 txtHomeworkGrade.setText(String.format("%.2f", s.calcGradeByType("Homework")));
-                                refreshGUI();
+                                btn_clickRefreshGUI();
 			
                         }
                 });
@@ -215,30 +213,34 @@ public class studentGUI extends JFrame {
                 btnRefresh = new JButton("Refresh");
                 btnRefresh.addActionListener(new ActionListener() {
                 	public void actionPerformed(ActionEvent e) {
-                		refreshGUI();
+                		btn_clickRefreshGUI();
                 	}
                 });
                 btnRefresh.setBounds(449, 178, 89, 23);
                 contentPane.add(btnRefresh);
-                refreshGUI();
+                btn_clickRefreshGUI();
         }
-        public void refreshGUI() {
-                txtStudentID.setText(s.getstudentID());
-                txtStudentName.setText(s.getName());
-                txtStudentGPA.setText(s.getGrade());
-                txtStudentNotes.setText(s.getNotes());
+        public void btn_clickRefreshGUI() {
+        	setStudentDetail();
                 if(s!=null) {
-                        String x=s.StringOfAllAssigments();
-                        txtAssignments.setText(x);
-                        txtStudentGPA.setText(String.format("%.2f", s.calcGrade()));
-                        txtExamGrade.setText(String.format("%.2f", s.calcGradeByType("Exam")));
-                        txtProjectGrade.setText(String.format("%.2f", s.calcGradeByType("Project")));
-                        txtQuizGrade.setText(String.format("%.2f", s.calcGradeByType("Quiz")));
-                        txtHomeworkGrade.setText(String.format("%.2f", s.calcGradeByType("Homework")));
-
+                	setAssignmentList();
                 }
         }
-
+        public void setStudentDetail () {
+            txtStudentID.setText(s.getstudentID());
+            txtStudentName.setText(s.getName());
+            txtStudentGPA.setText(s.getGrade());
+            txtStudentNotes.setText(s.getNotes());
+        }
+        public void setAssignmentList () {
+        	 String x=s.StringOfAllAssigments();
+             txtAssignments.setText(x);
+             txtStudentGPA.setText(String.format("%.2f", s.calcGrade()));
+             txtExamGrade.setText(String.format("%.2f", s.calcGradeByType("Exam")));
+             txtProjectGrade.setText(String.format("%.2f", s.calcGradeByType("Project")));
+             txtQuizGrade.setText(String.format("%.2f", s.calcGradeByType("Quiz")));
+             txtHomeworkGrade.setText(String.format("%.2f",s.calcGradeByType("Homework")));
+        }
         public void btn_clickViewSpecificAssignment() {
         	String id=txtID.getText();
             Assignment currentAssignment = s.selectAssignment(id);

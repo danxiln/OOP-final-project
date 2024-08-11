@@ -31,7 +31,7 @@ public class classroomGUI extends JFrame {
 	private JTextArea txtClassNotes;
 	private JLabel lblStudentID;
 	private JLabel lblStudents;
-	private Classroom g;
+	private Classroom currentClassroom;
 	private DataModel dm;
 	private JLabel lblOverall;
 	private JLabel lblQuiz;
@@ -45,12 +45,13 @@ public class classroomGUI extends JFrame {
 	private JButton btnSortByGrade;
 	private JButton btnSortbyAlphabet;
 	private JButton btnRefresh;
+	
 	/**
 	 * Launch the application.
 	 */
-	public classroomGUI(DataModel dm,Classroom g) {
+	public classroomGUI(DataModel dm,Classroom currentClassroom) {
 		this.dm=dm;
-		this.g=g;
+		this.currentClassroom=currentClassroom;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 706, 342);
 		contentPane = new JPanel();
@@ -83,7 +84,7 @@ public class classroomGUI extends JFrame {
 		btnAddStudent =  new JButton("Add Student");
 		btnAddStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				classroomGUIAdder cga=new classroomGUIAdder(g);
+				classroomGUIAdder cga=new classroomGUIAdder(currentClassroom);
 				cga.setVisible(true);
 			}
 		});
@@ -107,7 +108,7 @@ public class classroomGUI extends JFrame {
 		btnEditClassroom = new JButton("Edit Classroom");
 		btnEditClassroom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				classroomGUIEditor cge=new classroomGUIEditor(g,dm);
+				classroomGUIEditor cge=new classroomGUIEditor(currentClassroom,dm);
 				cge.setVisible(true);
 			}
 		});
@@ -199,8 +200,8 @@ public class classroomGUI extends JFrame {
 		btnSortByGrade = new JButton("Sort By Grade");
 		btnSortByGrade.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				g.sortByGrade();
-				refreshStudents();
+				currentClassroom.sortByGrade();
+				btn_refreshStudents();
 			}
 		});
 		btnSortByGrade.setBounds(445, 165, 162, 23);
@@ -209,8 +210,8 @@ public class classroomGUI extends JFrame {
 		btnSortbyAlphabet = new JButton("Sort Alphabet");
 		btnSortbyAlphabet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				g.sortByAlphabet();
-				refreshStudents();
+				currentClassroom.sortByAlphabet();
+				btn_refreshStudents();
 			}
 		});
 		btnSortbyAlphabet.setBounds(445, 213, 162, 23);
@@ -228,43 +229,42 @@ public class classroomGUI extends JFrame {
 		btnRefresh = new JButton("Refresh");
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				refreshStudents();
+				btn_refreshStudents();
 			}
 		});
 		btnRefresh.setBounds(75, 124, 89, 29);
 		contentPane.add(btnRefresh);
 	
-		refreshStudents();
 		
 		
 	}
-	public void refreshStudents() {
-		setClassDetail();
-		if(g!=null) {
+	public void btn_refreshStudents() {
+		setClassGUIDetail();
+		if(currentClassroom!=null) {
 			setStudentList();
 			}
 		
 		}
-	public void setClassDetail() {
-		txtClassID.setText(g.getClassID());
-		txtClassName.setText(g.getName());
-		txtClassYear.setText(g.getYear());
-		txtClassNotes.setText(g.getNotes());
+	public void setClassGUIDetail() {
+		txtClassID.setText(currentClassroom.getClassID());
+		txtClassName.setText(currentClassroom.getName());
+		txtClassYear.setText(currentClassroom.getYear());
+		txtClassNotes.setText(currentClassroom.getNotes());
 	}
 	public void setStudentList() {
-		String x=g.StringOfAllStudents();
+		String x=currentClassroom.StringOfAllStudents();
 		txtStudents.setText(x);
 		// refresh grades for each student added
-		txtOverall.setText(String.format("%.2f", g.calcGrade()));
-    		txtExam.setText(String.format("%.2f", g.calcGradeByType("Exam")));
-    		txtProject.setText(String.format("%.2f", g.calcGradeByType("Project")));
-    		txtQuiz.setText(String.format("%.2f", g.calcGradeByType("Quiz")));
-    		txtHomework.setText(String.format("%.2f", g.calcGradeByType("Homework")));
+		txtOverall.setText(String.format("%.2f", currentClassroom.calcGrade()));
+    		txtExam.setText(String.format("%.2f", currentClassroom.calcGradeByType("Exam")));
+    		txtProject.setText(String.format("%.2f", currentClassroom.calcGradeByType("Project")));
+    		txtQuiz.setText(String.format("%.2f", currentClassroom.calcGradeByType("Quiz")));
+    		txtHomework.setText(String.format("%.2f", currentClassroom.calcGradeByType("Homework")));
 	}
 	public void btn_clickAccessStudent() {
-		Student currentStudent = g.selectStudent(txtStudentID.getText());
+		Student currentStudent = currentClassroom.selectStudent(txtStudentID.getText());
 		if(currentStudent!=null) {
-			studentGUI sg=new studentGUI(currentStudent,g);
+			studentGUI sg=new studentGUI(currentStudent,currentClassroom);
 			sg.setVisible(true);
 		}
 		// error message to display when classroom with ID was not found

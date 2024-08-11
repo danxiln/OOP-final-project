@@ -21,15 +21,15 @@ public class ClassroomStudentIDGUI extends JFrame {
 	private JTextField txtProject;
 	private JTextField txtExam;
 	private JTextField txtGPA;
-	DataModel newdm;
-	String newid;
+	DataModel dm;
+	String id;
 
 	/**
 	 * Launch the application.
 	 */
 	public ClassroomStudentIDGUI(DataModel dm,String id) {
-		newdm=dm;
-		newid=id;
+		this.dm=dm;
+		this.id=id;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 414, 309);
 		contentPane = new JPanel();
@@ -119,14 +119,14 @@ public class ClassroomStudentIDGUI extends JFrame {
 		refreshStudent();
 	}
 	public void refreshStudent() {
-		Student base=newdm.baseStudent(newid);
+		Student base=dm.baseStudent(id);
 		txtStudentName.setText(base.getName());
 		txtID.setText(base.getstudentID());
-		double gpa=newdm.getStudentGPA(newid);
-		double quiz=newdm.getStudentGPAByType(newid,"Quiz");
-		double exam=newdm.getStudentGPAByType(newid,"Exam");
-		double Project=newdm.getStudentGPAByType(newid,"Project");
-		double Homework=newdm.getStudentGPAByType(newid,"Homework");
+		double gpa=dm.getStudentGPA(id);
+		double quiz=dm.getStudentGPAByType(id,"Quiz");
+		double exam=dm.getStudentGPAByType(id,"Exam");
+		double Project=dm.getStudentGPAByType(id,"Project");
+		double Homework=dm.getStudentGPAByType(id,"Homework");
 		txtGPA.setText(Double.toString(gpa));
 		txtQuiz.setText(Double.toString(quiz));
 		txtExam.setText(Double.toString(exam));
