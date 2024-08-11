@@ -84,7 +84,42 @@ public class Classroom {
 	public ArrayList<Student>  getAllStudents() {
 		return students;
 	}
-	
-	
+
+	// calculate average grade of entire classroom based on student's
+	public double calcGrade() {
+		double totalGrades = 0;
+		int i = 0;
+		for (Student student : students) {
+			double studentGrade = student.calcGrade();
+			if (studentGrade > 0) {
+				totalGrades += studentGrade;
+				i++;
+			}
+		}
+
+		if (i == 0) {
+			return 0;
+		} else {
+			return (totalGrades / i);
+		}
+	}
+
+	public double calcGradeByType(String type) {
+		double totalGrades = 0;
+		int i = 0;
+		for (Student student : students) {
+			double studentGrade = student.calcGradeByType(type);
+			if (studentGrade > 0) {
+				totalGrades += studentGrade;
+				i++;
+			}
+		}
+		
+		if (i == 0) {
+			return 0;
+		} else {
+			return (totalGrades / i);
+		}
+	}
 }
 

@@ -168,7 +168,7 @@ public class classroomGUI extends JFrame {
 		lblExam.setBounds(445, 34, 46, 14);
 		contentPane.add(lblExam);
 		
-		lblProject = new JLabel("Project");
+		lblProject = new JLabel("Project:");
 		lblProject.setBounds(445, 93, 46, 14);
 		contentPane.add(lblProject);
 		
@@ -197,7 +197,7 @@ public class classroomGUI extends JFrame {
 		contentPane.add(txtHomework);
 		txtHomework.setColumns(10);
 		
-		JLabel lblHomework = new JLabel("Homework");
+		JLabel lblHomework = new JLabel("Homework:");
 		lblHomework.setBounds(445, 124, 77, 14);
 		contentPane.add(lblHomework);
 		
@@ -234,6 +234,12 @@ public class classroomGUI extends JFrame {
 		if(g!=null) {
 			String x=g.StringOfAllStudents();
 			txtStudents.setText(x);
+			// refresh grades for each student added
+			txtOverall.setText(String.format("%.2f", g.calcGrade()));
+        		txtExam.setText(String.format("%.2f", g.calcGradeByType("Exam")));
+        		txtProject.setText(String.format("%.2f", g.calcGradeByType("Project")));
+        		txtQuiz.setText(String.format("%.2f", g.calcGradeByType("Quiz")));
+        		txtHomework.setText(String.format("%.2f", g.calcGradeByType("Homework")));
 			}
 		}
 	public void refreshGradebook() {
