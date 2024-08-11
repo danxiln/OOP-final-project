@@ -21,7 +21,7 @@ public class studentGUI extends JFrame {
         private JTextField txtProjectGrade;
         private JTextField txtQuizGrade;
         private JTextField txtHomeworkGrade;
-        private JTextField txtAssignmentID;
+        private JTextField txtID;
         private JLabel lblStudentID ;
         private JLabel lblStudentName;
         private JLabel lblStudentNotes;
@@ -146,19 +146,6 @@ public class studentGUI extends JFrame {
                 lblAssignmentID.setBounds(10, 108, 86, 14);
                 contentPane.add(lblAssignmentID);
 
-                txtAssignmentID = new JTextField();
-                txtAssignmentID.setBounds(93, 105, 152, 20);
-		 contentPane.add(lblAssignmentID);
-
-                txtAssignmentID = new JTextField();
-                txtAssignmentID.setBounds(93, 105, 152, 20);
-                contentPane.add(txtAssignmentID);
-                txtAssignmentID.setColumns(10);
-
-                txtAssignmentID = new JTextField();
-                txtAssignmentID.setBounds(93, 105, 152, 20);
-                contentPane.add(txtAssignmentID);
-                txtAssignmentID.setColumns(10);
 
                 lblAssignments = new JLabel("Assignments:");
                 lblAssignments.setBounds(10, 133, 88, 14);
@@ -201,7 +188,8 @@ public class studentGUI extends JFrame {
                 btnAccessAssignment = new JButton("Access Assignment");
                 btnAccessAssignment.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
-                                Assignment currentAssignment = s.selectAssignment(txtAssignmentID.getText());
+                        		String id=txtID.getText();
+                                Assignment currentAssignment = s.selectAssignment(id);
                                 if(currentAssignment!=null) {
                                         assignmentGUI ag=new assignmentGUI(currentAssignment,studentGUI.this);
                                         ag.setVisible(true);
@@ -210,7 +198,7 @@ public class studentGUI extends JFrame {
                                 // error message to display when assignment with ID was not found
                                 else {
                                         JOptionPane.showMessageDialog(contentPane, "Assignment with ID " +
-                                                        txtAssignmentID.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
+                                        		txtID.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
 
                                 }
 
@@ -232,6 +220,11 @@ public class studentGUI extends JFrame {
                 });
                 btnExit.setBounds(449, 215, 89, 23);
                 contentPane.add(btnExit);
+                
+                txtID = new JTextField();
+                txtID.setBounds(93, 105, 160, 20);
+                contentPane.add(txtID);
+                txtID.setColumns(10);
                 refreshGUI();
         }
         public void refreshGUI() {
