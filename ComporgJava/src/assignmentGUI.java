@@ -116,6 +116,12 @@ public class assignmentGUI extends JFrame {
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String assignmentType = txtAssignmentType.getText();
+				if (assignmentType.isEmpty()) {
+                                        JOptionPane.showMessageDialog(contentPane, "Assignment Type cannot be empty.", "Error",
+                                                                      JOptionPane.ERROR_MESSAGE);
+                                        return;
+                                }
+
 				// Check if assignment is one of 4 possible choices, listed in README.md
 				if (!assignmentType.equals("Exam") && !assignmentType.equals("Project") &&
 				    !assignmentType.equals("Homework") && !assignmentType.equals("Quiz")) {
@@ -126,6 +132,12 @@ public class assignmentGUI extends JFrame {
 				}
 				// ensure that the grade is between 0 and 100, any other option is not accepted by the system
 				String gradeText = txtAssignmentGrade.getText();
+				if  (gradeText.isEmpty()) {
+                                        JOptionPane.showMessageDialog(contentPane, "Assignment Grade cannot be empty.", "Error",
+                                                                      JOptionPane.ERROR_MESSAGE);
+                                        return;
+                                }
+
 				try {
 					double grade = Double.parseDouble(gradeText);
 					if (grade < 0 || grade > 100) {
@@ -140,6 +152,12 @@ public class assignmentGUI extends JFrame {
 				
 				// ensure that weight is enteredd correctly (___X) format, 'x' must be there
 				String weightText = txtAssignmentWeight.getText();
+				if (weightText.isEmpty()) {
+                                        JOptionPane.showMessageDialog(contentPane, "Assignment Weight cannot be empty.", "Error",
+                                                                      JOptionPane.ERROR_MESSAGE);
+                                        return;
+                                }
+
 				if (!weightText.endsWith("x")) {
 					JOptionPane.showMessageDialog(contentPane, "Weight must end in 'x' in ___x format, i.e. 10x, 20x, 30x.", "Error",
 								      JOptionPane.ERROR_MESSAGE);
