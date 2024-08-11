@@ -227,6 +227,12 @@ public class studentGUI extends JFrame {
 		if(s!=null) {
 			String x=s.StringOfAllAssigments();
 			txtAssignments.setText(x);
+                        txtStudentGPA.setText(String.format("%.2f", s.calcGrade()));
+                        txtExamGrade.setText(String.format("%.2f", s.calcGradeByType("Exam")));
+                        txtProjectGrade.setText(String.format("%.2f", s.calcGradeByType("Project")));
+                        txtQuizGrade.setText(String.format("%.2f", s.calcGradeByType("Quiz")));
+                        txtHomeworkGrade.setText(String.format("%.2f", s.calcGradeByType("Homework")));
+
 		}
 	}
 	public void deleteStudent() {
