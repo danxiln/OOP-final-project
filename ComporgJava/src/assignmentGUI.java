@@ -161,6 +161,7 @@ public class assignmentGUI extends JFrame {
 				if (!weightText.endsWith("x")) {
 					JOptionPane.showMessageDialog(contentPane, "Weight must end in 'x' in ___x format, i.e. 10x, 20x, 30x.", "Error",
 								      JOptionPane.ERROR_MESSAGE);
+					return;
 				}
 
 				// also include errors if the number in weight is not formatted or valid
@@ -174,6 +175,7 @@ public class assignmentGUI extends JFrame {
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(contentPane, "Weight must be a valid number.", "Error",
                                                                       JOptionPane.ERROR_MESSAGE);
+					return;
                                 }
 				
 				// make sure that none of the other fields are empty
