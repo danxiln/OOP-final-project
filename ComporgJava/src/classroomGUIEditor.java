@@ -75,7 +75,6 @@ public class classroomGUIEditor extends JFrame {
 				g.setClassYear(txtClassYear.getText());
 				g.setClassNotes(txtClassNotes.getText());
 				cgu.refreshStudents();
-				cgu.refreshGradebook();
 				dispose();
 			}
 		});

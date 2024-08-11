@@ -66,17 +66,7 @@ public class GradebookGUI extends JFrame {
 		btnAcessClassroom = new JButton("Access Classroom");
 		btnAcessClassroom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Classroom currentClassroom = newdm.selectClass(txtAcessInput.getText());
-				if(currentClassroom!=null) {
-					classroomGUI cg=new classroomGUI(dm,currentClassroom,GradebookGUI.this);
-					cg.setVisible(true);
-				}
-				// error message to display when classroom with ID was not found
-				else {
-					JOptionPane.showMessageDialog(contentPane, "Classroom with ID " + 
-					txtAcessInput.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
-
-				}
+				btn_clickAccessClassroom();
 			}
 		});
 		btnAcessClassroom.setBounds(260, 5, 150, 29);
@@ -118,4 +108,17 @@ public class GradebookGUI extends JFrame {
 			txtClassroom.setText(x);
 		}
 		}
+	public void btn_clickAccessClassroom() {
+		Classroom currentClassroom = newdm.selectClass(txtAcessInput.getText());
+		if(currentClassroom!=null) {
+			classroomGUI cg=new classroomGUI(newdm,currentClassroom,GradebookGUI.this);
+			cg.setVisible(true);
+		}
+		// error message to display when classroom with ID was not found
+		else {
+			JOptionPane.showMessageDialog(contentPane, "Classroom with ID " + 
+			txtAcessInput.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
+
+		}
+	}
 }

@@ -185,19 +185,7 @@ public class studentGUI extends JFrame {
                 btnAccessAssignment = new JButton("Access Assignment");
                 btnAccessAssignment.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
-                        		String id=txtID.getText();
-                                Assignment currentAssignment = s.selectAssignment(id);
-                                if(currentAssignment!=null) {
-                                        assignmentGUI ag=new assignmentGUI(currentAssignment,studentGUI.this);
-                                        ag.setVisible(true);
-                                        
-                                }
-                                // error message to display when assignment with ID was not found
-                                else {
-                                        JOptionPane.showMessageDialog(contentPane, "Assignment with ID " +
-                                        		txtID.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
-
-                                }
+                        	btn_clickViewSpecificAssignment();
 
                         }
                 });
@@ -225,11 +213,11 @@ public class studentGUI extends JFrame {
                 refreshGUI();
         }
         public void refreshGUI() {
+            	cg.refreshStudents();
                 txtStudentID.setText(s.getstudentID());
                 txtStudentName.setText(s.getName());
                 txtStudentGPA.setText(s.getGrade());
                 txtStudentNotes.setText(s.getNotes());
-                cg.refreshStudents();
                 if(s!=null) {
                         String x=s.StringOfAllAssigments();
                         txtAssignments.setText(x);
@@ -250,6 +238,22 @@ public class studentGUI extends JFrame {
                 s.deleteAssignment(a);
                 cg.refreshStudents();
                 dispose();
+        }
+        public void btn_clickViewSpecificAssignment() {
+        	String id=txtID.getText();
+            Assignment currentAssignment = s.selectAssignment(id);
+            if(currentAssignment!=null) {
+                    assignmentGUI ag=new assignmentGUI(currentAssignment,studentGUI.this);
+                    ag.setVisible(true);
+                    
+            }
+            // error message to display when assignment with ID was not found
+            else {
+                    JOptionPane.showMessageDialog(contentPane, "Assignment with ID " +
+                    		txtID.getText() + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
+
+            }
+        	
         }
 }
 
