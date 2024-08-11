@@ -103,7 +103,7 @@ public class GradebookGUI extends JFrame {
 		btnViewStudents = new JButton("View Students");
 		btnViewStudents.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClassroomStudents cs=new ClassroomStudents(dm);
+				ClassroomStudentsGUI cs=new ClassroomStudentsGUI(dm);
 				cs.setVisible(true);
 			}
 		});

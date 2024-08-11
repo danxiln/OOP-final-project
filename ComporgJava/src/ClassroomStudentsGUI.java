@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class ClassroomStudents extends JFrame {
+public class ClassroomStudentsGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -21,9 +21,12 @@ public class ClassroomStudents extends JFrame {
 	private JTextField txtID;
 	private JButton btnSearch;
 	private JButton btnExit;
+	private JButton btnSort;
+	private JLabel lblSortName;
+	private JTextField txtName;
 	
 	
-	public ClassroomStudents(DataModel dm) {
+	public ClassroomStudentsGUI(DataModel dm) {
 		this.newdm=dm;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -67,6 +70,25 @@ public class ClassroomStudents extends JFrame {
 		});
 		btnExit.setBounds(297, 233, 89, 23);
 		contentPane.add(btnExit);
+		
+		btnSort = new JButton("Sort");
+		btnSort.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtStudents.setText(newdm.StringOfAllStudentsByName(txtName.getText()));
+				
+			}
+		});
+		btnSort.setBounds(249, 51, 89, 23);
+		contentPane.add(btnSort);
+		
+		lblSortName = new JLabel("Sort By Name:");
+		lblSortName.setBounds(10, 55, 112, 14);
+		contentPane.add(lblSortName);
+		
+		txtName = new JTextField();
+		txtName.setBounds(139, 52, 86, 20);
+		contentPane.add(txtName);
+		txtName.setColumns(10);
 		
 		refreshStudents();
 		

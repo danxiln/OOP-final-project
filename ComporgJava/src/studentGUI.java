@@ -86,22 +86,45 @@ public class studentGUI extends JFrame {
 		lblStudentNotes.setBounds(0, 36, 98, 14);
 		contentPane.add(lblStudentNotes);
 		
+<<<<<<< HEAD
 		lblStudentGPA = new JLabel("Student GPA:");
 		lblStudentGPA.setBounds(289, 39, 113, 14);
+=======
+		lblStudentGPA = new JLabel("GPA:");
+		lblStudentGPA.setBounds(434, 118, 100, 20);
+>>>>>>> 3f51b212dec3f3af951407dc7629ebad1266cabc
 		contentPane.add(lblStudentGPA);
 		
 		txtStudentGPA = new JTextField();
 		txtStudentGPA.setEditable(false);
+<<<<<<< HEAD
 		txtStudentGPA.setBounds(289, 55, 135, 20);
 		contentPane.add(txtStudentGPA);
 		txtStudentGPA.setColumns(10);
 		
+=======
+		txtStudentGPA.setBounds(545, 118, 50, 20);
+		contentPane.add(txtStudentGPA);
+		txtStudentGPA.setColumns(10);
+		
+	        lblExamGrade = new JLabel("Exam:");
+		lblExamGrade.setBounds(450, 40, 100, 20);
+>>>>>>> 3f51b212dec3f3af951407dc7629ebad1266cabc
 	        lblExamGrade = new JLabel("Exam GPA:");
 		lblExamGrade.setBounds(434, 93, 113, 14);
         	contentPane.add(lblExamGrade);
 
         	txtExamGrade = new JTextField();
         	txtExamGrade.setEditable(false);
+<<<<<<< HEAD
+=======
+        	txtExamGrade.setBounds(520, 40, 50, 20);
+        	contentPane.add(txtExamGrade);
+        	txtExamGrade.setColumns(10);
+
+		lblProjectGrade = new JLabel("Project:");
+        	lblProjectGrade.setBounds(450, 70, 100, 14);
+>>>>>>> 3f51b212dec3f3af951407dc7629ebad1266cabc
         	txtExamGrade.setBounds(545, 90, 100, 20);
         	contentPane.add(txtExamGrade);
         	txtExamGrade.setColumns(10);
@@ -112,6 +135,15 @@ public class studentGUI extends JFrame {
 
         	txtProjectGrade = new JTextField();
         	txtProjectGrade.setEditable(false);
+<<<<<<< HEAD
+=======
+        	txtProjectGrade.setBounds(520, 70, 50, 20);
+        	contentPane.add(txtProjectGrade);
+        	txtProjectGrade.setColumns(10);
+
+		lblQuizGrade = new JLabel("Quiz:");
+        	lblQuizGrade.setBounds(450, 100, 100, 20);
+>>>>>>> 3f51b212dec3f3af951407dc7629ebad1266cabc
         	txtProjectGrade.setBounds(545, 62, 100, 20);
         	contentPane.add(txtProjectGrade);
         	txtProjectGrade.setColumns(10);
@@ -122,16 +154,33 @@ public class studentGUI extends JFrame {
 
         	txtQuizGrade = new JTextField();
         	txtQuizGrade.setEditable(false);
+<<<<<<< HEAD
+=======
+        	txtQuizGrade.setBounds(520, 100, 50, 20);
+        	contentPane.add(txtQuizGrade);
+        	txtQuizGrade.setColumns(10);
+
+        	lblHomeworkGrade = new JLabel("Homework:");
+        	lblHomeworkGrade.setBounds(450, 130, 100, 20);
+>>>>>>> 3f51b212dec3f3af951407dc7629ebad1266cabc
         	txtQuizGrade.setBounds(545, 33, 100, 20);
         	contentPane.add(txtQuizGrade);
         	txtQuizGrade.setColumns(10);
 
         	lblHomeworkGrade = new JLabel("Homework GPA:");
+<<<<<<< HEAD
         	lblHomeworkGrade.setBounds(437, 11, 113, 14);
+=======
+        	lblHomeworkGrade.setBounds(434, 11, 113, 14);
+>>>>>>> 3f51b212dec3f3af951407dc7629ebad1266cabc
         	contentPane.add(lblHomeworkGrade);
 
         	txtHomeworkGrade = new JTextField();
         	txtHomeworkGrade.setEditable(false);
+<<<<<<< HEAD
+=======
+       	 	txtHomeworkGrade.setBounds(520, 130, 50, 20);
+>>>>>>> 3f51b212dec3f3af951407dc7629ebad1266cabc
        	 	txtHomeworkGrade.setBounds(545, 8, 100, 20);
         	contentPane.add(txtHomeworkGrade);
         	txtHomeworkGrade.setColumns(10);

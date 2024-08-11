@@ -13,15 +13,12 @@ public class GradebookAssigments extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
-	 */
-	public GradebookAssigments() {
+	private JLabel lblAssigments;
+	private JTextArea txtAssignments;
+	private JButton btnExit;
+	DataModel newdm;
+	public GradebookAssigments(DataModel dm) {
+		newdm=dm;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -30,15 +27,15 @@ public class GradebookAssigments extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblAssigments = new JLabel("Assignments");
-		lblAssigments.setBounds(10, 11, 93, 14);
+		lblAssigments = new JLabel("Assignments");
+		lblAssigments.setBounds(10, 61, 93, 14);
 		contentPane.add(lblAssigments);
 		
-		JTextArea txtAssignments = new JTextArea();
+		txtAssignments = new JTextArea();
 		txtAssignments.setBounds(10, 86, 383, 136);
 		contentPane.add(txtAssignments);
 		
-		JButton btnExit = new JButton("Exit");
+		btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -46,5 +43,9 @@ public class GradebookAssigments extends JFrame {
 		});
 		btnExit.setBounds(304, 227, 89, 23);
 		contentPane.add(btnExit);
+		refreshAssignments();
+	}
+	public void refreshAssignments() {
+		txtAssignments.setText(newdm.StringOfAllAssignments());
 	}
 }
