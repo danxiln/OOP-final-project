@@ -54,13 +54,15 @@ public class DataModel {
 	}
 	
 	public String StringOfAllStudents() {
+		sortSet();
 		// formating to print classrooms in the appropriate format
-		
 		String all=String.format("%-8s | %s\n",
 			       	    		 "ID", "Name");
-			for(Student currentStudent:students) {
-					all += currentStudent.toString();
-			}
+		System.out.println( Integer.toString(students.size()));
+		for (Student s:students) {
+			System.out.println(s.toString());
+				all += s.toString();
+		}
 		return all;
 	}
 }
