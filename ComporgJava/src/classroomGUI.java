@@ -210,12 +210,20 @@ public class classroomGUI extends JFrame {
 		btnSortByGrade = new JButton("Sort By Grade");
 		btnSortByGrade.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				g.sortByGrade();
+				refreshStudents();
 			}
 		});
 		btnSortByGrade.setBounds(445, 165, 162, 23);
 		contentPane.add(btnSortByGrade);
 		
 		btnSortbyAlphabet = new JButton("Sort Alphabet");
+		btnSortbyAlphabet.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				g.sortByAlphabet();
+				refreshStudents();
+			}
+		});
 		btnSortbyAlphabet.setBounds(445, 213, 162, 23);
 		contentPane.add(btnSortbyAlphabet);
 		

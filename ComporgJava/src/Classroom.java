@@ -7,6 +7,8 @@ public class Classroom {
 	private String classYear;
 	private ArrayList<Student> students;
 	private String classNotes;
+	private Comparator<Student> nameComparator;
+	private Comparator<Student> gradeComparator;
 	
 	public Classroom(String id, String name, String year, String notes) {
 		classID=id;
@@ -15,6 +17,21 @@ public class Classroom {
 		classNotes=notes;
 		students =new ArrayList<Student>();
 		classAmount+=1;
+		
+		
+	    nameComparator = new Comparator<Student>() {
+	        @Override
+	        public int compare(Student s1, Student s2) {
+	            return s1.getName().compareTo(s2.getName());
+	        }
+	    };
+	    gradeComparator = new Comparator<Student>() {
+	        @Override
+	        public int compare(Student s1, Student s2) {
+	            return s1.getGrade().compareTo(s2.getGrade());
+	        }
+	    };
+		
 	}
 	static public int getClassAmount() {
 		return classAmount;
@@ -121,5 +138,11 @@ public class Classroom {
 			return (totalGrades / i);
 		}
 	}
+	public void sortByAlphabet() {
+		Collections.sort(students, nameComparator);
+	}
+	public void sortByGrade() {
+		 Collections.sort(students,gradeComparator); }
 }
+	
 

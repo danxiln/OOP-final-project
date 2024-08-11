@@ -6,6 +6,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GradebookAssingmentID extends JFrame {
 
@@ -27,6 +30,7 @@ public class GradebookAssingmentID extends JFrame {
 	
 	private DataModel newdm;
 	private String newid;
+	private JButton btnExit;
 
 	/**
 	 * Launch the application.
@@ -48,7 +52,7 @@ public class GradebookAssingmentID extends JFrame {
 		contentPane.add(lblAssingmentName);
 		
 		lblAssingmentID = new JLabel("Assingnment ID:");
-		lblAssingmentID.setBounds(10, 36, 97, 14);
+		lblAssingmentID.setBounds(10, 36, 120, 14);
 		contentPane.add(lblAssingmentID);
 		
 		txtName = new JTextField();
@@ -59,20 +63,20 @@ public class GradebookAssingmentID extends JFrame {
 		
 		txtID = new JTextField();
 		txtID.setEditable(false);
-		txtID.setBounds(127, 36, 86, 20);
+		txtID.setBounds(132, 33, 86, 20);
 		contentPane.add(txtID);
 		txtID.setColumns(10);
 		
 		lblAssingnmentDueDate = new JLabel("Assignment Due Date:");
-		lblAssingnmentDueDate.setBounds(10, 70, 120, 14);
+		lblAssingnmentDueDate.setBounds(10, 70, 132, 14);
 		contentPane.add(lblAssingnmentDueDate);
 		
 		lblType = new JLabel("Assignment Type:");
-		lblType.setBounds(10, 110, 97, 14);
+		lblType.setBounds(10, 110, 120, 14);
 		contentPane.add(lblType);
 		
 		lblWeight = new JLabel("Assignment Weight:");
-		lblWeight.setBounds(10, 141, 97, 14);
+		lblWeight.setBounds(10, 141, 120, 14);
 		contentPane.add(lblWeight);
 		
 		lblStudents = new JLabel("Students:");
@@ -101,6 +105,15 @@ public class GradebookAssingmentID extends JFrame {
 		txtWeight.setBounds(132, 138, 86, 20);
 		contentPane.add(txtWeight);
 		txtWeight.setColumns(10);
+		
+		btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnExit.setBounds(325, 296, 89, 23);
+		contentPane.add(btnExit);
 		refreshAssignments();
 	}
 	public void refreshAssignments() {
