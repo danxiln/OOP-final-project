@@ -173,26 +173,31 @@ public class classroomGUI extends JFrame {
 		contentPane.add(lblProject);
 		
 		txtOverall = new JTextField();
+		txtOverall.setEditable(false);
 		txtOverall.setBounds(532, 4, 86, 20);
 		contentPane.add(txtOverall);
 		txtOverall.setColumns(10);
 		
 		txtExam = new JTextField();
+		txtExam.setEditable(false);
 		txtExam.setBounds(532, 31, 86, 20);
 		contentPane.add(txtExam);
 		txtExam.setColumns(10);
 		
 		txtProject = new JTextField();
+		txtProject.setEditable(false);
 		txtProject.setBounds(532, 91, 86, 20);
 		contentPane.add(txtProject);
 		txtProject.setColumns(10);
 		
 		txtQuiz = new JTextField();
+		txtQuiz.setEditable(false);
 		txtQuiz.setBounds(532, 57, 86, 20);
 		contentPane.add(txtQuiz);
 		txtQuiz.setColumns(10);
 		
 		txtHomework = new JTextField();
+		txtHomework.setEditable(false);
 		txtHomework.setBounds(532, 124, 86, 20);
 		contentPane.add(txtHomework);
 		txtHomework.setColumns(10);
