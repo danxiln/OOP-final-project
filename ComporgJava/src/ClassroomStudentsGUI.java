@@ -24,6 +24,7 @@ public class ClassroomStudentsGUI extends JFrame {
 	private JButton btnSort;
 	private JLabel lblSortName;
 	private JTextField txtName;
+	private JButton btnRefresh;
 	
 	
 	public ClassroomStudentsGUI(DataModel dm) {
@@ -91,6 +92,15 @@ public class ClassroomStudentsGUI extends JFrame {
 		txtName.setBounds(139, 52, 86, 20);
 		contentPane.add(txtName);
 		txtName.setColumns(10);
+		
+		btnRefresh = new JButton("refresh");
+		btnRefresh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				refreshStudents();
+			}
+		});
+		btnRefresh.setBounds(68, 82, 89, 23);
+		contentPane.add(btnRefresh);
 		
 		refreshStudents();
 		

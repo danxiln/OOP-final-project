@@ -21,6 +21,7 @@ public class GradebookAssigments extends JFrame {
 	private JLabel lblAssingnmentID;
 	private JTextField txtID;
 	private JButton btnSearch;
+	private JButton btnRefresh;
 	public GradebookAssigments(DataModel dm) {
 		newdm=dm;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,6 +67,16 @@ public class GradebookAssigments extends JFrame {
 		});
 		btnSearch.setBounds(261, 7, 89, 23);
 		contentPane.add(btnSearch);
+		
+		btnRefresh = new JButton("Refresh");
+		btnRefresh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				refreshAssignments();
+
+			}
+		});
+		btnRefresh.setBounds(88, 99, 89, 23);
+		contentPane.add(btnRefresh);
 		refreshAssignments();
 	}
 	public void refreshAssignments() {

@@ -33,7 +33,6 @@ public class classroomGUI extends JFrame {
 	private JLabel lblStudents;
 	private Classroom g;
 	private DataModel dm;
-	private GradebookGUI cbg;
 	private JLabel lblOverall;
 	private JLabel lblQuiz;
 	private JLabel lblExam;
@@ -45,11 +44,11 @@ public class classroomGUI extends JFrame {
 	private JTextField txtHomework;
 	private JButton btnSortByGrade;
 	private JButton btnSortbyAlphabet;
+	private JButton btnRefresh;
 	/**
 	 * Launch the application.
 	 */
-	public classroomGUI(DataModel dm,Classroom g,GradebookGUI cbg) {
-		this.cbg=cbg;
+	public classroomGUI(DataModel dm,Classroom g) {
 		this.dm=dm;
 		this.g=g;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,11 +83,11 @@ public class classroomGUI extends JFrame {
 		btnAddStudent =  new JButton("Add Student");
 		btnAddStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				classroomGUIAdder cga=new classroomGUIAdder(g,classroomGUI.this);
+				classroomGUIAdder cga=new classroomGUIAdder(g);
 				cga.setVisible(true);
 			}
 		});
-		btnAddStudent.setBounds(87, 124, 130, 29);
+		btnAddStudent.setBounds(237, 126, 130, 29);
 		contentPane.add(btnAddStudent);
 		
 		btnAcessStudent = new JButton("Access Student");
@@ -108,11 +107,11 @@ public class classroomGUI extends JFrame {
 		btnEditClassroom = new JButton("Edit Classroom");
 		btnEditClassroom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				classroomGUIEditor cge=new classroomGUIEditor(g,classroomGUI.this);
+				classroomGUIEditor cge=new classroomGUIEditor(g,dm);
 				cge.setVisible(true);
 			}
 		});
-		btnEditClassroom.setBounds(250, 124, 147, 29);
+		btnEditClassroom.setBounds(455, 247, 147, 29);
 		contentPane.add(btnEditClassroom);
 		
 		txtClassID = new JTextField();
@@ -225,38 +224,47 @@ public class classroomGUI extends JFrame {
 		});
 		btnExit.setBounds(297, 277, 89, 23);
 		contentPane.add(btnExit);
+		
+		btnRefresh = new JButton("Refresh");
+		btnRefresh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				refreshStudents();
+			}
+		});
+		btnRefresh.setBounds(75, 124, 89, 29);
+		contentPane.add(btnRefresh);
 	
 		refreshStudents();
 		
 		
 	}
 	public void refreshStudents() {
-		cbg.refreshClassrooms();
+		setClassDetail();
+		if(g!=null) {
+			setStudentList();
+			}
+		
+		}
+	public void setClassDetail() {
 		txtClassID.setText(g.getClassID());
 		txtClassName.setText(g.getName());
 		txtClassYear.setText(g.getYear());
 		txtClassNotes.setText(g.getNotes());
-		if(g!=null) {
-			String x=g.StringOfAllStudents();
-			txtStudents.setText(x);
-			// refresh grades for each student added
-			txtOverall.setText(String.format("%.2f", g.calcGrade()));
-        		txtExam.setText(String.format("%.2f", g.calcGradeByType("Exam")));
-        		txtProject.setText(String.format("%.2f", g.calcGradeByType("Project")));
-        		txtQuiz.setText(String.format("%.2f", g.calcGradeByType("Quiz")));
-        		txtHomework.setText(String.format("%.2f", g.calcGradeByType("Homework")));
-			}
-		
-		}
-	public void deleteClassroom() {
-		dm.delete(g);
-		cbg.refreshClassrooms();
-		dispose();
+	}
+	public void setStudentList() {
+		String x=g.StringOfAllStudents();
+		txtStudents.setText(x);
+		// refresh grades for each student added
+		txtOverall.setText(String.format("%.2f", g.calcGrade()));
+    		txtExam.setText(String.format("%.2f", g.calcGradeByType("Exam")));
+    		txtProject.setText(String.format("%.2f", g.calcGradeByType("Project")));
+    		txtQuiz.setText(String.format("%.2f", g.calcGradeByType("Quiz")));
+    		txtHomework.setText(String.format("%.2f", g.calcGradeByType("Homework")));
 	}
 	public void btn_clickAccessStudent() {
 		Student currentStudent = g.selectStudent(txtStudentID.getText());
 		if(currentStudent!=null) {
-			studentGUI sg=new studentGUI(currentStudent,g,classroomGUI.this);
+			studentGUI sg=new studentGUI(currentStudent,g);
 			sg.setVisible(true);
 		}
 		// error message to display when classroom with ID was not found

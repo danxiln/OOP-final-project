@@ -31,7 +31,7 @@ public class classroomGUIEditor extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public classroomGUIEditor(Classroom g,classroomGUI cgu) {
+	public classroomGUIEditor(Classroom g,DataModel dm) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -74,7 +74,6 @@ public class classroomGUIEditor extends JFrame {
 				g.setClassName(txtClassName.getText());
 				g.setClassYear(txtClassYear.getText());
 				g.setClassNotes(txtClassNotes.getText());
-				cgu.refreshStudents();
 				dispose();
 			}
 		});
@@ -84,7 +83,7 @@ public class classroomGUIEditor extends JFrame {
 		btnDeleteClass = new JButton("Delete Classroom");
 		btnDeleteClass.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cgu.deleteClassroom();
+				dm.delete(g);
 				dispose();
 				
 			}

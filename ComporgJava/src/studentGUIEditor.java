@@ -24,12 +24,13 @@ public class studentGUIEditor extends JFrame {
 	private JButton btnDelete;
 	private JButton btnExit;
 	
-	private studentGUI sg;
-	private Student s;
+	private Student news;
+	private Classroom newg;
+	private JButton btnRefresh;
 	
-	public studentGUIEditor(Student s,studentGUI sg,classroomGUI cg) {
-		this.sg=sg;
-		this.s=s;
+	public studentGUIEditor(Student s,Classroom g) {
+		news=s;
+		newg=g;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -67,10 +68,9 @@ public class studentGUIEditor extends JFrame {
 		btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				s.setID(txtStudentID.getText());
-				s.setName(txtStudentName.getText());
-				s.setNotes(txtStudentNotes.getText());
-				sg.refreshGUI();
+				news.setID(txtStudentID.getText());
+				news.setName(txtStudentName.getText());
+				news.setNotes(txtStudentNotes.getText());
 				dispose();
 			}
 		});
@@ -80,8 +80,7 @@ public class studentGUIEditor extends JFrame {
 		btnDelete = new JButton("Delete Student");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sg.deleteStudent();
-				cg.refreshStudents();
+				newg.deleteStudent(s);
 				dispose();
 			}
 		});
@@ -100,6 +99,10 @@ public class studentGUIEditor extends JFrame {
 		txtStudentID.setText(s.getstudentID());
 		txtStudentName.setText(s.getName());
 		txtStudentNotes.setText(s.getNotes());
+		
+		btnRefresh = new JButton("Refresh");
+		btnRefresh.setBounds(306, 154, 89, 23);
+		contentPane.add(btnRefresh);
 
 	}
 	

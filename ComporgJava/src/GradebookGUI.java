@@ -24,6 +24,7 @@ public class GradebookGUI extends JFrame {
 	private JTextArea txtClassroom;
 	private JButton btnViewAllAssignments;
 	private JButton btnViewStudents;
+	private JButton btnRefresh;
 
 	/**
 	 * Launch the application.
@@ -51,7 +52,7 @@ public class GradebookGUI extends JFrame {
 		btnAddClassroom = new JButton("Add Classroom");
 		btnAddClassroom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Gradebook_AdderGUI gb =new Gradebook_AdderGUI(dm,GradebookGUI.this);
+				Gradebook_AdderGUI gb =new Gradebook_AdderGUI(dm);
 				gb.setVisible(true);
 			}
 		});
@@ -101,6 +102,15 @@ public class GradebookGUI extends JFrame {
 		});
 		btnViewStudents.setBounds(247, 220, 150, 23);
 		contentPane.add(btnViewStudents);
+		
+		btnRefresh = new JButton("refresh");
+		btnRefresh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				refreshClassrooms();
+			}
+		});
+		btnRefresh.setBounds(100, 79, 89, 23);
+		contentPane.add(btnRefresh);
 	}
 	public void refreshClassrooms() {
 		if(newdm!=null) {
@@ -111,7 +121,7 @@ public class GradebookGUI extends JFrame {
 	private void btn_clickAccessClassroom() {
 		Classroom currentClassroom = newdm.selectClass(txtAcessInput.getText());
 		if(currentClassroom!=null) {
-			classroomGUI cg=new classroomGUI(newdm,currentClassroom,GradebookGUI.this);
+			classroomGUI cg=new classroomGUI(newdm,currentClassroom);
 			cg.setVisible(true);
 		}
 		// error message to display when classroom with ID was not found

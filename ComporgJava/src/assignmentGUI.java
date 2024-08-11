@@ -37,11 +37,11 @@ public class assignmentGUI extends JFrame {
 	private JButton btnExit;
 
 	private Assignment newa;
-	private studentGUI newsg;
+	private Student news;
 
-	public assignmentGUI(Assignment a, studentGUI sg) {
+	public assignmentGUI(Assignment a,Student s) {
 		this.newa = a;
-		this.newsg = sg;
+		news=s;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -124,8 +124,7 @@ public class assignmentGUI extends JFrame {
 		btnDelete = new JButton("Delete Assingment");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				newsg.deleteAssignment(a);
-				newsg.refreshGUI();
+	                news.deleteAssignment(newa);
 				dispose();
 			}
 		});
@@ -240,7 +239,6 @@ public class assignmentGUI extends JFrame {
 		newa.setType(txtAssignmentType.getText());
 		newa.setGrade(txtAssignmentGrade.getText());
 		newa.setWeight(txtAssingnmentWeight.getText());
-		newsg.refreshGUI();
 		dispose();
 	}
 

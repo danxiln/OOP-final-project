@@ -44,6 +44,7 @@ public class studentGUI extends JFrame {
         private Classroom g;
         private classroomGUI cg;
         private JButton btnExit;
+        private JButton btnRefresh;
 
         /**
          * Launch the application.
@@ -51,7 +52,7 @@ public class studentGUI extends JFrame {
         /**
          * Create the frame.
          */
-        public studentGUI(Student s,Classroom g, classroomGUI cg) {
+        public studentGUI(Student s,Classroom g) {
                 this.s=s;
                 this.g=g;
                 this.cg=cg;
@@ -154,7 +155,7 @@ public class studentGUI extends JFrame {
                 btnAddAssignment = new JButton("Add Assignment");
                 btnAddAssignment.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
-                                StudentGUIAdder sga=new StudentGUIAdder(s,studentGUI.this);
+                                StudentGUIAdder sga=new StudentGUIAdder(s);
                                 sga.setVisible(true);
 
                                 // calculate grade after entering assignments
@@ -175,7 +176,7 @@ public class studentGUI extends JFrame {
                 btnEditStudent = new JButton("Edit Student");
                 btnEditStudent.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
-                                studentGUIEditor sge=new studentGUIEditor(s,studentGUI.this,cg);
+                                studentGUIEditor sge=new studentGUIEditor(s,g);
                                 sge.setVisible(true);
                         }
                 });
@@ -210,10 +211,18 @@ public class studentGUI extends JFrame {
                 txtID.setBounds(93, 105, 160, 20);
                 contentPane.add(txtID);
                 txtID.setColumns(10);
+                
+                btnRefresh = new JButton("Refresh");
+                btnRefresh.addActionListener(new ActionListener() {
+                	public void actionPerformed(ActionEvent e) {
+                		refreshGUI();
+                	}
+                });
+                btnRefresh.setBounds(449, 178, 89, 23);
+                contentPane.add(btnRefresh);
                 refreshGUI();
         }
         public void refreshGUI() {
-            	cg.refreshStudents();
                 txtStudentID.setText(s.getstudentID());
                 txtStudentName.setText(s.getName());
                 txtStudentGPA.setText(s.getGrade());
@@ -230,20 +239,11 @@ public class studentGUI extends JFrame {
                 }
         }
 
-        public void deleteStudent() {
-                g.deleteStudent(s);
-                dispose();
-        }
-        public void deleteAssignment(Assignment a) {
-                s.deleteAssignment(a);
-                cg.refreshStudents();
-                dispose();
-        }
         public void btn_clickViewSpecificAssignment() {
         	String id=txtID.getText();
             Assignment currentAssignment = s.selectAssignment(id);
             if(currentAssignment!=null) {
-                    assignmentGUI ag=new assignmentGUI(currentAssignment,studentGUI.this);
+                    assignmentGUI ag=new assignmentGUI(currentAssignment,s);
                     ag.setVisible(true);
                     
             }
