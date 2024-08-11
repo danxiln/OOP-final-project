@@ -201,11 +201,11 @@ public class studentGUI extends JFrame {
                 btnAccessAssignment = new JButton("Access Assignment");
                 btnAccessAssignment.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
-                                String assignmentID = txtAssignmentID.getText();
                                 Assignment currentAssignment = s.selectAssignment(txtAssignmentID.getText());
                                 if(currentAssignment!=null) {
                                         assignmentGUI ag=new assignmentGUI(currentAssignment,studentGUI.this);
                                         ag.setVisible(true);
+                                        
                                 }
                                 // error message to display when assignment with ID was not found
                                 else {
@@ -214,10 +214,6 @@ public class studentGUI extends JFrame {
 
                                 }
 
-                                String id=txtAssignmentID.getText();
-                                Assignment a= s.selectAssignment(id);
-                                assignmentGUI ag=new assignmentGUI(a,studentGUI.this);
-                                ag.setVisible(true);
                         }
                 });
                 btnAccessAssignment.setBounds(272, 104, 152, 23);
