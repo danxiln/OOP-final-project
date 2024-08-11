@@ -178,6 +178,10 @@ public class studentGUI extends JFrame {
                                 txtQuizGrade.setText(String.format("%.2f", s.calcGradeByType("Quiz")));
                                 txtHomeworkGrade.setText(String.format("%.2f", s.calcGradeByType("Homework")));
                                 refreshGUI();
+				// refresh classroom
+				if (cg != null) {
+					cg.refreshStudents();
+				}
                         }
                 });
 
@@ -250,6 +254,7 @@ public class studentGUI extends JFrame {
 
                 }
         }
+
         public void deleteStudent() {
                 g.deleteStudent(s);
                 dispose();
