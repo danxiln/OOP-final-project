@@ -21,11 +21,15 @@ public class ClassroomStudentIDGUI extends JFrame {
 	private JTextField txtProject;
 	private JTextField txtExam;
 	private JTextField txtGPA;
+	DataModel newdm;
+	String newid;
 
 	/**
 	 * Launch the application.
 	 */
-	public ClassroomStudentIDGUI() {
+	public ClassroomStudentIDGUI(DataModel dm,String id) {
+		newdm=dm;
+		newid=id;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 414, 363);
 		contentPane = new JPanel();
@@ -121,6 +125,9 @@ public class ClassroomStudentIDGUI extends JFrame {
 		});
 		btnExit.setBounds(263, 283, 89, 23);
 		contentPane.add(btnExit);
+	}
+	public void refreshStudent() {
+		Student base=newdm.baseStudent(newid);
 	}
 
 }

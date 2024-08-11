@@ -43,6 +43,7 @@ public class studentGUI extends JFrame {
         private Student s;
         private Classroom g;
         private classroomGUI cg;
+        private JButton btnExit;
 
         /**
          * Launch the application.
@@ -221,6 +222,16 @@ public class studentGUI extends JFrame {
                 txtAssignments = new JTextArea();
                 txtAssignments.setBounds(10, 158, 414, 92);
                 contentPane.add(txtAssignments);
+                
+                btnExit = new JButton("Exit");
+                btnExit.addActionListener(new ActionListener() {
+                	public void actionPerformed(ActionEvent e) {
+                		dispose();
+                		
+                	}
+                });
+                btnExit.setBounds(449, 215, 89, 23);
+                contentPane.add(btnExit);
                 refreshGUI();
         }
         public void refreshGUI() {

@@ -55,8 +55,10 @@ public class ClassroomStudentsGUI extends JFrame {
 		
 		btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
-				
+				ClassroomStudentIDGUI CSGUI=new ClassroomStudentIDGUI(dm,txtID.getText());
+				CSGUI.setVisible(true);
 			}
 		});
 		btnSearch.setBounds(249, 7, 89, 23);

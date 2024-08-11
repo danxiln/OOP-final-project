@@ -123,12 +123,21 @@ public class DataModel {
 			for(Assignment x:current ) {
 				if(x.getID()==id) {
 					all += String.format("%-8s |%-8s \n",
-							s.getcurrentID(),
+							s.getstudentID(),
 							s.getName());
 				}
 			}
 		}	
 		return all;
+	}
+	public Student baseStudent(String id) {
+		sortSet();
+		for (Student current : setOfStudents) {
+			if (current.getstudentID()==id) {
+				return current;
+			}
+			}
+		return null;
 	}
 	
 	
