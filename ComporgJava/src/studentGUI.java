@@ -88,12 +88,12 @@ public class studentGUI extends JFrame {
 		contentPane.add(lblStudentNotes);
 		
 		lblStudentGPA = new JLabel("GPA:");
-		lblStudentGPA.setBounds(450, 10, 100, 20);
+		lblStudentGPA.setBounds(434, 118, 100, 20);
 		contentPane.add(lblStudentGPA);
 		
 		txtStudentGPA = new JTextField();
 		txtStudentGPA.setEditable(false);
-		txtStudentGPA.setBounds(520, 10, 50, 20);
+		txtStudentGPA.setBounds(545, 118, 50, 20);
 		contentPane.add(txtStudentGPA);
 		txtStudentGPA.setColumns(10);
 		
@@ -148,7 +148,7 @@ public class studentGUI extends JFrame {
         	txtQuizGrade.setColumns(10);
 
         	lblHomeworkGrade = new JLabel("Homework GPA:");
-        	lblHomeworkGrade.setBounds(437, 11, 113, 14);
+        	lblHomeworkGrade.setBounds(434, 11, 113, 14);
         	contentPane.add(lblHomeworkGrade);
 
         	txtHomeworkGrade = new JTextField();
