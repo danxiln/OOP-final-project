@@ -212,6 +212,15 @@ public class classroomGUI extends JFrame {
 		btnSortbyAlphabet = new JButton("Sort Alphabet");
 		btnSortbyAlphabet.setBounds(445, 213, 162, 23);
 		contentPane.add(btnSortbyAlphabet);
+		
+		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnExit.setBounds(297, 277, 89, 23);
+		contentPane.add(btnExit);
 	
 		refreshStudents();
 		
