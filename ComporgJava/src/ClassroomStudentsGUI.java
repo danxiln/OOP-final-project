@@ -72,6 +72,12 @@ public class ClassroomStudentsGUI extends JFrame {
 		contentPane.add(btnExit);
 		
 		btnSort = new JButton("Sort");
+		btnSort.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtStudents.setText(newdm.StringOfAllStudentsByName(txtName.getText()));
+				
+			}
+		});
 		btnSort.setBounds(249, 51, 89, 23);
 		contentPane.add(btnSort);
 		

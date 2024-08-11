@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Assignment implements Comparable<Assignment> {
 	static int IdCounter=0;
 	String dueDate, name, type, grade, weight, notes,id;
@@ -82,6 +84,9 @@ public static int getIdCounter() {
 	public int compareTo(Assignment assignment) {
 		return name.compareTo(assignment.name);
 	}
+    public int hashCode() {
+        return Objects.hash(id);
+}
 }
 
 

@@ -4,16 +4,18 @@ import java.util.ArrayList;
 public class DataModel {
 	private ArrayList<Classroom> Gradebook;
 	private Set<Student> setOfStudents;
-	
+	private Set<Assignment> setOfAllAssignments;
 	DataModel(){
 		Gradebook= new ArrayList<Classroom>();
 		setOfStudents = new HashSet<>();
+		setOfAllAssignments=new HashSet<>();
 
 	}
 	
 	// function to add a classroom
 	public void addClass(Classroom nclass) {
 		Gradebook.add(nclass);
+		sortSet();
 	}
 	public int getSize() {
 		return Gradebook.size();
@@ -46,13 +48,14 @@ public class DataModel {
 	}
 	public void delete(Classroom g) {
 		Gradebook.remove(g);
+		sortSet();
 	}
 	public void sortSet() {
 		for(Classroom currentClass:Gradebook) {
 			setOfStudents.addAll(currentClass.getAllStudents());
 		}
 	}
-	
+
 	public String StringOfAllStudents() {
 		sortSet();
 		// formating to print classrooms in the appropriate format
@@ -67,4 +70,19 @@ public class DataModel {
 		}
 		return all;
 	}
+	public String StringOfAllStudentsByName(String name) {
+		sortSet();
+		String all=String.format("%-8s | %s\n",
+ 	    		 "ID", "Name");
+		for (Student s:setOfStudents) {
+			if(s.getName()==name) {
+				all += String.format("%-8s | %s\n",
+					     s.getstudentID(),
+					     s.getName());
+			}
+		}	
+		return all;
+		
+	}
+	
 }
