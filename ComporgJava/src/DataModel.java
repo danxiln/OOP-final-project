@@ -80,12 +80,17 @@ public class DataModel {
 		String all=String.format("%-8s | %s\n",
  	    		 "ID", "Name");
 		for (Student s:setOfStudents) {
-			if(s.getName()==name) {
+			System.out.println(s.getName());
+			System.out.println(name);
+			System.out.println(s.getName().contains(name));
+			if((s.getName().contains(name))) {
+				System.out.println("x");
 				all += String.format("%-8s | %s\n",
 					     s.getstudentID(),
 					     s.getName());
 			}
 		}	
+		System.out.println(all);
 		return all;
 		
 	}
@@ -108,7 +113,7 @@ public class DataModel {
 		// formating to print classrooms in the appropriate format
 		
 		for (Assignment current : setOfAllAssignments) {
-			if (current.getID()==id) {
+			if (current.getID().equals(id)) {
 				return current;
 			}
 			}
@@ -116,15 +121,16 @@ public class DataModel {
 	}
 	public String getAllStudentsByAssignment(String id) {
 		sortSet();
-		String all=String.format("%-8s | %s\n",
- 	    		 "ID", "Name");
+		String all=String.format("%-8s |%-8s| %s\n",
+ 	    		 "ID", "Name","Grade");
 		for (Student s:setOfStudents) {
 			ArrayList<Assignment> current=s.getAllAssignments();
 			for(Assignment x:current ) {
-				if(x.getID()==id) {
-					all += String.format("%-8s |%-8s \n",
+				if(x.getID().equals(id)) {
+					all += String.format("%-8s |%-8s| %s\n",
 							s.getstudentID(),
-							s.getName());
+							s.getName(),
+							x.getGrade());
 				}
 			}
 		}	
@@ -133,12 +139,41 @@ public class DataModel {
 	public Student baseStudent(String id) {
 		sortSet();
 		for (Student current : setOfStudents) {
-			if (current.getstudentID()==id) {
+			if (current.getstudentID().equals(id)) {
 				return current;
 			}
 			}
 		return null;
 	}
+	public double getStudentGPA(String id) {
+		double totalGPA=0;
+		int classes=0;
+		for(Classroom c:Gradebook) {
+			for(Student s:c.getAllStudents()) {
+				if(s.getstudentID().equals(id)) {
+					totalGPA+=s.calcGrade();
+					classes++;
+				}
+			}
+		}
+		return totalGPA/classes;
+		
+	}
+	public double getStudentGPAByType(String id,String type) {
+		double totalGPA=0;
+		int classes=0;
+		for(Classroom c:Gradebook) {
+			for(Student s:c.getAllStudents()) {
+				if(s.getstudentID().equals(id)) {
+					totalGPA+=s.calcGradeByType(type);
+					classes++;
+				}
+			}
+		}
+		return totalGPA/classes;
+		
+	}
+
 	
 	
 	

@@ -15,7 +15,7 @@ public class ClassroomStudentIDGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtStudentName;
-	private JTextField textField;
+	private JTextField txtID;
 	private JTextField txtHomework;
 	private JTextField txtQuiz;
 	private JTextField txtProject;
@@ -31,7 +31,7 @@ public class ClassroomStudentIDGUI extends JFrame {
 		newdm=dm;
 		newid=id;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 414, 363);
+		setBounds(100, 100, 414, 309);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -52,68 +52,59 @@ public class ClassroomStudentIDGUI extends JFrame {
 		lblStudentID.setBounds(10, 36, 84, 14);
 		contentPane.add(lblStudentID);
 		
-		textField = new JTextField();
-		textField.setEditable(false);
-		textField.setBounds(104, 33, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblStudentNotes = new JLabel("Student Notes:");
-		lblStudentNotes.setBounds(10, 67, 84, 14);
-		contentPane.add(lblStudentNotes);
-		
-		JTextArea textArea = new JTextArea();
-		textArea.setEditable(false);
-		textArea.setBounds(104, 64, 213, 74);
-		contentPane.add(textArea);
+		txtID = new JTextField();
+		txtID.setEditable(false);
+		txtID.setBounds(104, 33, 86, 20);
+		contentPane.add(txtID);
+		txtID.setColumns(10);
 		
 		JLabel lblHomeworkGPA = new JLabel("Homework GPA:");
-		lblHomeworkGPA.setBounds(10, 161, 84, 14);
+		lblHomeworkGPA.setBounds(10, 70, 84, 14);
 		contentPane.add(lblHomeworkGPA);
 		
 		txtHomework = new JTextField();
 		txtHomework.setEditable(false);
-		txtHomework.setBounds(104, 158, 86, 20);
+		txtHomework.setBounds(104, 64, 86, 20);
 		contentPane.add(txtHomework);
 		txtHomework.setColumns(10);
 		
 		JLabel lblQuizGPA = new JLabel("Quiz GPA:");
-		lblQuizGPA.setBounds(10, 186, 88, 14);
+		lblQuizGPA.setBounds(10, 95, 88, 14);
 		contentPane.add(lblQuizGPA);
 		
 		txtQuiz = new JTextField();
 		txtQuiz.setEditable(false);
-		txtQuiz.setBounds(104, 189, 86, 20);
+		txtQuiz.setBounds(104, 95, 86, 20);
 		contentPane.add(txtQuiz);
 		txtQuiz.setColumns(10);
 		
 		JLabel lblProjectGPA = new JLabel("Project GPA:");
-		lblProjectGPA.setBounds(10, 221, 84, 14);
+		lblProjectGPA.setBounds(10, 132, 84, 14);
 		contentPane.add(lblProjectGPA);
 		
 		txtProject = new JTextField();
 		txtProject.setEditable(false);
-		txtProject.setBounds(104, 220, 86, 20);
+		txtProject.setBounds(104, 126, 86, 20);
 		contentPane.add(txtProject);
 		txtProject.setColumns(10);
 		
 		txtExam = new JTextField();
 		txtExam.setEditable(false);
-		txtExam.setBounds(104, 251, 86, 20);
+		txtExam.setBounds(104, 157, 86, 20);
 		contentPane.add(txtExam);
 		txtExam.setColumns(10);
 		
 		JLabel lblExamGPA = new JLabel("Exam GPA:");
-		lblExamGPA.setBounds(10, 254, 84, 14);
+		lblExamGPA.setBounds(10, 157, 84, 14);
 		contentPane.add(lblExamGPA);
 		
 		JLabel lblGPA = new JLabel("GPA:");
-		lblGPA.setBounds(10, 287, 84, 14);
+		lblGPA.setBounds(10, 192, 84, 14);
 		contentPane.add(lblGPA);
 		
 		txtGPA = new JTextField();
 		txtGPA.setEditable(false);
-		txtGPA.setBounds(104, 284, 86, 20);
+		txtGPA.setBounds(104, 188, 86, 20);
 		contentPane.add(txtGPA);
 		txtGPA.setColumns(10);
 		
@@ -123,11 +114,23 @@ public class ClassroomStudentIDGUI extends JFrame {
 				dispose();
 			}
 		});
-		btnExit.setBounds(263, 283, 89, 23);
+		btnExit.setBounds(277, 225, 89, 23);
 		contentPane.add(btnExit);
 	}
 	public void refreshStudent() {
 		Student base=newdm.baseStudent(newid);
+		txtStudentName.setText(base.getName());
+		txtID.setText(base.getstudentID());
+		double gpa=newdm.getStudentGPA(newid);
+		double quiz=newdm.getStudentGPAByType(newid,"Quiz");
+		double exam=newdm.getStudentGPAByType(newid,"Exam");
+		double Project=newdm.getStudentGPAByType(newid,"Project");
+		double Homework=newdm.getStudentGPAByType(newid,"Homework");
+		txtGPA.setText(Double.toString(gpa));
+		txtQuiz.setText(Double.toString(quiz));
+		txtExam.setText(Double.toString(exam));
+		txtProject.setText(Double.toString(Project));
+		txtHomework.setText(Double.toString(Homework));
 	}
 
 }
