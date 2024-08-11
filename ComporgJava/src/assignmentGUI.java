@@ -34,12 +34,12 @@ public class assignmentGUI extends JFrame {
 	private JButton btnDelete;
 	private JButton btnExit;
 
-	private Assignment a;
-	private Student s;
+	private Assignment currentAssignment;
+	private Student currentStudent;
 
-	public assignmentGUI(Assignment a, Student s) {
-		this.a = a;
-		this.s = s;
+	public assignmentGUI(Assignment currentAssignment, Student currentStudent) {
+		this.currentAssignment = currentAssignment;
+		this.currentStudent = currentStudent;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -122,7 +122,7 @@ public class assignmentGUI extends JFrame {
 		btnDelete = new JButton("Delete Assingment");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				s.deleteAssignment(a);
+				currentStudent.deleteAssignment(currentAssignment);
 				dispose();
 			}
 		});
@@ -140,12 +140,12 @@ public class assignmentGUI extends JFrame {
 		setAssignmentDetail();
 	}
 	public void setAssignmentDetail() {
-		txtAssignmentName.setText(a.getName());
-		txtAssignmentID.setText(a.getID());
-		txtAssignmentDueDate.setText(a.getdueDate());
-		txtAssignmentType.setText(a.getType());
-		txtAssignmentGrade.setText(a.getGrade());
-		txtAssignmentWeight.setText(a.getWeight());
+		txtAssignmentName.setText(currentAssignment.getName());
+		txtAssignmentID.setText(currentAssignment.getID());
+		txtAssignmentDueDate.setText(currentAssignment.getdueDate());
+		txtAssignmentType.setText(currentAssignment.getType());
+		txtAssignmentGrade.setText(currentAssignment.getGrade());
+		txtAssignmentWeight.setText(currentAssignment.getWeight());
 	}
 
 	public void btn_clickSave() {
@@ -237,12 +237,12 @@ public class assignmentGUI extends JFrame {
 		}
 
 		// set assignment details if information is inputted correctly
-		a.setName(txtAssignmentName.getText());
-		a.setID(txtAssignmentID.getText());
-		a.setDueDate(txtAssignmentDueDate.getText());
-		a.setType(txtAssignmentType.getText());
-		a.setGrade(txtAssignmentGrade.getText());
-		a.setWeight(txtAssingnmentWeight.getText());
+		currentAssignment.setName(txtAssignmentName.getText());
+		currentAssignment.setID(txtAssignmentID.getText());
+		currentAssignment.setDueDate(txtAssignmentDueDate.getText());
+		currentAssignment.setType(txtAssignmentType.getText());
+		currentAssignment.setGrade(txtAssignmentGrade.getText());
+		currentAssignment.setWeight(txtAssingnmentWeight.getText());
 		dispose();
 	}
 
