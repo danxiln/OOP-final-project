@@ -80,17 +80,12 @@ public class DataModel {
 		String all=String.format("%-8s | %s\n",
  	    		 "ID", "Name");
 		for (Student s:setOfStudents) {
-			System.out.println(s.getName());
-			System.out.println(name);
-			System.out.println(s.getName().contains(name));
 			if((s.getName().contains(name))) {
-				System.out.println("x");
 				all += String.format("%-8s | %s\n",
 					     s.getstudentID(),
 					     s.getName());
 			}
 		}	
-		System.out.println(all);
 		return all;
 		
 	}

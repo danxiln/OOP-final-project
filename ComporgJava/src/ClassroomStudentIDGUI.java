@@ -116,6 +116,7 @@ public class ClassroomStudentIDGUI extends JFrame {
 		});
 		btnExit.setBounds(277, 225, 89, 23);
 		contentPane.add(btnExit);
+		refreshStudent();
 	}
 	public void refreshStudent() {
 		Student base=newdm.baseStudent(newid);

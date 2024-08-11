@@ -232,6 +232,7 @@ public class studentGUI extends JFrame {
                 txtStudentName.setText(s.getName());
                 txtStudentGPA.setText(s.getGrade());
                 txtStudentNotes.setText(s.getNotes());
+                cg.refreshStudents();
                 if(s!=null) {
                         String x=s.StringOfAllAssigments();
                         txtAssignments.setText(x);
