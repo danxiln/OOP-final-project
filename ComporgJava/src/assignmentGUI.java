@@ -119,14 +119,6 @@ public class assignmentGUI extends JFrame {
 				newa.setWeight(txtAssingmentWeight.getText());
 				newsg.refreshGUI();
 				dispose();
-
-				if (newsg.cg != null) {
-					newsg.cg.refreshStudents();
-					newsg.cg.revalidate();
-					newsg.cg.repaint();
-				}
-
-				dispose();
 			}
 		})
 		;
