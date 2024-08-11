@@ -108,7 +108,7 @@ public class GradebookGUI extends JFrame {
 			txtClassroom.setText(x);
 		}
 		}
-	public void btn_clickAccessClassroom() {
+	private void btn_clickAccessClassroom() {
 		Classroom currentClassroom = newdm.selectClass(txtAcessInput.getText());
 		if(currentClassroom!=null) {
 			classroomGUI cg=new classroomGUI(newdm,currentClassroom,GradebookGUI.this);

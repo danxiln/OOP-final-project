@@ -1,8 +1,7 @@
 import java.util.Objects;
 
 public class Assignment implements Comparable<Assignment> {
-	static int IdCounter=0;
-	String dueDate, name, type, grade, weight, notes,id;
+	private String dueDate, name, type, grade, weight, notes,id;
 
 	Assignment(String assignment_name, String assignment_dueDate, String assignment_type,
  		   String assignment_grade, String assignment_weight, String assignment_notes,String assignment_id) {
@@ -13,12 +12,8 @@ public class Assignment implements Comparable<Assignment> {
 		grade = assignment_grade;
 		weight = assignment_weight;
 		notes = assignment_notes;
-		IdCounter+=1;
 	}
 
-public static int getIdCounter() {
-	return IdCounter;
-}
 	public String getID() {
 		return id;
 	}

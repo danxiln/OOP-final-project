@@ -14,12 +14,12 @@ public class assignmentGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtAssingmentName;
-	private JTextField txtAssingmentID;
-	private JTextField txtAssingmentDueDate;
+	private JTextField txtAssingnmentName;
+	private JTextField txtAssingnmentID;
+	private JTextField txtAssingnmentDueDate;
 	private JTextField txtAssignmentType;
 	private JTextField txtAssignmentGrade;
-	private JTextField txtAssingmentWeight;
+	private JTextField txtAssingnmentWeight;
 	private JTextField txtAssignmentName;
 	private JTextField txtAssignmentID;
 	private JTextField txtAssignmentDueDate;
@@ -31,7 +31,7 @@ public class assignmentGUI extends JFrame {
 	private JLabel lblAssignmentGrade;
 	private JLabel lblAssingmentWeight;
 	private JLabel lblAssingmentNotes;
-	private JTextArea txtAssingmentNotes;
+	private JTextArea txtAssingnmentNotes;
 	private JButton btnSave;
 	private JButton btnDelete;
 	private JButton btnExit;
@@ -54,28 +54,28 @@ public class assignmentGUI extends JFrame {
 		lblAssingmentName.setBounds(10, 11, 113, 14);
 		contentPane.add(lblAssingmentName);
 
-		txtAssingmentName = new JTextField();
-		txtAssingmentName.setBounds(133, 8, 176, 20);
-		contentPane.add(txtAssingmentName);
-		txtAssingmentName.setColumns(10);
+		txtAssingnmentName = new JTextField();
+		txtAssingnmentName.setBounds(133, 8, 176, 20);
+		contentPane.add(txtAssingnmentName);
+		txtAssingnmentName.setColumns(10);
 
 		lblAssingmentID = new JLabel("Assingment ID:");
 		lblAssingmentID.setBounds(10, 36, 113, 14);
 		contentPane.add(lblAssingmentID);
 
-		txtAssingmentID = new JTextField();
-		txtAssingmentID.setBounds(133, 33, 176, 20);
-		contentPane.add(txtAssingmentID);
-		txtAssingmentID.setColumns(10);
+		txtAssingnmentID = new JTextField();
+		txtAssingnmentID.setBounds(133, 33, 176, 20);
+		contentPane.add(txtAssingnmentID);
+		txtAssingnmentID.setColumns(10);
 
 		lblAssingmentDueDate = new JLabel("Assingment Due Date:");
 		lblAssingmentDueDate.setBounds(10, 61, 113, 14);
 		contentPane.add(lblAssingmentDueDate);
 
-		txtAssingmentDueDate = new JTextField();
-		txtAssingmentDueDate.setBounds(133, 58, 176, 20);
-		contentPane.add(txtAssingmentDueDate);
-		txtAssingmentDueDate.setColumns(10);
+		txtAssingnmentDueDate = new JTextField();
+		txtAssingnmentDueDate.setBounds(133, 58, 176, 20);
+		contentPane.add(txtAssingnmentDueDate);
+		txtAssingnmentDueDate.setColumns(10);
 
 		lblAssingmentType = new JLabel("Assingment Type:");
 		lblAssingmentType.setBounds(10, 86, 113, 14);
@@ -99,18 +99,18 @@ public class assignmentGUI extends JFrame {
 		lblAssingmentWeight.setBounds(10, 136, 113, 14);
 		contentPane.add(lblAssingmentWeight);
 
-		txtAssingmentWeight = new JTextField();
-		txtAssingmentWeight.setBounds(133, 133, 176, 20);
-		contentPane.add(txtAssingmentWeight);
-		txtAssingmentWeight.setColumns(10);
+		txtAssingnmentWeight = new JTextField();
+		txtAssingnmentWeight.setBounds(133, 133, 176, 20);
+		contentPane.add(txtAssingnmentWeight);
+		txtAssingnmentWeight.setColumns(10);
 
 		lblAssingmentNotes = new JLabel("Assingment Notes:");
 		lblAssingmentNotes.setBounds(10, 161, 113, 14);
 		contentPane.add(lblAssingmentNotes);
 
-		txtAssingmentNotes = new JTextArea();
-		txtAssingmentNotes.setBounds(133, 164, 176, 59);
-		contentPane.add(txtAssingmentNotes);
+		txtAssingnmentNotes = new JTextArea();
+		txtAssingnmentNotes.setBounds(133, 164, 176, 59);
+		contentPane.add(txtAssingnmentNotes);
 
 		btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
@@ -125,6 +125,7 @@ public class assignmentGUI extends JFrame {
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				newsg.deleteAssignment(a);
+				newsg.refreshGUI();
 				dispose();
 			}
 		});
@@ -139,12 +140,12 @@ public class assignmentGUI extends JFrame {
 		});
 		btnExit.setBounds(335, 227, 89, 23);
 		contentPane.add(btnExit);
-		txtAssingmentName.setText(newa.getName());
-		txtAssingmentID.setText(newa.getID());
-		txtAssingmentDueDate.setText(newa.getdueDate());
+		txtAssingnmentName.setText(newa.getName());
+		txtAssingnmentID.setText(newa.getID());
+		txtAssingnmentDueDate.setText(newa.getdueDate());
 		txtAssignmentType.setText(newa.getType());
 		txtAssignmentGrade.setText(newa.getGrade());
-		txtAssingmentWeight.setText(newa.getWeight());
+		txtAssingnmentWeight.setText(newa.getWeight());
 	}
 
 	public void btn_clickSave() {
@@ -233,12 +234,12 @@ public class assignmentGUI extends JFrame {
 		}
 
 		// set assignment details if information is inputted correctly
-		newa.setName(txtAssingmentName.getText());
-		newa.setID(txtAssingmentID.getText());
-		newa.setDueDate(txtAssingmentDueDate.getText());
+		newa.setName(txtAssingnmentName.getText());
+		newa.setID(txtAssingnmentID.getText());
+		newa.setDueDate(txtAssingnmentDueDate.getText());
 		newa.setType(txtAssignmentType.getText());
 		newa.setGrade(txtAssignmentGrade.getText());
-		newa.setWeight(txtAssingmentWeight.getText());
+		newa.setWeight(txtAssingnmentWeight.getText());
 		newsg.refreshGUI();
 		dispose();
 	}
