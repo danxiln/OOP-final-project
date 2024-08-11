@@ -51,8 +51,14 @@ public class DataModel {
 		sortSet();
 	}
 	public void sortSet() {
+		//sorts students
+		
 		for(Classroom currentClass:Gradebook) {
 			setOfStudents.addAll(currentClass.getAllStudents());
+		}
+		//sorts assignments
+		for(Student currentStudent:setOfStudents) {
+			setOfAllAssignments.addAll(currentStudent.getAllAssignments());
 		}
 	}
 
@@ -63,7 +69,6 @@ public class DataModel {
 			       	    		 "ID", "Name");
 		
 		for (Student s:setOfStudents) {
-			System.out.println('e');
 			all += String.format("%-8s | %s\n",
 				     s.getstudentID(),
 				     s.getName());
@@ -84,5 +89,48 @@ public class DataModel {
 		return all;
 		
 	}
+	public String StringOfAllAssignments() {
+		sortSet();
+		// formating to print classrooms in the appropriate format
+		String all=String.format("%-8s |%-8s |%12s| %8s\n",
+		  		 "ID", "Name","Due Date","Grade");
+		for (Assignment current : setOfAllAssignments) {
+			all += String.format("%-8s |%-8s |%12s |%8s\n",
+			    current.getID(),
+			    current.getName(),
+			    current.getdueDate(),
+			    current.getGrade());
+			}
+		return all;
+	}
+	public Assignment baseAssignment(String id) {
+		sortSet();
+		// formating to print classrooms in the appropriate format
+		
+		for (Assignment current : setOfAllAssignments) {
+			if (current.getID()==id) {
+				return current;
+			}
+			}
+		return null;
+	}
+	public String getAllStudentsByAssignment(String id) {
+		sortSet();
+		String all=String.format("%-8s | %s\n",
+ 	    		 "ID", "Name");
+		for (Student s:setOfStudents) {
+			ArrayList<Assignment> current=s.getAllAssignments();
+			for(Assignment x:current ) {
+				if(x.getID()==id) {
+					all += String.format("%-8s |%-8s \n",
+							s.getcurrentID(),
+							s.getName());
+				}
+			}
+		}	
+		return all;
+	}
+	
+	
 	
 }

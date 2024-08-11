@@ -8,6 +8,7 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class GradebookAssigments extends JFrame {
 
@@ -17,6 +18,9 @@ public class GradebookAssigments extends JFrame {
 	private JTextArea txtAssignments;
 	private JButton btnExit;
 	DataModel newdm;
+	private JLabel lblAssingnmentID;
+	private JTextField txtID;
+	private JButton btnSearch;
 	public GradebookAssigments(DataModel dm) {
 		newdm=dm;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,11 +32,11 @@ public class GradebookAssigments extends JFrame {
 		contentPane.setLayout(null);
 		
 		lblAssigments = new JLabel("Assignments");
-		lblAssigments.setBounds(10, 61, 93, 14);
+		lblAssigments.setBounds(10, 103, 93, 14);
 		contentPane.add(lblAssigments);
 		
 		txtAssignments = new JTextArea();
-		txtAssignments.setBounds(10, 86, 383, 136);
+		txtAssignments.setBounds(10, 128, 383, 94);
 		contentPane.add(txtAssignments);
 		
 		btnExit = new JButton("Exit");
@@ -43,6 +47,25 @@ public class GradebookAssigments extends JFrame {
 		});
 		btnExit.setBounds(304, 227, 89, 23);
 		contentPane.add(btnExit);
+		
+		lblAssingnmentID = new JLabel("Assingnment ID:");
+		lblAssingnmentID.setBounds(10, 11, 103, 14);
+		contentPane.add(lblAssingnmentID);
+		
+		txtID = new JTextField();
+		txtID.setBounds(119, 8, 103, 20);
+		contentPane.add(txtID);
+		txtID.setColumns(10);
+		
+		btnSearch = new JButton("Search");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GradebookAssingmentID gai=new GradebookAssingmentID(dm,txtID.getText());
+				gai.setVisible(true);
+			}
+		});
+		btnSearch.setBounds(261, 7, 89, 23);
+		contentPane.add(btnSearch);
 		refreshAssignments();
 	}
 	public void refreshAssignments() {
