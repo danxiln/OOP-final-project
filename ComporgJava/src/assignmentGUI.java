@@ -14,9 +14,10 @@ public class assignmentGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	
 	private JTextField txtAssignmentType;
 	private JTextField txtAssignmentGrade;
-	private JTextField txtAssingmentWeight;
+	private JTextField txtAssingnmentWeight;
 	private JTextField txtAssignmentName;
 	private JTextField txtAssignmentID;
 	private JTextField txtAssignmentDueDate;
@@ -63,7 +64,7 @@ public class assignmentGUI extends JFrame {
 		txtAssignmentID = new JTextField();
 		txtAssignmentID.setBounds(133, 33, 176, 20);
 		contentPane.add(txtAssignmentID);
-		txtAssignmentID.setColumns(10);
+		txtAssignmentID.setColumns(10);	
 
 		lblAssignmentDueDate = new JLabel("Assignment Due Date:");
 		lblAssignmentDueDate.setBounds(10, 61, 113, 14);
@@ -112,7 +113,7 @@ public class assignmentGUI extends JFrame {
 		btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btn_save();
+				btn_clickSave();
 			}
 		});
 		btnSave.setBounds(26, 227, 89, 23);
@@ -122,6 +123,7 @@ public class assignmentGUI extends JFrame {
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				newsg.deleteAssignment(a);
+				newsg.refreshGUI();
 				dispose();
 			}
 		});
@@ -144,7 +146,7 @@ public class assignmentGUI extends JFrame {
 		txtAssignmentWeight.setText(newa.getWeight());
 	}
 
-	public void btn_save() {
+	public void btn_clickSave() {
 		String assignmentType = txtAssignmentType.getText();
 		if (assignmentType.isEmpty()) {
 			JOptionPane.showMessageDialog(contentPane, "Assignment Type cannot be empty.", "Error",

@@ -231,15 +231,12 @@ public class classroomGUI extends JFrame {
 		
 	}
 	public void refreshStudents() {
+		cbg.refreshClassrooms();
 		txtClassID.setText(g.getClassID());
 		txtClassName.setText(g.getName());
 		txtClassYear.setText(g.getYear());
 		txtClassNotes.setText(g.getNotes());
-		System.out.println("x");
-		cbg.refreshClassrooms();
 		if(g!=null) {
-			System.out.println("x");
-
 			String x=g.StringOfAllStudents();
 			txtStudents.setText(x);
 			// refresh grades for each student added
