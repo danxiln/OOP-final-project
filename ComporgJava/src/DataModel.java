@@ -3,11 +3,11 @@ import java.util.ArrayList;
 
 public class DataModel {
 	private ArrayList<Classroom> Gradebook;
-	private Set<Student> students;
+	private Set<Student> setOfStudents;
 	
 	DataModel(){
 		Gradebook= new ArrayList<Classroom>();
-        students = new HashSet<>();
+		setOfStudents = new HashSet<>();
 
 	}
 	
@@ -49,7 +49,7 @@ public class DataModel {
 	}
 	public void sortSet() {
 		for(Classroom currentClass:Gradebook) {
-			students.addAll(currentClass.getAllStudents());
+			setOfStudents.addAll(currentClass.getAllStudents());
 		}
 	}
 	
@@ -58,10 +58,12 @@ public class DataModel {
 		// formating to print classrooms in the appropriate format
 		String all=String.format("%-8s | %s\n",
 			       	    		 "ID", "Name");
-		System.out.println( Integer.toString(students.size()));
-		for (Student s:students) {
-			System.out.println(s.toString());
-				all += s.toString();
+		
+		for (Student s:setOfStudents) {
+			System.out.println('e');
+			all += String.format("%-8s | %s\n",
+				     s.getstudentID(),
+				     s.getName());
 		}
 		return all;
 	}
