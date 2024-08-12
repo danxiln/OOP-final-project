@@ -4,11 +4,9 @@ import java.util.*;
 public class main {
 	public static void main (String[] args) {
 		DataModel d=new DataModel();
-		AssignmentModel AM=new AssignmentModel();
-		StudentModel SM=new StudentModel();
-		Set<Assignment> setOfAllAssignments=new HashSet<>();
-		Set<Student> setOfStudents=new HashSet<>();
-		GradebookGUI g =new GradebookGUI(d,AM,SM);
+		AssignmentModel am=new AssignmentModel();
+		StudentModel sm=new StudentModel();
+		GradebookGUI g =new GradebookGUI(d,am,sm);
 		g.setVisible(true);
 	}
 }

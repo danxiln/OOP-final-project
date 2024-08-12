@@ -29,6 +29,8 @@ public class GradebookAssignmentID extends JFrame {
 	
 	
 	private DataModel dm;
+	private AssignmentModel am;
+	private StudentModel sm;
 	private String id;
 	private JButton btnExit;
 
@@ -36,8 +38,10 @@ public class GradebookAssignmentID extends JFrame {
 	 * Launch the application.
 	 */
 	
-	public GradebookAssignmentID(DataModel dm, String id) {
+	public GradebookAssignmentID(DataModel dm,AssignmentModel am,StudentModel sm, String id) {
 		this.dm=dm;
+		this.am=am;
+		this.sm=sm;
 		this.id=id;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 468, 385);
@@ -118,16 +122,16 @@ public class GradebookAssignmentID extends JFrame {
 		displayStudentList();
 	}
 	public void displayAssingmentDetails() {
-		Assignment base=dm.baseAssignment(id);
+		Assignment base=am.baseAssignment(id);
 		txtName.setText(base.getName());
 		txtID.setText(id);
 		txtWeight.setText(base.getWeight());
 		txtType.setText(base.getType());
 		txtDueDate.setText(base.getdueDate());
-		txtStudents.setText(dm.getAllStudentsByAssignment(id));
+		txtStudents.setText(am.getAllStudentsByAssignment(id,sm));
 	}
 	public void displayStudentList() {
-		txtStudents.setText(dm.getAllStudentsByAssignment(id));
+		txtStudents.setText(am.getAllStudentsByAssignment(id,sm));
 	}
 
 

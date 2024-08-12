@@ -16,7 +16,7 @@ public class classroomGUIEditor extends JFrame {
 	private JTextField txtClassName;
 	private JTextField txtClassID;
 	private JTextField txtClassYear;
-	private JLabel lblClassName;
+	private JLabel lblClassName;	
 	private JLabel lblClassID;
 	private JLabel lblClassYear;
 	private JButton btnSave;

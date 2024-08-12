@@ -17,13 +17,17 @@ public class GradebookAssignments extends JFrame {
 	private JLabel lblAssigments;
 	private JTextArea txtAssignments;
 	private JButton btnExit;
-	DataModel dm;
 	private JLabel lblAssingnmentID;
 	private JTextField txtID;
 	private JButton btnSearch;
 	private JButton btnRefresh;
-	public GradebookAssignments(DataModel dm) {
+	private DataModel dm;
+	private AssignmentModel am;
+	private StudentModel sm;
+	public GradebookAssignments(DataModel dm,AssignmentModel am,StudentModel sm) {
 		this.dm=dm;
+		this.am=am;
+		this.sm=sm;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -78,10 +82,12 @@ public class GradebookAssignments extends JFrame {
 		contentPane.add(btnRefresh);
 	}
 	public void btn_clickRefreshAssignments() {
-		txtAssignments.setText(dm.StringOfAllAssignments());
+		am.sortSet(dm, sm);
+		txtAssignments.setText(am.StringOfAllAssignments());
 	}
 	public void btn_clickSearch() {
-		GradebookAssignmentID gai=new GradebookAssignmentID(dm,txtID.getText());
+		am.sortSet(dm, sm);
+		GradebookAssignmentID gai=new GradebookAssignmentID(dm,am,sm,txtID.getText());
 		gai.setVisible(true);
 	}
 }

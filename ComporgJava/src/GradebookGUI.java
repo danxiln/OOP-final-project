@@ -25,6 +25,8 @@ public class GradebookGUI extends JFrame {
 	private JButton btnViewAllAssignments;
 	private JButton btnViewStudents;
 	private JButton btnRefresh;
+	private AssignmentModel am;
+	private StudentModel sm;
 
 	/**
 	 * Launch the application.
@@ -32,8 +34,10 @@ public class GradebookGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GradebookGUI(DataModel dm) {
+	public GradebookGUI(DataModel dm,AssignmentModel am,StudentModel sm) {
 		this.dm=dm;
+		this.am=am;
+		this.sm=sm;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -130,11 +134,11 @@ public class GradebookGUI extends JFrame {
 		gb.setVisible(true);
 	}
 	public void btn_clickViewStudents() {
-		ClassroomStudentsGUI cs=new ClassroomStudentsGUI(dm);
+		ClassroomStudentsGUI cs=new ClassroomStudentsGUI(dm,sm);
 		cs.setVisible(true);
 	}
 	public void btn_clickViewAssignments() {
-		GradebookAssignments ga=new GradebookAssignments(dm);
+		GradebookAssignments ga=new GradebookAssignments(dm,am,sm);
 		ga.setVisible(true);
 	}
 }

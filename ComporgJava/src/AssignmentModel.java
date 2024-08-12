@@ -10,19 +10,15 @@ public class AssignmentModel {
 
 		}
 
-		public void sortSet(DataModel dm) {
-			 ArrayList<Classroom> Gradebook=dm.getGradebook();
-			for(Classroom currentClass:Gradebook) {
-				setOfStudents.addAll(currentClass.getAllStudents());
-			}
+		public void sortSet(DataModel dm,StudentModel sm) {
+			sm.sortSet(dm);
 			//sorts assignments
-			for(Student currentStudent:setOfStudents) {
+			for(Student currentStudent:sm.getStudentModel()) {
 				setOfAllAssignments.addAll(currentStudent.getAllAssignments());
 			}
 		}
 
 		public String StringOfAllAssignments() {
-			sortSet();
 			// formating to print classrooms in the appropriate format
 			String all=String.format("%-8s |%-24s |%-12s| %-8s\n",
 			  		 "ID", "Name","Due Date","Grade");
@@ -36,7 +32,6 @@ public class AssignmentModel {
 			return all;
 		}
 		public Assignment baseAssignment(String id) {
-			sortSet();
 			// formating to print classrooms in the appropriate format
 			
 			for (Assignment current : setOfAllAssignments) {
@@ -46,11 +41,10 @@ public class AssignmentModel {
 				}
 			return null;
 		}
-		public String getAllStudentsByAssignment(String id) {
-			sortSet();
+		public String getAllStudentsByAssignment(String id,StudentModel sm) {
 			String all=String.format("%-8s |%-30s| %-8s\n",
 	 	    		 "ID", "Name","Grade");
-			for (Student s:setOfStudents) {
+			for (Student s:sm.getStudentModel()) {
 				ArrayList<Assignment> current=s.getAllAssignments();
 				for(Assignment x:current ) {
 					if(x.getID().equals(id)) {
@@ -63,34 +57,6 @@ public class AssignmentModel {
 			}	
 			return all;
 		}
-		public double getStudentGPA(String id) {
-			double totalGPA=0;
-			int classes=0;
-			for(Classroom c:Gradebook) {
-				for(Student s:c.getAllStudents()) {
-					if(s.getstudentID().equals(id)) {
-						totalGPA+=s.calcGrade();
-						classes++;
-					}
-				}
-			}
-			return totalGPA/classes;
-			
-		}
 		
-		public double getStudentGPAByType(String id,String type) {
-			double totalGPA=0;
-			int classes=0;
-			for(Classroom c:Gradebook) {
-				for(Student s:c.getAllStudents()) {
-					if(s.getstudentID().equals(id)) {
-						totalGPA+=s.calcGradeByType(type);
-						classes++;
-					}
-				}
-			}
-			return totalGPA/classes;
-			
-		}
 
 }

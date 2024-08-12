@@ -170,7 +170,7 @@ public class Student implements Comparable<Student> {
 	}
 
         public int hashCode() {
-                return Objects.hash(currentid);
+                return Objects.hash(idNumber);
 	}
         public 	ArrayList<Assignment> getAllAssignments(){
         	return assignments;

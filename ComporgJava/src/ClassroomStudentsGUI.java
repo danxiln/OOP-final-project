@@ -24,10 +24,12 @@ public class ClassroomStudentsGUI extends JFrame {
 	private JLabel lblSortName;
 	private JTextField txtName;
 	private JButton btnRefresh;
+	StudentModel sm;
 	
 	
-	public ClassroomStudentsGUI(DataModel dm) {
+	public ClassroomStudentsGUI(DataModel dm,StudentModel sm) {
 		this.dm=dm;
+		this.sm=sm;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -75,8 +77,7 @@ public class ClassroomStudentsGUI extends JFrame {
 		btnSort = new JButton("Sort");
 		btnSort.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtStudents.setText(dm.StringOfAllStudentsByName(txtName.getText()));
-				
+				txtStudents.setText(sm.StringOfAllStudentsByName(txtName.getText()));
 			}
 		});
 		btnSort.setBounds(249, 51, 89, 23);
@@ -102,10 +103,12 @@ public class ClassroomStudentsGUI extends JFrame {
 		
 	}
 	private void btn_clickrefreshStudents() {
-		txtStudents.setText(dm.StringOfAllStudents());
+		sm.sortSet(dm);
+		txtStudents.setText(sm.StringOfAllStudents());
 	}
 	public void btn_clickSearch() {
-		ClassroomStudentIDGUI CSGUI=new ClassroomStudentIDGUI(dm,txtID.getText());
+		sm.sortSet(dm);
+		ClassroomStudentIDGUI CSGUI=new ClassroomStudentIDGUI(dm,sm,txtID.getText());
 		CSGUI.setVisible(true);
 	}
 
