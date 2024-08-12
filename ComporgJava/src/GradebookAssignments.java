@@ -81,7 +81,7 @@ public class GradebookAssignments extends JFrame {
 		txtAssignments.setText(dm.StringOfAllAssignments());
 	}
 	public void btn_clickSearch() {
-		GradebookAssingmentID gai=new GradebookAssingmentID(dm,txtID.getText());
+		GradebookAssignmentID gai=new GradebookAssignmentID(dm,txtID.getText());
 		gai.setVisible(true);
 	}
 }
