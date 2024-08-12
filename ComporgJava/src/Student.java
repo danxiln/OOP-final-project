@@ -168,10 +168,26 @@ public class Student implements Comparable<Student> {
 		// return null if not possible
 		return null;
 	}
-
+		@Override
         public int hashCode() {
                 return Objects.hash(idNumber);
 	}
+        @Override
+        public boolean equals(Object o) {
+        	System.out.println("used");
+            if (this==o) {
+            	System.out.println("true");
+            	return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+            	System.out.println("false");
+            	return false;
+            }
+            Student student = (Student) o;
+            boolean isEqual = Objects.equals(idNumber, student.idNumber);
+            return isEqual;
+        }
+        
         public 	ArrayList<Assignment> getAllAssignments(){
         	return assignments;
         }

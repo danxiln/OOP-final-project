@@ -79,9 +79,22 @@ public class Assignment implements Comparable<Assignment> {
 	public int compareTo(Assignment assignment) {
 		return name.compareTo(assignment.name);
 	}
+	@Override
     public int hashCode() {
         return Objects.hash(id);
 }
+    @Override
+    public boolean equals(Object o) {
+        if (this==o) {
+        	return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+        	return false;
+        }
+        Assignment assingment = (Assignment) o;
+        boolean isEqual = Objects.equals(id, assingment.id);
+        return isEqual;
+    }
 }
 
 
