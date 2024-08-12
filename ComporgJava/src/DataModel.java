@@ -54,7 +54,11 @@ public class DataModel {
 		//sorts students
 		
 		for(Classroom currentClass:Gradebook) {
-			setOfStudents.addAll(currentClass.getAllStudents());
+			for(Student currentStudent:currentClass.getAllStudents()) {
+				 System.out.println("Adding student: " + currentStudent.getstudentID());
+			        boolean added = setOfStudents.add(currentStudent);
+			        System.out.println("Was student added? " + added);
+			}
 		}
 		//sorts assignments
 		for(Student currentStudent:setOfStudents) {
@@ -167,6 +171,14 @@ public class DataModel {
 		}
 		return totalGPA/classes;
 		
+	}
+	public void SystemOutPrintStudent() {
+        Iterator itr = setOfStudents.iterator();
+        // check element is present or not. if not loop will
+        // break.
+        while (itr.hasNext()) {
+            System.out.println(itr.next());
+        }
 	}
 
 	

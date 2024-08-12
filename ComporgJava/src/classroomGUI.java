@@ -41,7 +41,7 @@ public class classroomGUI extends JFrame {
 	private JTextField txtQuiz;
 	private JTextField txtHomework;
 	private JButton btnSortByGrade;
-	private JButton btnSortbyAlphabet;
+	private JButton btnSortByAlphabet;
 	private JButton btnRefresh;
 	private JLabel lblHomework;
 	private JButton btnExit;
@@ -208,15 +208,15 @@ public class classroomGUI extends JFrame {
 		btnSortByGrade.setBounds(445, 165, 162, 23);
 		contentPane.add(btnSortByGrade);
 		
-		btnSortbyAlphabet = new JButton("Sort Alphabet");
-		btnSortbyAlphabet.addActionListener(new ActionListener() {
+		btnSortByAlphabet = new JButton("Sort Alphabet");
+		btnSortByAlphabet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currentClassroom.sortByAlphabet();
 				btn_refreshStudents();
 			}
 		});
-		btnSortbyAlphabet.setBounds(445, 213, 162, 23);
-		contentPane.add(btnSortbyAlphabet);
+		btnSortByAlphabet.setBounds(445, 213, 162, 23);
+		contentPane.add(btnSortByAlphabet);
 		
 		btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener() {
