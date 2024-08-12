@@ -12,7 +12,6 @@ import javax.swing.JTextArea;
 
 public class Gradebook_AdderGUI extends JFrame {
 
-	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtClassName;
 	private JTextField txtYear;
@@ -24,7 +23,7 @@ public class Gradebook_AdderGUI extends JFrame {
 	private JLabel lblClassName;
 	private JButton btnAddClassroom ;
 	private JButton btnExit;
-	DataModel dm;
+	private DataModel dm;
 	/**
 	 * Launch the application.
 	 */
