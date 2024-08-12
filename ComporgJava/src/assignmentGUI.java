@@ -17,7 +17,6 @@ public class assignmentGUI extends JFrame {
 
 	private JTextField txtAssignmentType;
 	private JTextField txtAssignmentGrade;
-	private JTextField txtAssingnmentWeight;
 	private JTextField txtAssignmentName;
 	private JTextField txtAssignmentID;
 	private JTextField txtAssignmentDueDate;
