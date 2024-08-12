@@ -93,16 +93,7 @@ public class StudentGUIAdder extends JFrame {
 		btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String name = txtAssignmentName.getText();
-				String dueDate = txtAssingnmentDueDate.getText();
-				String type = txtAssignmentType.getText();
-				String grade = txtAssignmentGrade.getText();
-				String weight = txtAssignmentWeight.getText();
-				String notes = txtAssignmentNotes.getText();
-				String id=txtAssignmentID.getText();
-				Assignment current=new Assignment(name,dueDate,type,grade,weight,notes,id);
-				news.addAssignment(current);
-				dispose();
+				btn_clickSave();
 			}
 		});
 		btnSave.setBounds(33, 227, 89, 23);
@@ -134,5 +125,17 @@ public class StudentGUIAdder extends JFrame {
 		txtAssignmentNotes.setBounds(153, 170, 266, 53);
 		contentPane.add(txtAssignmentNotes);
 		
+	}
+	public void btn_clickSave() {
+		String name = txtAssignmentName.getText();
+		String dueDate = txtAssingnmentDueDate.getText();
+		String type = txtAssignmentType.getText();
+		String grade = txtAssignmentGrade.getText();
+		String weight = txtAssignmentWeight.getText();
+		String notes = txtAssignmentNotes.getText();
+		String id=txtAssignmentID.getText();
+		Assignment current=new Assignment(name,dueDate,type,grade,weight,notes,id);
+		news.addAssignment(current);
+		dispose();
 	}
 }
