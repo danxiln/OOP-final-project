@@ -82,18 +82,16 @@ public class GradebookGUI extends JFrame {
 		btnViewAllAssignments = new JButton("View Assignments");
 		btnViewAllAssignments.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				GradebookAssigments ga=new GradebookAssigments(dm);
-				ga.setVisible(true);
+				btn_clickViewAssignments();
 			}
 		});
-		btnViewAllAssignments.setBounds(28, 220, 139, 23);
+		btnViewAllAssignments.setBounds(28, 220, 161, 23);
 		contentPane.add(btnViewAllAssignments);
 		
 		btnViewStudents = new JButton("View Students");
 		btnViewStudents.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClassroomStudentsGUI cs=new ClassroomStudentsGUI(dm);
-				cs.setVisible(true);
+				btn_clickViewStudents();
 			}
 		});
 		btnViewStudents.setBounds(247, 220, 150, 23);
@@ -130,5 +128,13 @@ public class GradebookGUI extends JFrame {
 	public void btn_clickAddClassroom() {
 		Gradebook_AdderGUI gb =new Gradebook_AdderGUI(dm);
 		gb.setVisible(true);
+	}
+	public void btn_clickViewStudents() {
+		ClassroomStudentsGUI cs=new ClassroomStudentsGUI(dm);
+		cs.setVisible(true);
+	}
+	public void btn_clickViewAssignments() {
+		GradebookAssignments ga=new GradebookAssignments(dm);
+		ga.setVisible(true);
 	}
 }

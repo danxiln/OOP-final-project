@@ -114,9 +114,10 @@ public class GradebookAssingmentID extends JFrame {
 		});
 		btnExit.setBounds(325, 296, 89, 23);
 		contentPane.add(btnExit);
-		refreshAssignments();
+		displayAssingmentDetails();
+		displayStudentList();
 	}
-	public void refreshAssignments() {
+	public void displayAssingmentDetails() {
 		Assignment base=dm.baseAssignment(id);
 		txtName.setText(base.getName());
 		txtID.setText(id);
@@ -125,5 +126,9 @@ public class GradebookAssingmentID extends JFrame {
 		txtDueDate.setText(base.getdueDate());
 		txtStudents.setText(dm.getAllStudentsByAssignment(id));
 	}
+	public void displayStudentList() {
+		txtStudents.setText(dm.getAllStudentsByAssignment(id));
+	}
+
 
 }

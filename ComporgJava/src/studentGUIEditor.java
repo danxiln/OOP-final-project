@@ -24,13 +24,13 @@ public class studentGUIEditor extends JFrame {
 	private JButton btnDelete;
 	private JButton btnExit;
 	
-	private Student news;
-	private Classroom newg;
-	private JButton btnRefresh;
+	Student currentStudent;
+	Classroom currentClassroom;
 	
-	public studentGUIEditor(Student s,Classroom g) {
-		news=s;
-		newg=g;
+	public studentGUIEditor(Student currentStudent,Classroom currentClassroom) {
+		this.currentStudent=currentStudent;
+		this.currentClassroom=currentClassroom;
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -68,10 +68,8 @@ public class studentGUIEditor extends JFrame {
 		btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				news.setID(txtStudentID.getText());
-				news.setName(txtStudentName.getText());
-				news.setNotes(txtStudentNotes.getText());
-				dispose();
+				btn_clickSave();
+
 			}
 		});
 		btnSave.setBounds(37, 215, 89, 23);
@@ -80,8 +78,7 @@ public class studentGUIEditor extends JFrame {
 		btnDelete = new JButton("Delete Student");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				newg.deleteStudent(s);
-				dispose();
+				btn_clickDelete(); 
 			}
 		});
 		btnDelete.setBounds(157, 215, 104, 23);
@@ -95,15 +92,22 @@ public class studentGUIEditor extends JFrame {
 		});
 		btnExit.setBounds(302, 215, 89, 23);
 		contentPane.add(btnExit);
-		
-		txtStudentID.setText(s.getstudentID());
-		txtStudentName.setText(s.getName());
-		txtStudentNotes.setText(s.getNotes());
-		
-		btnRefresh = new JButton("Refresh");
-		btnRefresh.setBounds(306, 154, 89, 23);
-		contentPane.add(btnRefresh);
-
+		setStudentDetail();
+	}
+	public void setStudentDetail() {
+		txtStudentID.setText(currentStudent.getstudentID());
+		txtStudentName.setText(currentStudent.getName());
+		txtStudentNotes.setText(currentStudent.getNotes());
+	}
+	public void btn_clickSave() {
+		currentStudent.setID(txtStudentID.getText());
+		currentStudent.setName(txtStudentName.getText());
+		currentStudent.setNotes(txtStudentNotes.getText());
+		dispose();
+	}
+	public void btn_clickDelete() {
+		currentClassroom.deleteStudent(currentStudent);
+		dispose();
 	}
 	
 

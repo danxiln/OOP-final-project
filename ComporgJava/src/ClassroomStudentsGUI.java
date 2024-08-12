@@ -58,8 +58,7 @@ public class ClassroomStudentsGUI extends JFrame {
 		btnSearch.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				ClassroomStudentIDGUI CSGUI=new ClassroomStudentIDGUI(dm,txtID.getText());
-				CSGUI.setVisible(true);
+				btn_clickSearch();
 			}
 		});
 		btnSearch.setBounds(249, 7, 89, 23);
@@ -96,17 +95,19 @@ public class ClassroomStudentsGUI extends JFrame {
 		btnRefresh = new JButton("refresh");
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				refreshStudents();
+				btn_clickrefreshStudents();
 			}
 		});
 		btnRefresh.setBounds(68, 82, 89, 23);
 		contentPane.add(btnRefresh);
 		
-		refreshStudents();
-		
 	}
-	private void refreshStudents() {
+	private void btn_clickrefreshStudents() {
 		txtStudents.setText(dm.StringOfAllStudents());
+	}
+	public void btn_clickSearch() {
+		ClassroomStudentIDGUI CSGUI=new ClassroomStudentIDGUI(dm,txtID.getText());
+		CSGUI.setVisible(true);
 	}
 
 }

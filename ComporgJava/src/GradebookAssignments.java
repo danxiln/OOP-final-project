@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-public class GradebookAssigments extends JFrame {
+public class GradebookAssignments extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -22,7 +22,7 @@ public class GradebookAssigments extends JFrame {
 	private JTextField txtID;
 	private JButton btnSearch;
 	private JButton btnRefresh;
-	public GradebookAssigments(DataModel dm) {
+	public GradebookAssignments(DataModel dm) {
 		this.dm=dm;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -61,8 +61,7 @@ public class GradebookAssigments extends JFrame {
 		btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				GradebookAssingmentID gai=new GradebookAssingmentID(dm,txtID.getText());
-				gai.setVisible(true);
+				btn_clickSearch();
 			}
 		});
 		btnSearch.setBounds(261, 7, 89, 23);
@@ -71,15 +70,18 @@ public class GradebookAssigments extends JFrame {
 		btnRefresh = new JButton("Refresh");
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				refreshAssignments();
+				btn_clickRefreshAssignments();
 
 			}
 		});
 		btnRefresh.setBounds(88, 99, 89, 23);
 		contentPane.add(btnRefresh);
-		refreshAssignments();
 	}
-	public void refreshAssignments() {
+	public void btn_clickRefreshAssignments() {
 		txtAssignments.setText(dm.StringOfAllAssignments());
+	}
+	public void btn_clickSearch() {
+		GradebookAssingmentID gai=new GradebookAssingmentID(dm,txtID.getText());
+		gai.setVisible(true);
 	}
 }
