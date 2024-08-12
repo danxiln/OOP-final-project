@@ -116,9 +116,9 @@ public class ClassroomStudentIDGUI extends JFrame {
 		});
 		btnExit.setBounds(277, 225, 89, 23);
 		contentPane.add(btnExit);
-		refreshStudent();
+		displayStudentDetail();
 	}
-	public void refreshStudent() {
+	public void displayStudentDetail() {
 		Student base=dm.baseStudent(id);
 		txtStudentName.setText(base.getName());
 		txtID.setText(base.getstudentID());
