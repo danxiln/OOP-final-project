@@ -86,10 +86,10 @@ public class Classroom {
 	
 	public String StringOfAllStudents() {
 		// formating to print classrooms in the appropriate format
-		String all=String.format("%-8s | %s\n",
+		String all=String.format("%-8s | %-30s\n",
 		       	    		 "ID", "Name");
 		for (Student current : students) {
-			all += String.format("%-8s | %s\n",
+			all += String.format("%-8s | %-30s\n",
 					     current.getstudentID(),
 					     current.getName());
 		}

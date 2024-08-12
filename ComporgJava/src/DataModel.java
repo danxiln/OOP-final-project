@@ -65,11 +65,11 @@ public class DataModel {
 	public String StringOfAllStudents() {
 		sortSet();
 		// formating to print classrooms in the appropriate format
-		String all=String.format("%-8s | %s\n",
+		String all=String.format("%-8s | %-30s\n",
 			       	    		 "ID", "Name");
 		
 		for (Student s:setOfStudents) {
-			all += String.format("%-8s | %s\n",
+			all += String.format("%-8s | %-30s\n",
 				     s.getstudentID(),
 				     s.getName());
 		}
@@ -77,11 +77,11 @@ public class DataModel {
 	}
 	public String StringOfAllStudentsByName(String name) {
 		sortSet();
-		String all=String.format("%-8s | %s\n",
+		String all=String.format("%-8s | %-30s\n",
  	    		 "ID", "Name");
 		for (Student s:setOfStudents) {
 			if((s.getName().contains(name))) {
-				all += String.format("%-8s | %s\n",
+				all += String.format("%-8s | %-30s\n",
 					     s.getstudentID(),
 					     s.getName());
 			}
@@ -92,10 +92,10 @@ public class DataModel {
 	public String StringOfAllAssignments() {
 		sortSet();
 		// formating to print classrooms in the appropriate format
-		String all=String.format("%-8s |%-8s |%12s| %8s\n",
+		String all=String.format("%-8s |%-24s |%-12s| %-8s\n",
 		  		 "ID", "Name","Due Date","Grade");
 		for (Assignment current : setOfAllAssignments) {
-			all += String.format("%-8s |%-8s |%12s |%8s\n",
+			all += String.format("%-8s |%-24s |%-12s |%-8s\n",
 			    current.getID(),
 			    current.getName(),
 			    current.getdueDate(),
@@ -116,13 +116,13 @@ public class DataModel {
 	}
 	public String getAllStudentsByAssignment(String id) {
 		sortSet();
-		String all=String.format("%-8s |%-8s| %s\n",
+		String all=String.format("%-8s |%-30s| %-8s\n",
  	    		 "ID", "Name","Grade");
 		for (Student s:setOfStudents) {
 			ArrayList<Assignment> current=s.getAllAssignments();
 			for(Assignment x:current ) {
 				if(x.getID().equals(id)) {
-					all += String.format("%-8s |%-8s| %s\n",
+					all += String.format("%-8s |%-30s| %-8s\n",
 							s.getstudentID(),
 							s.getName(),
 							x.getGrade());
