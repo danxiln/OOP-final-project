@@ -28,7 +28,7 @@ public class Classroom {
 	    gradeComparator = new Comparator<Student>() {
 	        @Override
 	        public int compare(Student s1, Student s2) {
-	            return Double.compare(s1.getGradeDouble(), s2.getGradeDouble());
+	            return Double.compare(s2.getGradeDouble(), s1.getGradeDouble());
 	        }
 	    };
 		
