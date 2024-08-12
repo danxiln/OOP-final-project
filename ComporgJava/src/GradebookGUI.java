@@ -145,7 +145,7 @@ public class GradebookGUI extends JFrame {
 		cs.setVisible(true);
 	}
 	public void btn_clickViewAssignments() {
-		GradebookAssignments ga=new GradebookAssignments(dm,am,sm);
+		GradebookAssignmentsGUI ga=new GradebookAssignmentsGUI(dm,am,sm);
 		ga.setVisible(true);
 	}
 }

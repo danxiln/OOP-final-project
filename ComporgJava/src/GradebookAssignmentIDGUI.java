@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class GradebookAssignmentID extends JFrame {
+public class GradebookAssignmentIDGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel lblAssingmentID;
@@ -37,7 +37,7 @@ public class GradebookAssignmentID extends JFrame {
 	 * Launch the application.
 	 */
 	
-	public GradebookAssignmentID(DataModel dm,AssignmentModel am,StudentModel sm, String id) {
+	public GradebookAssignmentIDGUI(DataModel dm,AssignmentModel am,StudentModel sm, String id) {
 		this.dm=dm;
 		this.am=am;
 		this.sm=sm;

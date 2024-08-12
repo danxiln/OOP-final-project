@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-public class GradebookAssignments extends JFrame {
+public class GradebookAssignmentsGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel lblAssignments;
@@ -23,7 +23,7 @@ public class GradebookAssignments extends JFrame {
 	private DataModel dm;
 	private AssignmentModel am;
 	private StudentModel sm;
-	public GradebookAssignments(DataModel dm,AssignmentModel am,StudentModel sm) {
+	public GradebookAssignmentsGUI(DataModel dm,AssignmentModel am,StudentModel sm) {
 		this.dm=dm;
 		this.am=am;
 		this.sm=sm;
@@ -86,7 +86,7 @@ public class GradebookAssignments extends JFrame {
 	}
 	public void btn_clickSearch() {
 		am.sortSet(dm, sm);
-		GradebookAssignmentID gai=new GradebookAssignmentID(dm,am,sm,txtID.getText());
+		GradebookAssignmentIDGUI gai=new GradebookAssignmentIDGUI(dm,am,sm,txtID.getText());
 		gai.setVisible(true);
 	}
 }
