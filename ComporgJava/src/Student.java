@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.*;
 public class Student implements Comparable<Student> {
-	static int students = 0;
-	static int currentid;
-	String name, idNumber, notes;
-	ArrayList<Assignment> assignments;
-	double grade;
+	private static int students = 0;
+	private static int currentid;
+	private String name, idNumber, notes;
+	private ArrayList<Assignment> assignments;
+	private double grade;
 
 	Student(String student_name, String studentid , String student_note) {
 		currentid = students;
@@ -17,34 +17,34 @@ public class Student implements Comparable<Student> {
 	}
 
 	// Methods to return attributes of Student variable
-	static int getStudents() {
+	public static int getStudents() {
 		return students;
 	}
 	
 	// currentID refers to the id of the current student that is being called, used for organizational purposes
 	// not to get confused with StudentID which is a specific attribute to student's
-	int getcurrentID() {
+	public int getcurrentID() {
 		return currentid;
 	}
 
-	String getName() {
+	public String getName() {
 		return name;
 	}
 
-	String getstudentID() {
+	public String getstudentID() {
 		return idNumber;
 	}
-	String getGrade() {
+	public String getGrade() {
 		return String.format("%.2f", grade);
 	}
-	double getGradeDouble() {
+	public double getGradeDouble() {
 		return grade;
 	}
 
-	String getNotes() {
+	public String getNotes() {
 		return notes;
 	}
-	int getStudentSize() {
+	public int getStudentSize() {
 		return assignments.size();
 	}
 	public void setName(String n) {
@@ -57,11 +57,11 @@ public class Student implements Comparable<Student> {
 		notes=n;
 	}
 	// method to reset the number of studnets to 0 or to add a static student
-	void reset(){
+	public void reset(){
 		students = 0;
 	}
 
-	static void incramentStudent() {
+	public static void incramentStudent() {
 		students++;
 	}
 
@@ -74,18 +74,8 @@ public class Student implements Comparable<Student> {
 	public void addAssignment(Assignment assignment) {
 		assignments.add(assignment);
 	}
-	public Assignment selectAssigment(String assigmentID) {
-		for (Assignment a : assignments) {
-			if (a.getID().equals(assigmentID)) {
-				return a;
-			}
-		}
-		
-		// return null if not possible
-		return null;
-	}
 	
-	public String StringOfAllAssigments() {
+	public String StringOfAllAssignments() {
 		// formating to print classrooms in the appropriate format
 		String all=String.format("%-8s |%-24s |%-12s| %-8s\n",
 		       	    		 "ID", "Name","Due Date","Grade");

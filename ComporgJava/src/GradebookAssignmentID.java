@@ -12,7 +12,6 @@ import java.awt.event.ActionEvent;
 
 public class GradebookAssignmentID extends JFrame {
 
-	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel lblAssingmentID;
 	private JTextField txtName;

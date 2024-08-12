@@ -222,7 +222,7 @@ public class studentGUI extends JFrame {
             txtStudentNotes.setText(currentStudent.getNotes());
         }
         public void setAssignmentList () {
-        	 String x=currentStudent.StringOfAllAssigments();
+        	 String x=currentStudent.StringOfAllAssignments();
              txtAssignments.setText(x);
              txtStudentGPA.setText(String.format("%.2f", currentStudent.calcGrade()));
              txtExamGrade.setText(String.format("%.2f", currentStudent.calcGradeByType("Exam")));

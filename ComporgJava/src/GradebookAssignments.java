@@ -12,9 +12,8 @@ import javax.swing.JTextField;
 
 public class GradebookAssignments extends JFrame {
 
-	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JLabel lblAssigments;
+	private JLabel lblAssignments;
 	private JTextArea txtAssignments;
 	private JButton btnExit;
 	private JLabel lblAssingnmentID;
@@ -36,9 +35,9 @@ public class GradebookAssignments extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		lblAssigments = new JLabel("Assignments");
-		lblAssigments.setBounds(10, 103, 93, 14);
-		contentPane.add(lblAssigments);
+		lblAssignments = new JLabel("Assignments");
+		lblAssignments.setBounds(10, 103, 93, 14);
+		contentPane.add(lblAssignments);
 		
 		txtAssignments = new JTextArea();
 		txtAssignments.setBounds(10, 128, 383, 94);

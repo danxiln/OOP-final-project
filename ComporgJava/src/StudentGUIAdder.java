@@ -13,7 +13,6 @@ import java.awt.event.ActionEvent;
 
 public class StudentGUIAdder extends JFrame {
 
-	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtAssignmentName;
 	private JTextField txtAssignmentID;
@@ -25,7 +24,7 @@ public class StudentGUIAdder extends JFrame {
 	private JLabel lblAssignmentID;
 	private JLabel lblAssignmentType;
 	private JLabel lblAssignmentDueDate;
-	private JLabel lblAssigmentGrade;
+	private JLabel lblAssignmentGrade;
 	private JButton btnSave;
 	private JButton btnExit;
 	private JLabel lblAssignmentWeight;
@@ -81,9 +80,9 @@ public class StudentGUIAdder extends JFrame {
 		contentPane.add(txtAssignmentType);
 		txtAssignmentType.setColumns(10);
 		
-		lblAssigmentGrade = new JLabel("Assignment Grade");
-		lblAssigmentGrade.setBounds(10, 111, 123, 14);
-		contentPane.add(lblAssigmentGrade);
+		lblAssignmentGrade = new JLabel("Assignment Grade");
+		lblAssignmentGrade.setBounds(10, 111, 123, 14);
+		contentPane.add(lblAssignmentGrade);
 		
 		txtAssignmentGrade = new JTextField();
 		txtAssignmentGrade.setBounds(143, 108, 156, 20);
@@ -93,89 +92,7 @@ public class StudentGUIAdder extends JFrame {
 		btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (txtAssignmentName.getText().isEmpty()) {
-                        		JOptionPane.showMessageDialog(contentPane, "Assignment Name cannot be empty", "Error", JOptionPane.ERROR_MESSAGE);
-                        	return;
-                		}
-
-                		if (txtAssignmentID.getText().isEmpty()) {
-                        		JOptionPane.showMessageDialog(contentPane, "Assignment ID cannot be empty", "Error", JOptionPane.ERROR_MESSAGE);
-                        		return;
-                		}
-
-                		if (txtAssignmentDueDate.getText().isEmpty()) {
-                        		JOptionPane.showMessageDialog(contentPane, "Assignment Due Date cannot be empty", "Error", JOptionPane.ERROR_MESSAGE);
-                        		return;
-                		}
-
-
-                		String assignmentType = txtAssignmentType.getText();
-                		if (assignmentType.isEmpty()) {
-                        		JOptionPane.showMessageDialog(contentPane, "Assignment Type cannot be empty!", "Error", JOptionPane.ERROR_MESSAGE);
-                        		return;
-                		}
-
-                		// check that it follows the instructoins as written in the README.
-                		// only "Exam", "Homework", "Project", "Quiz" are valid
-                		if (!assignmentType.equals("Exam") && !assignmentType.equals("Project") &&
-                    		    !assignmentType.equals("Homework") && !assignmentType.equals("Quiz")) {
-                        		JOptionPane.showMessageDialog(contentPane, "Invalid Assignment Type. Please enter one of the following: Exam, Project, Homework, Quiz."
-                                        , "Error", JOptionPane.ERROR_MESSAGE);
-                        		return;
-                		}
-
-                		// grade must be a double value between 0 and 100
-                		String gradeText = txtAssignmentGrade.getText();
-                		if (gradeText.isEmpty()) {
-                        		JOptionPane.showMessageDialog(contentPane, "Assignment Grade cannot be empty.");
-                        		return;
-                		}
-
-                		double grade_valid;
-                		try {
-                        		grade_valid = Double.parseDouble(gradeText);
-                		} catch (NumberFormatException ex) {
-                        		grade_valid = -1;
-                		}
-
-                		if (grade_valid < 0 || grade_valid > 100) {
-                        		JOptionPane.showMessageDialog(contentPane, "Assignment Grade must be between 0 and 100",
-                                	                "Error", JOptionPane.ERROR_MESSAGE);
-                       			return;
-                		}
-
-               		 	// weight must be the corret format (___x i.e. 10x, 100x)
-                		String weightText = txtAssignmentWeight.getText();
-                		if (!weightText.endsWith("x") || weightText.isEmpty()) {
-                        		JOptionPane.showMessageDialog(contentPane, "Weight must end in 'x' in the format '__x' such as 10x for example",
-                                        		"Error", JOptionPane.ERROR_MESSAGE);
-                        		return;
-                		}
-
-                		double weight_valid;
-                		try {
-                        		String weightValue = weightText.substring(0, weightText.length() - 1);
-                        		weight_valid = Double.parseDouble(weightValue);
-                		} catch (NumberFormatException ex) {
-                        		weight_valid = -1;
-               			}
-                		if (weight_valid < 0) {
-                       	 		JOptionPane.showMessageDialog(contentPane, "Weight cannot be less than 0",
-                        	                "Error", JOptionPane.ERROR_MESSAGE);
-                	        return;
-		                }
-
-
-				String name = txtAssignmentName.getText();
-				String dueDate = txtAssignmentDueDate.getText();
-				String type = txtAssignmentType.getText();
-				String grade = txtAssignmentGrade.getText();
-				String weight = txtAssignmentWeight.getText();
-				String notes = txtAssignmentNotes.getText();
-				String id=txtAssignmentID.getText();
-				Assignment current=new Assignment(name,dueDate,type,grade,weight,notes,id);
-				currentStudent.addAssignment(current);
-				dispose();
+				setAssignmentDetail();
 			}
 		});
 		btnSave.setBounds(33, 227, 89, 23);
@@ -210,7 +127,91 @@ public class StudentGUIAdder extends JFrame {
 		
 		
 	}
-	
+	public void setAssignmentDetail() {
+		if (txtAssignmentName.getText().isEmpty()) {
+    		JOptionPane.showMessageDialog(contentPane, "Assignment Name cannot be empty", "Error", JOptionPane.ERROR_MESSAGE);
+    	return;
+	}
+
+	if (txtAssignmentID.getText().isEmpty()) {
+    		JOptionPane.showMessageDialog(contentPane, "Assignment ID cannot be empty", "Error", JOptionPane.ERROR_MESSAGE);
+    		return;
+	}
+
+	if (txtAssignmentDueDate.getText().isEmpty()) {
+    		JOptionPane.showMessageDialog(contentPane, "Assignment Due Date cannot be empty", "Error", JOptionPane.ERROR_MESSAGE);
+    		return;
+	}
+
+
+	String assignmentType = txtAssignmentType.getText();
+	if (assignmentType.isEmpty()) {
+    		JOptionPane.showMessageDialog(contentPane, "Assignment Type cannot be empty!", "Error", JOptionPane.ERROR_MESSAGE);
+    		return;
+	}
+
+	// check that it follows the instructoins as written in the README.
+	// only "Exam", "Homework", "Project", "Quiz" are valid
+	if (!assignmentType.equals("Exam") && !assignmentType.equals("Project") &&
+		    !assignmentType.equals("Homework") && !assignmentType.equals("Quiz")) {
+    		JOptionPane.showMessageDialog(contentPane, "Invalid Assignment Type. Please enter one of the following: Exam, Project, Homework, Quiz."
+                    , "Error", JOptionPane.ERROR_MESSAGE);
+    		return;
+	}
+
+	// grade must be a double value between 0 and 100
+	String gradeText = txtAssignmentGrade.getText();
+	if (gradeText.isEmpty()) {
+    		JOptionPane.showMessageDialog(contentPane, "Assignment Grade cannot be empty.");
+    		return;
+	}
+
+	double grade_valid;
+	try {
+    		grade_valid = Double.parseDouble(gradeText);
+	} catch (NumberFormatException ex) {
+    		grade_valid = -1;
+	}
+
+	if (grade_valid < 0 || grade_valid > 100) {
+    		JOptionPane.showMessageDialog(contentPane, "Assignment Grade must be between 0 and 100",
+            	                "Error", JOptionPane.ERROR_MESSAGE);
+   			return;
+	}
+
+	 	// weight must be the corret format (___x i.e. 10x, 100x)
+	String weightText = txtAssignmentWeight.getText();
+	if (!weightText.endsWith("x") || weightText.isEmpty()) {
+    		JOptionPane.showMessageDialog(contentPane, "Weight must end in 'x' in the format '__x' such as 10x for example",
+                    		"Error", JOptionPane.ERROR_MESSAGE);
+    		return;
+	}
+
+	double weight_valid;
+	try {
+    		String weightValue = weightText.substring(0, weightText.length() - 1);
+    		weight_valid = Double.parseDouble(weightValue);
+	} catch (NumberFormatException ex) {
+    		weight_valid = -1;
+		}
+	if (weight_valid < 0) {
+   	 		JOptionPane.showMessageDialog(contentPane, "Weight cannot be less than 0",
+    	                "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+
+String name = txtAssignmentName.getText();
+String dueDate = txtAssignmentDueDate.getText();
+String type = txtAssignmentType.getText();
+String grade = txtAssignmentGrade.getText();
+String weight = txtAssignmentWeight.getText();
+String notes = txtAssignmentNotes.getText();
+String id=txtAssignmentID.getText();
+Assignment current=new Assignment(name,dueDate,type,grade,weight,notes,id);
+currentStudent.addAssignment(current);
+dispose();
+	}
 	public void btn_clickSave() {
 		String name = txtAssignmentName.getText();
 		String dueDate = txtAssignmentDueDate.getText();
