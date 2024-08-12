@@ -104,6 +104,7 @@ public class ClassroomStudentsGUI extends JFrame {
 	}
 	private void btn_clickrefreshStudents() {
 		txtStudents.setText(dm.StringOfAllStudents());
+		dm.SystemOutPrintStudent();
 	}
 	public void btn_clickSearch() {
 		ClassroomStudentIDGUI CSGUI=new ClassroomStudentIDGUI(dm,txtID.getText());
