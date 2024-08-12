@@ -21,8 +21,10 @@ public class classroomGUIAdder extends JFrame {
 	private JButton btnAddStudent;
 	private JButton btnExit;
 	private JTextArea txtStudentNotes;
+	private Classroom currentClassroom;
 
-	public classroomGUIAdder(Classroom g) {
+	public classroomGUIAdder(Classroom currentClassroom) {
+		this.currentClassroom=currentClassroom;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -46,12 +48,7 @@ public class classroomGUIAdder extends JFrame {
 		btnAddStudent = new JButton("Add Student");
 		btnAddStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String id=txtStudentID.getText();
-				String name=txtStudentName.getText();
-				String notes=txtStudentNotes.getText();
-				Student newStudent =new Student(name, id, notes);
-				g.addStudent(newStudent);	
-				dispose();
+				btn_clickSave();
 			}
 		});
 		btnAddStudent.setBounds(54, 208, 112, 23);
@@ -79,6 +76,14 @@ public class classroomGUIAdder extends JFrame {
 		txtStudentNotes = new JTextArea();
 		txtStudentNotes.setBounds(98, 110, 219, 75);
 		contentPane.add(txtStudentNotes);
+	}
+	public void btn_clickSave() {
+		String id=txtStudentID.getText();
+		String name=txtStudentName.getText();
+		String notes=txtStudentNotes.getText();
+		Student newStudent =new Student(name, id, notes);
+		currentClassroom.addStudent(newStudent);	
+		dispose();
 	}
 
 }

@@ -153,17 +153,7 @@ public class studentGUI extends JFrame {
                 btnAddAssignment = new JButton("Add Assignment");
                 btnAddAssignment.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
-                                StudentGUIAdder sga=new StudentGUIAdder(currentStudent);
-                                sga.setVisible(true);
-
-                                // calculate grade after entering assignments
-                                currentStudent.calcGrade();
-                                txtStudentGPA.setText(currentStudent.getGrade());
-                                txtExamGrade.setText(String.format("%.2f", currentStudent.calcGradeByType("Exam")));
-                                txtProjectGrade.setText(String.format("%.2f", currentStudent.calcGradeByType("Project")));
-                                txtQuizGrade.setText(String.format("%.2f", currentStudent.calcGradeByType("Quiz")));
-                                txtHomeworkGrade.setText(String.format("%.2f", currentStudent.calcGradeByType("Homework")));
-                                btn_clickRefreshGUI();
+                               btn_clickAdd();
 			
                         }
                 });
@@ -256,6 +246,18 @@ public class studentGUI extends JFrame {
 
             }
         	
+        }
+        public void btn_clickAdd() {
+        	 StudentGUIAdder sga=new StudentGUIAdder(currentStudent);
+             sga.setVisible(true);
+
+             // calculate grade after entering assignments
+             currentStudent.calcGrade();
+             txtStudentGPA.setText(currentStudent.getGrade());
+             txtExamGrade.setText(String.format("%.2f", currentStudent.calcGradeByType("Exam")));
+             txtProjectGrade.setText(String.format("%.2f", currentStudent.calcGradeByType("Project")));
+             txtQuizGrade.setText(String.format("%.2f", currentStudent.calcGradeByType("Quiz")));
+             txtHomeworkGrade.setText(String.format("%.2f", currentStudent.calcGradeByType("Homework")));
         }
 }
 

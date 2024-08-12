@@ -122,8 +122,7 @@ public class assignmentGUI extends JFrame {
 		btnDelete = new JButton("Delete Assingment");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				currentStudent.deleteAssignment(currentAssignment);
-				dispose();
+				btn_clickDelete();
 			}
 		});
 		btnDelete.setBounds(143, 227, 136, 23);
@@ -243,6 +242,10 @@ public class assignmentGUI extends JFrame {
 		currentAssignment.setType(txtAssignmentType.getText());
 		currentAssignment.setGrade(txtAssignmentGrade.getText());
 		currentAssignment.setWeight(txtAssingnmentWeight.getText());
+		dispose();
+	}
+	public void btn_clickDelete() {
+		currentStudent.deleteAssignment(currentAssignment);
 		dispose();
 	}
 

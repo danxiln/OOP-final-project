@@ -24,6 +24,7 @@ public class Gradebook_AdderGUI extends JFrame {
 	private JLabel lblClassName;
 	private JButton btnAddClassroom ;
 	private JButton btnExit;
+	DataModel dm;
 	/**
 	 * Launch the application.
 	 */
@@ -32,6 +33,7 @@ public class Gradebook_AdderGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public Gradebook_AdderGUI(DataModel dm) {
+		this.dm=dm;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -47,13 +49,7 @@ public class Gradebook_AdderGUI extends JFrame {
 		btnAddClassroom = new JButton("Add ");
 		btnAddClassroom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String id=txtClassID.getText();
-				String name=txtClassName.getText();
-				String year=txtYear.getText();
-				String notes=txtClassNotes.getText();
-				Classroom newClass =new Classroom(id,name,year,notes);
-				dm.addClass(newClass);	
-				dispose();
+				btn_clickSave();
 			}
 		});
 		btnAddClassroom.setBounds(64, 219, 117, 29);
@@ -98,5 +94,14 @@ public class Gradebook_AdderGUI extends JFrame {
 		txtClassNotes = new JTextArea();
 		txtClassNotes.setBounds(105, 124, 257, 90);
 		contentPane.add(txtClassNotes);
+	}
+	public void btn_clickSave() {
+		String id=txtClassID.getText();
+		String name=txtClassName.getText();
+		String year=txtYear.getText();
+		String notes=txtClassNotes.getText();
+		Classroom newClass =new Classroom(id,name,year,notes);
+		dm.addClass(newClass);	
+		dispose();
 	}
 }

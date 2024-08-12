@@ -84,8 +84,7 @@ public class classroomGUI extends JFrame {
 		btnAddStudent =  new JButton("Add Student");
 		btnAddStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				classroomGUIAdder cga=new classroomGUIAdder(currentClassroom);
-				cga.setVisible(true);
+				btn_clickAddStudent();
 			}
 		});
 		btnAddStudent.setBounds(237, 126, 130, 29);
@@ -108,8 +107,7 @@ public class classroomGUI extends JFrame {
 		btnEditClassroom = new JButton("Edit Classroom");
 		btnEditClassroom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				classroomGUIEditor cge=new classroomGUIEditor(currentClassroom,dm);
-				cge.setVisible(true);
+				btn_clickEdit();
 			}
 		});
 		btnEditClassroom.setBounds(455, 247, 147, 29);
@@ -274,5 +272,13 @@ public class classroomGUI extends JFrame {
 
 		}
 		
+	}
+	public void btn_clickAddStudent() {
+		classroomGUIAdder cga=new classroomGUIAdder(currentClassroom);
+		cga.setVisible(true);
+	}
+	public void btn_clickEdit() {
+		classroomGUIEditor cge=new classroomGUIEditor(currentClassroom,dm);
+		cge.setVisible(true);
 	}
 }

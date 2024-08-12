@@ -25,13 +25,17 @@ public class classroomGUIEditor extends JFrame {
 	private JButton btnExit;
 	private JLabel lblClassNotes;
 	private JTextArea txtClassNotes;
+	private Classroom currentClassroom;
+	private DataModel dm;
 	/**
 	 * Launch the application.
 	 */
 	/**
 	 * Create the frame.
 	 */
-	public classroomGUIEditor(Classroom g,DataModel dm) {
+	public classroomGUIEditor(Classroom currentClassroom,DataModel dm) {
+		this.currentClassroom=currentClassroom;
+		this.dm=dm;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -70,11 +74,7 @@ public class classroomGUIEditor extends JFrame {
 		btnSave = new JButton("Save Edits");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				g.setClassID(txtClassID.getText());
-				g.setClassName(txtClassName.getText());
-				g.setClassYear(txtClassYear.getText());
-				g.setClassNotes(txtClassNotes.getText());
-				dispose();
+				btn_clickSave();
 			}
 		});
 		btnSave.setBounds(38, 204, 89, 23);
@@ -83,8 +83,7 @@ public class classroomGUIEditor extends JFrame {
 		btnDeleteClass = new JButton("Delete Classroom");
 		btnDeleteClass.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dm.delete(g);
-				dispose();
+				btn_clickDelete();
 				
 			}
 		});
@@ -107,11 +106,25 @@ public class classroomGUIEditor extends JFrame {
 		txtClassNotes = new JTextArea();
 		txtClassNotes.setBounds(94, 131, 284, 62);
 		contentPane.add(txtClassNotes);
+		displayClassDetail();
+	
 		
-		txtClassID.setText(g.getClassID());
-		txtClassName.setText(g.getName());
-		txtClassYear.setText(g.getYear());
-		txtClassNotes.setText(g.getNotes());		
-		
+	}
+	public void displayClassDetail() {
+		txtClassID.setText(currentClassroom.getClassID());
+		txtClassName.setText(currentClassroom.getName());
+		txtClassYear.setText(currentClassroom.getYear());
+		txtClassNotes.setText(currentClassroom.getNotes());	
+	}
+	public void btn_clickSave() {
+		currentClassroom.setClassID(txtClassID.getText());
+		currentClassroom.setClassName(txtClassName.getText());
+		currentClassroom.setClassYear(txtClassYear.getText());
+		currentClassroom.setClassNotes(txtClassNotes.getText());
+		dispose();
+	}
+	public void btn_clickDelete() {
+		dm.delete(currentClassroom);
+		dispose();
 	}
 }
