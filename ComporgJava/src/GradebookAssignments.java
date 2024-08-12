@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-public class GradebookAssigments extends JFrame {
+public class GradebookAssignments extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -22,7 +22,7 @@ public class GradebookAssigments extends JFrame {
 	private JTextField txtID;
 	private JButton btnSearch;
 	private JButton btnRefresh;
-	public GradebookAssigments(DataModel dm) {
+	public GradebookAssignments(DataModel dm) {
 		this.dm=dm;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
