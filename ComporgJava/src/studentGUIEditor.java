@@ -78,7 +78,7 @@ public class studentGUIEditor extends JFrame {
 		btnDelete = new JButton("Delete Student");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btn_clickDelete();
+				btn_clickDelete(); 
 			}
 		});
 		btnDelete.setBounds(157, 215, 104, 23);

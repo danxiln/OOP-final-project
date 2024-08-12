@@ -128,11 +128,6 @@ public class StudentGUIAdder extends JFrame {
 		
 	}
 	
-	public void setStudentDetail() {
-		txtAssignmentName.setText(currentStudent.getName());
-		txtAssignmentID.setText(currentStudent.getstudentID());
-		
-	}
 	public void btn_clickSave() {
 		String name = txtAssignmentName.getText();
 		String dueDate = txtAssingnmentDueDate.getText();

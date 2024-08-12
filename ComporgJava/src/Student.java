@@ -37,6 +37,9 @@ public class Student implements Comparable<Student> {
 	String getGrade() {
 		return String.format("%.2f", grade);
 	}
+	double getGradeDouble() {
+		return grade;
+	}
 
 	String getNotes() {
 		return notes;
