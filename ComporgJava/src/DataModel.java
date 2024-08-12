@@ -119,7 +119,7 @@ public class DataModel {
 		String all=String.format("%-8s |%-30s| %-8s\n",
  	    		 "ID", "Name","Grade");
 		for (Student s:setOfStudents) {
-			ArrayList<Assignment> current=s.getAllAssignments();
+			 ArrayList<Assignment> current=s.getAllAssignments();
 			for(Assignment x:current ) {
 				if(x.getID().equals(id)) {
 					all += String.format("%-8s |%-30s| %-8s\n",
