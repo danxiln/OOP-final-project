@@ -31,11 +31,10 @@ public class StudentGUIAdder extends JFrame {
 	private JLabel lblAssignmentNotes;
 	private JTextArea txtAssignmentNotes;
 	
-	private Student news;
-	private studentGUI sg;
+	private Student currentStudent;
 
-	public StudentGUIAdder(Student s) {
-		news=s;
+	public StudentGUIAdder(Student currentStudent) {
+		this.currentStudent=currentStudent;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -125,6 +124,14 @@ public class StudentGUIAdder extends JFrame {
 		txtAssignmentNotes.setBounds(153, 170, 266, 53);
 		contentPane.add(txtAssignmentNotes);
 		
+		
+		
+	}
+	
+	public void setStudentDetail() {
+		txtAssignmentName.setText(currentStudent.getName());
+		txtAssignmentID.setText(currentStudent.getstudentID());
+		
 	}
 	public void btn_clickSave() {
 		String name = txtAssignmentName.getText();
@@ -135,7 +142,7 @@ public class StudentGUIAdder extends JFrame {
 		String notes = txtAssignmentNotes.getText();
 		String id=txtAssignmentID.getText();
 		Assignment current=new Assignment(name,dueDate,type,grade,weight,notes,id);
-		news.addAssignment(current);
+		currentStudent.addAssignment(current);
 		dispose();
 	}
 }

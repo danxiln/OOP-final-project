@@ -164,8 +164,7 @@ public class studentGUI extends JFrame {
                 btnEditStudent = new JButton("Edit Student");
                 btnEditStudent.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
-                                studentGUIEditor sge=new studentGUIEditor(currentStudent,currentClassroom);
-                                sge.setVisible(true);
+                                btn_clickEditStudent();
                         }
                 });
                 btnEditStudent.setBounds(289, 129, 135, 23);
@@ -258,6 +257,10 @@ public class studentGUI extends JFrame {
              txtProjectGrade.setText(String.format("%.2f", currentStudent.calcGradeByType("Project")));
              txtQuizGrade.setText(String.format("%.2f", currentStudent.calcGradeByType("Quiz")));
              txtHomeworkGrade.setText(String.format("%.2f", currentStudent.calcGradeByType("Homework")));
+        }
+        public void btn_clickEditStudent() {
+        	studentGUIEditor sge=new studentGUIEditor(currentStudent,currentClassroom);
+            sge.setVisible(true);
         }
 }
 
