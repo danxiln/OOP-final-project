@@ -87,11 +87,11 @@ public class Student implements Comparable<Student> {
 	
 	public String StringOfAllAssigments() {
 		// formating to print classrooms in the appropriate format
-		String all=String.format("%-8s |%-8s |%12s| %8s\n",
+		String all=String.format("%-8s |%-24s |%-12s| %-8s\n",
 		       	    		 "ID", "Name","Due Date","Grade");
 		if(assignments!=null) {
 		for (Assignment current : assignments) {
-			all += String.format("%-8s |%-8s |%12s |%8s\n",
+			all += String.format("%-8s |%-24s |%-12s |%-8s\n",
 					     current.getID(),
 					     current.getName(),
 					     current.getdueDate(),
