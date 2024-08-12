@@ -12,7 +12,6 @@ import java.awt.event.ActionEvent;
 
 public class studentGUIEditor extends JFrame {
 
-	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtStudentName;
 	private JTextField txtStudentID;
@@ -24,8 +23,8 @@ public class studentGUIEditor extends JFrame {
 	private JButton btnDelete;
 	private JButton btnExit;
 	
-	Student currentStudent;
-	Classroom currentClassroom;
+	private Student currentStudent;
+	private Classroom currentClassroom;
 	
 	public studentGUIEditor(Student currentStudent,Classroom currentClassroom) {
 		this.currentStudent=currentStudent;
