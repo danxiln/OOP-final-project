@@ -3,12 +3,9 @@ import java.util.ArrayList;
 
 public class DataModel {
 	private ArrayList<Classroom> Gradebook;
-	private Set<Student> setOfStudents;
-	private Set<Assignment> setOfAllAssignments;
+	
 	DataModel(){
 		Gradebook= new ArrayList<Classroom>();
-		setOfStudents = new HashSet<>();
-		setOfAllAssignments=new HashSet<>();
 
 	}
 	
@@ -166,6 +163,10 @@ public class DataModel {
 			}
 		}
 		return totalGPA/classes;
+		
+	}
+	public ArrayList<Classroom> getGradebook() {
+		return Gradebook;
 		
 	}
 

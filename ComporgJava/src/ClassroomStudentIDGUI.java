@@ -12,7 +12,6 @@ import java.awt.event.ActionEvent;
 
 public class ClassroomStudentIDGUI extends JFrame {
 
-	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtStudentName;
 	private JTextField txtID;
@@ -21,8 +20,17 @@ public class ClassroomStudentIDGUI extends JFrame {
 	private JTextField txtProject;
 	private JTextField txtExam;
 	private JTextField txtGPA;
-	DataModel dm;
-	String id;
+	private JLabel lblStudentName ;
+	private JLabel lblStudentID;
+	private JLabel lblHomeworkGPA ;
+	private JLabel lblProjectGPA;
+	private JLabel lblQuizGPA;
+	private JLabel lblExamGPA;
+	private JLabel lblGPA;
+	private JButton btnExit;
+	
+	private DataModel dm;
+	private String id;
 
 	/**
 	 * Launch the application.
@@ -38,7 +46,7 @@ public class ClassroomStudentIDGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblStudentName = new JLabel("Student Name:");
+		lblStudentName = new JLabel("Student Name:");
 		lblStudentName.setBounds(10, 11, 84, 14);
 		contentPane.add(lblStudentName);
 		
@@ -48,7 +56,7 @@ public class ClassroomStudentIDGUI extends JFrame {
 		contentPane.add(txtStudentName);
 		txtStudentName.setColumns(10);
 		
-		JLabel lblStudentID = new JLabel("Student ID");
+		lblStudentID = new JLabel("Student ID");
 		lblStudentID.setBounds(10, 36, 84, 14);
 		contentPane.add(lblStudentID);
 		
@@ -58,7 +66,7 @@ public class ClassroomStudentIDGUI extends JFrame {
 		contentPane.add(txtID);
 		txtID.setColumns(10);
 		
-		JLabel lblHomeworkGPA = new JLabel("Homework GPA:");
+		lblHomeworkGPA = new JLabel("Homework GPA:");
 		lblHomeworkGPA.setBounds(10, 70, 84, 14);
 		contentPane.add(lblHomeworkGPA);
 		
@@ -68,7 +76,7 @@ public class ClassroomStudentIDGUI extends JFrame {
 		contentPane.add(txtHomework);
 		txtHomework.setColumns(10);
 		
-		JLabel lblQuizGPA = new JLabel("Quiz GPA:");
+		lblQuizGPA = new JLabel("Quiz GPA:");
 		lblQuizGPA.setBounds(10, 95, 88, 14);
 		contentPane.add(lblQuizGPA);
 		
@@ -78,7 +86,7 @@ public class ClassroomStudentIDGUI extends JFrame {
 		contentPane.add(txtQuiz);
 		txtQuiz.setColumns(10);
 		
-		JLabel lblProjectGPA = new JLabel("Project GPA:");
+		lblProjectGPA = new JLabel("Project GPA:");
 		lblProjectGPA.setBounds(10, 132, 84, 14);
 		contentPane.add(lblProjectGPA);
 		
@@ -94,11 +102,11 @@ public class ClassroomStudentIDGUI extends JFrame {
 		contentPane.add(txtExam);
 		txtExam.setColumns(10);
 		
-		JLabel lblExamGPA = new JLabel("Exam GPA:");
+		lblExamGPA = new JLabel("Exam GPA:");
 		lblExamGPA.setBounds(10, 157, 84, 14);
 		contentPane.add(lblExamGPA);
 		
-		JLabel lblGPA = new JLabel("GPA:");
+		lblGPA = new JLabel("GPA:");
 		lblGPA.setBounds(10, 192, 84, 14);
 		contentPane.add(lblGPA);
 		
@@ -108,7 +116,7 @@ public class ClassroomStudentIDGUI extends JFrame {
 		contentPane.add(txtGPA);
 		txtGPA.setColumns(10);
 		
-		JButton btnExit = new JButton("Exit");
+		btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

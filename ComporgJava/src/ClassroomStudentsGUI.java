@@ -12,12 +12,11 @@ import java.awt.event.ActionEvent;
 
 public class ClassroomStudentsGUI extends JFrame {
 
-	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel Students;
 	private JTextArea txtStudents;
 	private DataModel dm;
-	private JLabel lblAcessStudent;
+	private JLabel lblAccessStudent;
 	private JTextField txtID;
 	private JButton btnSearch;
 	private JButton btnExit;
@@ -45,9 +44,9 @@ public class ClassroomStudentsGUI extends JFrame {
 		txtStudents.setBounds(20, 111, 377, 111);
 		contentPane.add(txtStudents);
 		
-		lblAcessStudent = new JLabel("Access Student by ID:");
-		lblAcessStudent.setBounds(10, 11, 126, 14);
-		contentPane.add(lblAcessStudent);
+		lblAccessStudent = new JLabel("Access Student by ID:");
+		lblAccessStudent.setBounds(10, 11, 126, 14);
+		contentPane.add(lblAccessStudent);
 		
 		txtID = new JTextField();
 		txtID.setBounds(139, 8, 86, 20);
