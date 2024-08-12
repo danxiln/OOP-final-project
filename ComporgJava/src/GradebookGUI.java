@@ -2,6 +2,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -28,6 +29,7 @@ public class GradebookGUI extends JFrame {
 	private AssignmentModel am;
 	private StudentModel sm;
 
+	
 	/**
 	 * Launch the application.
 	 */
@@ -39,7 +41,7 @@ public class GradebookGUI extends JFrame {
 		this.am=am;
 		this.sm=sm;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 488, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -83,6 +85,7 @@ public class GradebookGUI extends JFrame {
 		txtClassroom.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		contentPane.add(txtClassroom);
 		
+		
 		btnViewAllAssignments = new JButton("View Assignments");
 		btnViewAllAssignments.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -109,6 +112,10 @@ public class GradebookGUI extends JFrame {
 		});
 		btnRefresh.setBounds(100, 79, 89, 23);
 		contentPane.add(btnRefresh);
+		
+		
+		
+		
 	}
 	public void btn_refreshClassrooms() {
 		if(dm!=null) {
