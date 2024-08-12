@@ -24,7 +24,7 @@ public class ClassroomStudentsGUI extends JFrame {
 	private JLabel lblSortName;
 	private JTextField txtName;
 	private JButton btnRefresh;
-	StudentModel sm;
+	private StudentModel sm;
 	
 	
 	public ClassroomStudentsGUI(DataModel dm,StudentModel sm) {
