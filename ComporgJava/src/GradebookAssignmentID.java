@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class GradebookAssingmentID extends JFrame {
+public class GradebookAssignmentID extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -36,7 +36,7 @@ public class GradebookAssingmentID extends JFrame {
 	 * Launch the application.
 	 */
 	
-	public GradebookAssingmentID(DataModel dm, String id) {
+	public GradebookAssignmentID(DataModel dm, String id) {
 		this.dm=dm;
 		this.id=id;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -14,7 +14,6 @@ import javax.swing.JTable;
 
 public class classroomGUI extends JFrame {
 
-	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtStudentID;
 	private JTextField txtClassID;
@@ -26,13 +25,11 @@ public class classroomGUI extends JFrame {
 	private JLabel lblClassNotes;
 	private JTextArea txtStudents;
 	private JButton btnAddStudent;
-	private JButton btnAcessStudent;
+	private JButton btnAccessStudent;
 	private JButton btnEditClassroom;
 	private JTextArea txtClassNotes;
 	private JLabel lblStudentID;
 	private JLabel lblStudents;
-	private Classroom currentClassroom;
-	private DataModel dm;
 	private JLabel lblOverall;
 	private JLabel lblQuiz;
 	private JLabel lblExam;
@@ -45,6 +42,11 @@ public class classroomGUI extends JFrame {
 	private JButton btnSortByGrade;
 	private JButton btnSortbyAlphabet;
 	private JButton btnRefresh;
+	private JLabel lblHomework;
+	private JButton btnExit;
+	
+	private Classroom currentClassroom;
+	private DataModel dm;
 	
 	/**
 	 * Launch the application.
@@ -90,14 +92,14 @@ public class classroomGUI extends JFrame {
 		btnAddStudent.setBounds(237, 126, 130, 29);
 		contentPane.add(btnAddStudent);
 		
-		btnAcessStudent = new JButton("Access Student");
-		btnAcessStudent.addActionListener(new ActionListener() {
+		btnAccessStudent = new JButton("Access Student");
+		btnAccessStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btn_clickAccessStudent();
 			}
 		});
-		btnAcessStudent.setBounds(237, 86, 150, 29);
-		contentPane.add(btnAcessStudent);
+		btnAccessStudent.setBounds(237, 86, 150, 29);
+		contentPane.add(btnAccessStudent);
 		
 		txtStudentID = new JTextField();
 		txtStudentID.setBounds(65, 87, 162, 26);
@@ -191,7 +193,7 @@ public class classroomGUI extends JFrame {
 		txtHomework.setColumns(10);
 		
 
-		JLabel lblHomework = new JLabel("Homework:");
+		lblHomework = new JLabel("Homework:");
 		lblHomework.setBounds(445, 124, 77, 14);
 		contentPane.add(lblHomework);
 		
@@ -215,7 +217,7 @@ public class classroomGUI extends JFrame {
 		btnSortbyAlphabet.setBounds(445, 213, 162, 23);
 		contentPane.add(btnSortbyAlphabet);
 		
-		JButton btnExit = new JButton("Exit");
+		btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
