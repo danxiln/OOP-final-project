@@ -1,4 +1,5 @@
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,6 +9,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
@@ -44,6 +48,8 @@ public class classroomGUI extends JFrame {
 	private JButton btnRefresh;
 	private JLabel lblHomework;
 	private JButton btnExit;
+	private JScrollPane scrollPane;
+	private JScrollPane notesScroll;
 
 	private Classroom currentClassroom;
 	private DataModel dm;
@@ -80,8 +86,15 @@ public class classroomGUI extends JFrame {
 
 		txtStudents = new JTextArea();
 		txtStudents.setEditable(false);
+		txtStudents.setFont(new Font("Monospaced", Font.PLAIN, 12));
+		scrollPane = new JScrollPane(txtStudents);
+                scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                scrollPane.setBounds(16,164,394,102);
 		txtStudents.setBounds(16, 164, 394, 102);
-		contentPane.add(txtStudents);
+		
+		contentPane.add(scrollPane);
+		//contentPane.add(txtStudents);
 
 		btnAddStudent = new JButton("Add Student");
 		btnAddStudent.addActionListener(new ActionListener() {
@@ -130,7 +143,13 @@ public class classroomGUI extends JFrame {
 		txtClassNotes = new JTextArea();
 		txtClassNotes.setEditable(false);
 		txtClassNotes.setBounds(87, 35, 200, 42);
-		contentPane.add(txtClassNotes);
+		txtClassNotes.setFont(new Font("Monospaced", Font.PLAIN, 12));
+		notesScroll = new JScrollPane(txtClassNotes);
+                notesScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                notesScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                notesScroll.setBounds(87,35,200,42);
+		contentPane.add(notesScroll);
+		//contentPane.add(txtClassNotes);
 
 		lblStudentID = new JLabel("Student ID:");
 		lblStudentID.setBounds(6, 93, 77, 16);

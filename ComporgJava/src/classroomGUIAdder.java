@@ -1,5 +1,6 @@
 import java.awt.EventQueue;
 
+import javax.swing.JScrollPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -22,6 +23,7 @@ public class classroomGUIAdder extends JFrame {
 	private JButton btnExit;
 	private JTextArea txtStudentNotes;
 	private Classroom currentClassroom;
+	private JScrollPane scrollPane;
 
 	public classroomGUIAdder(Classroom currentClassroom) {
 		this.currentClassroom=currentClassroom;
@@ -75,7 +77,13 @@ public class classroomGUIAdder extends JFrame {
 		
 		txtStudentNotes = new JTextArea();
 		txtStudentNotes.setBounds(98, 110, 219, 75);
-		contentPane.add(txtStudentNotes);
+		scrollPane = new JScrollPane(txtStudentNotes);
+                scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                scrollPane.setBounds(98,110,219,75);
+                contentPane.add(scrollPane);
+
+		//contentPane.add(txtStudentNotes);
 	}
 	public void btn_clickSave() {
 		String id=txtStudentID.getText();

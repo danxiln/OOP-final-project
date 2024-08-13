@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
 
 public class Gradebook_AdderGUI extends JFrame {
 
@@ -24,6 +25,8 @@ public class Gradebook_AdderGUI extends JFrame {
 	private JButton btnAddClassroom ;
 	private JButton btnExit;
 	private DataModel dm;
+	private JScrollPane scrollPane;
+
 	/**
 	 * Launch the application.
 	 */
@@ -92,7 +95,13 @@ public class Gradebook_AdderGUI extends JFrame {
 		
 		txtClassNotes = new JTextArea();
 		txtClassNotes.setBounds(105, 124, 257, 90);
-		contentPane.add(txtClassNotes);
+		scrollPane = new JScrollPane(txtClassNotes);
+                scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                scrollPane.setBounds(105,124, 257, 90);
+                contentPane.add(scrollPane);
+		
+		//contentPane.add(txtClassNotes);
 	}
 	public void btn_clickSave() {
 		String id=txtClassID.getText();

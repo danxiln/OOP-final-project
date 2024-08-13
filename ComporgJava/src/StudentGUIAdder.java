@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class StudentGUIAdder extends JFrame {
 
@@ -30,7 +31,8 @@ public class StudentGUIAdder extends JFrame {
 	private JLabel lblAssignmentWeight;
 	private JLabel lblAssignmentNotes;
 	private JTextArea txtAssignmentNotes;
-	
+	private JScrollPane scrollPane;
+
 	private Student currentStudent;
 
 	public StudentGUIAdder(Student currentStudent) {
@@ -122,6 +124,12 @@ public class StudentGUIAdder extends JFrame {
 		
 		txtAssignmentNotes = new JTextArea();
 		txtAssignmentNotes.setBounds(153, 170, 266, 53);
+		scrollPane = new JScrollPane(txtAssignmentNotes);
+                scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                scrollPane.setBounds(153,170,266,53);
+                contentPane.add(scrollPane);	
+		
 		contentPane.add(txtAssignmentNotes);
 		
 		

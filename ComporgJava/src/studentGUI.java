@@ -1,5 +1,7 @@
 import java.awt.EventQueue;
+import java.awt.Font;
 
+import javax.swing.JScrollPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -44,6 +46,8 @@ public class studentGUI extends JFrame {
         private Classroom currentClassroom;
         private JButton btnExit;
         private JButton btnRefresh;
+	private JScrollPane notesScroll;
+	private JScrollPane assignmentScroll;
 
         /**
          * Launch the application.
@@ -79,7 +83,7 @@ public class studentGUI extends JFrame {
                 txtStudentName = new JTextField();
                 txtStudentName.setEditable(false);
                 txtStudentName.setBounds(289, 8, 135, 20);
-                contentPane.add(txtStudentName);
+		contentPane.add(txtStudentName);
                 txtStudentName.setColumns(10);
 
                 lblStudentNotes = new JLabel("Student Notes:");
@@ -139,7 +143,14 @@ public class studentGUI extends JFrame {
                 txtStudentNotes = new JTextArea();
                 txtStudentNotes.setEditable(false);
                 txtStudentNotes.setBounds(83, 39, 190, 49);
-                contentPane.add(txtStudentNotes);
+                txtStudentNotes.setFont(new Font("Monospaced", Font.PLAIN, 12));
+		notesScroll = new JScrollPane(txtStudentNotes);
+                notesScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                notesScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                notesScroll.setBounds(83,39,190,49);
+                contentPane.add(notesScroll);
+
+		//contentPane.add(txtStudentNotes);
 
                 lblAssignmentID = new JLabel("Assignment ID:");
                 lblAssignmentID.setBounds(10, 108, 86, 14);
@@ -182,7 +193,14 @@ public class studentGUI extends JFrame {
 
                 txtAssignments = new JTextArea();
                 txtAssignments.setBounds(10, 158, 414, 92);
-                contentPane.add(txtAssignments);
+                txtAssignments.setFont(new Font("Monospaced", Font.PLAIN, 12));
+		assignmentScroll = new JScrollPane(txtAssignments);
+                assignmentScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                assignmentScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                assignmentScroll.setBounds(10,158,414, 92);
+                contentPane.add(assignmentScroll);
+
+		// contentPane.add(txtAssignments);
                 
                 btnExit = new JButton("Exit");
                 btnExit.addActionListener(new ActionListener() {

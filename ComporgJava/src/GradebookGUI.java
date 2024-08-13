@@ -1,5 +1,7 @@
 import java.awt.EventQueue;
 import java.awt.Font;
+
+import javax.swing.JScrollPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -28,7 +30,7 @@ public class GradebookGUI extends JFrame {
 	private JButton btnRefresh;
 	private AssignmentModel am;
 	private StudentModel sm;
-
+	private JScrollPane scrollPane;
 	
 	/**
 	 * Launch the application.
@@ -83,7 +85,13 @@ public class GradebookGUI extends JFrame {
 		txtClassroom.setEditable(false);
 		txtClassroom.setBounds(31, 109, 379, 100);
 		txtClassroom.setFont(new Font("Monospaced", Font.PLAIN, 12));
-		contentPane.add(txtClassroom);
+		JScrollPane scrollPane = new JScrollPane(txtClassroom);
+                scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                scrollPane.setBounds(31,109,379,100);
+                contentPane.add(scrollPane);
+
+		// contentPane.add(txtClassroom);
 		
 		
 		btnViewAllAssignments = new JButton("View Assignments");

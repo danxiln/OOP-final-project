@@ -1,4 +1,6 @@
 import java.awt.EventQueue;
+import java.awt.Font;
+
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -7,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -31,6 +35,7 @@ public class assignmentGUI extends JFrame {
 	private JButton btnSave;
 	private JButton btnDelete;
 	private JButton btnExit;
+	private JScrollPane scrollPane;
 
 	private Assignment currentAssignment;
 	private Student currentStudent;
@@ -106,7 +111,14 @@ public class assignmentGUI extends JFrame {
 
 		txtAssignmentNotes = new JTextArea();
 		txtAssignmentNotes.setBounds(133, 164, 176, 59);
-		contentPane.add(txtAssignmentNotes);
+		
+		txtAssignmentNotes.setFont(new Font("Monospaced", Font.PLAIN, 12));
+                scrollPane = new JScrollPane(txtAssignmentNotes);
+                scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                scrollPane.setBounds(133,164,176,59);
+                contentPane.add(scrollPane);
+		// contentPane.add(txtAssignmentNotes);
 
 		btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
