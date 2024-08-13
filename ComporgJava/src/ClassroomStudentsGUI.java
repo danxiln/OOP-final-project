@@ -1,4 +1,5 @@
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class ClassroomStudentsGUI extends JFrame {
 
@@ -25,6 +27,7 @@ public class ClassroomStudentsGUI extends JFrame {
 	private JTextField txtName;
 	private JButton btnRefresh;
 	private StudentModel sm;
+	private JScrollPane scrollPane;
 	
 	
 	public ClassroomStudentsGUI(DataModel dm,StudentModel sm) {
@@ -44,7 +47,15 @@ public class ClassroomStudentsGUI extends JFrame {
 		
 		txtStudents = new JTextArea();
 		txtStudents.setBounds(20, 111, 377, 111);
-		contentPane.add(txtStudents);
+		txtStudents.setFont(new Font("Monospaced", Font.PLAIN, 12));
+
+		scrollPane = new JScrollPane(txtStudents);
+                scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                scrollPane.setBounds(20,111,377, 111);
+                contentPane.add(scrollPane);
+
+		// contentPane.add(txtStudents);
 		
 		lblAccessStudent = new JLabel("Access Student by ID:");
 		lblAccessStudent.setBounds(10, 11, 126, 14);

@@ -1,5 +1,7 @@
 import java.awt.EventQueue;
+import java.awt.Font; 
 
+import javax.swing.JScrollPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -23,6 +25,8 @@ public class GradebookAssignmentsGUI extends JFrame {
 	private DataModel dm;
 	private AssignmentModel am;
 	private StudentModel sm;
+	private JScrollPane scrollPane;
+
 	public GradebookAssignmentsGUI(DataModel dm,AssignmentModel am,StudentModel sm) {
 		this.dm=dm;
 		this.am=am;
@@ -41,7 +45,14 @@ public class GradebookAssignmentsGUI extends JFrame {
 		
 		txtAssignments = new JTextArea();
 		txtAssignments.setBounds(10, 128, 383, 94);
-		contentPane.add(txtAssignments);
+		txtAssignments.setFont(new Font("Monospaced", Font.PLAIN, 12));
+		scrollPane = new JScrollPane(txtAssignments);
+                scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                scrollPane.setBounds(10,128,383,94);
+                contentPane.add(scrollPane);
+
+		// contentPane.add(txtAssignments);
 		
 		btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener() {
