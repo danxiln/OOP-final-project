@@ -164,13 +164,10 @@ public class Student implements Comparable<Student> {
 	}
         @Override
         public boolean equals(Object o) {
-        	System.out.println("used");
             if (this==o) {
-            	System.out.println("true");
             	return true;
             }
             if (o == null || getClass() != o.getClass()) {
-            	System.out.println("false");
             	return false;
             }
             Student student = (Student) o;

@@ -11,7 +11,6 @@ public class StudentModel {
 
 	public void sortSet(DataModel dm) {
 		// sorts students
-		System.out.println("x");
 		for (Classroom currentClass : dm.getGradebook()) {
 			setOfAllStudents.addAll(currentClass.getAllStudents());
 		}
