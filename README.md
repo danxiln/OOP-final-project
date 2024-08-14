@@ -45,7 +45,6 @@ This system is intended for teachers to input student grades into a self-calcula
 - **Assignment Overview**: Teachers can view all created assignments. By opening an assignment, they can get basic details and a list of students with their grades in that assignment.
 
 ## Implementation and Notes
-- There is a class for each student and another class called `Grade` that stores the title, value, and weight of the assignment.
 - The `main_GUI` class has a text box that displays all the classrooms by name, classID, and year. Teachers can add a classroom or search for a specific classroom by classID.
 - The `classroom_GUI` displays the list of students and another search bar. It displays the classroom name, classroom ID, year, and average GPA for the class. A sort button allows teachers to sort students based on their average GPA for that class.
 - Teachers can modify the classroom, add, or search for specific students by their StudentID. In the classroom, it displays the student name, average GPA, and StudentID.
