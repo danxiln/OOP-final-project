@@ -129,9 +129,7 @@ public class StudentGUIAdder extends JFrame {
                 scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
                 scrollPane.setBounds(153,170,266,53);
                 contentPane.add(scrollPane);	
-		
-		contentPane.add(txtAssignmentNotes);
-		
+				
 		
 		
 	}
