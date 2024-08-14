@@ -12,6 +12,11 @@ The Student Grade Management System is designed for teachers to manage student g
 ## Project Description
 This system is intended for teachers to input student grades into a self-calculating system that will consider the weight of each assignment (test, homework, etc.) and help calculate the overall grade.
 
+## How to Use:
+- **Important Note**: The program is case sensitive. In order for sorts, searches, and accesses as well as other features to work the user must match cases (A != a)
+- All IDs in a type (Classroom, Student, Assignment) should be unique. This means that all classrooms should have a different ID (1, 2, 3) but it is possible that a student, classroom and assignment all share the ID value 1. This is the only required parameter for studennt's and classroom's as it is used to access said student or classroom.
+- Assignment's have a strict type, grade, and weight format. All assignments must be of type "Exam", "Homework", "Quiz", and "Project." All other types are invalid and WILL be rejected. The grade must be a value between 0 and 100, and the weight must be in a format ___x, such as 100x, 200x, 400x. The other values of the assignment class (ID, Name, Due Date) must also be filled out but there is no strict format. The assignment is the only class in which the system itself strictly enforces this format via error codes, please note that other functions do not have error codes, but rather rely on the user adhering to the guidelines. 
+
 ## Features
 
 ### Teacher Side
